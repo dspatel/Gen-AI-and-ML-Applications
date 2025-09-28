@@ -52,8 +52,10 @@ def init_llm():
     logger.debug("WatsonxLLM initialized: %s", llm_hub)
 
     #Initialize embeddings using a pre-trained model to represent the text data.
-    embeddings =  # create object of Hugging Face Instruct Embeddings with (model_name,  model_kwargs={"device": DEVICE} )
-    
+    # create object of Hugging Face Instruct Embeddings with (model_name,  model_kwargs={"device": DEVICE} )
+    embeddings = HuggingFaceInstructEmbeddings(
+        model_name="sentence-transformers/all-MiniLM-L6-v2", model_kwargs={"device": DEVICE}
+    )
     logger.debug("Embeddings initialized with model device: %s", DEVICE)
 
 # Function to process a PDF document
@@ -62,12 +64,14 @@ def process_document(document_path):
 
     logger.info("Loading document from path: %s", document_path)
     # Load the document
-    loader =  # ---> use PyPDFLoader and document_path from the function input parameter <---
+      # ---> use PyPDFLoader and document_path from the function input parameter <---
+    loader = PyPDFLoader(document_path)
     documents = loader.load()
     logger.debug("Loaded %d document(s)", len(documents))
 
     # Split the document into chunks, set chunk_size=1024, and chunk_overlap=64. assign it to variable text_splitter
-    text_splitter = # ---> use Recursive Character TextSplitter and specify the input parameters <---
+     # ---> use Recursive Character TextSplitter and specify the input parameters <---
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1024, chunk_overlap=64)
     texts = text_splitter.split_documents(documents)
     logger.debug("Document split into %d text chunks", len(texts))
 
@@ -108,6 +112,7 @@ def process_prompt(prompt):
     # Update the chat history
     # TODO: Append the prompt and the bot's response to the chat history using chat_history.append and pass `prompt` `answer` as arguments
     # --> write your code here <--	
+    chat_history.append((prompt, answer))
     
     logger.debug("Chat history updated. Total exchanges: %d", len(chat_history))
 
