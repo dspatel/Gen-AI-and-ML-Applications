@@ -39,7 +39,7 @@ from peft import PeftModel
 import os
 
 #HF_TOKEN = os.getenv("HF_TOKEN")
-HF_TOKEN = "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"
+
 
 
 # =========================
