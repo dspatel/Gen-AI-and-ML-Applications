@@ -1,0 +1,387 @@
+# ============================================================
+# Module F: Decision vs Reality Analyzer (Conservative)
+#
+# Inputs:
+#   data/SPY_30d_5m_yahoo_ema20_orb_signals_conservative.csv  (Module D)
+#   data/SPY_trades_conservative.csv                          (Module E)
+#
+# Output:
+#   data/SPY_decision_vs_reality_conservative.csv
+#
+# What it evaluates:
+# - For each ORB-confirmed day, compare our decision (trade vs skip)
+#   to what price actually did over a fixed horizon after breakout.
+#
+# Run:
+#   python test_decision_vs_reality_conservative_spy.py
+# ============================================================
+
+from __future__ import annotations
+
+import os
+from dataclasses import dataclass
+from typing import Optional, Dict, Any, List, Tuple
+
+import pandas as pd
+
+import argparse
+
+def parse_args(default_symbol="SPY"):
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--symbol", default=default_symbol)
+    return ap.parse_args()
+
+@dataclass(frozen=True)
+class RealityConfig:
+    timezone: str = "America/New_York"
+    horizon_bars: int = 12             # 12 x 5m = 60 minutes
+    target_r: float = 1.0              # evaluate hit +1R
+    stop_r: float = -1.0               # evaluate hit -1R
+    ref_stop_buffer_perc: float = 0.02 # buffer for reference stop on skipped days
+
+
+def load_signals(path: str, tz: str) -> pd.DataFrame:
+    if not os.path.exists(path):
+        raise FileNotFoundError(f"Signals file not found: {path}")
+    df = pd.read_csv(path)
+    if "timestamp" not in df.columns:
+        raise ValueError("Signals CSV must contain 'timestamp' column.")
+    df["timestamp"] = pd.to_datetime(df["timestamp"], utc=True, errors="coerce")
+    df["timestamp"] = df["timestamp"].dt.tz_convert(tz)
+    df = df.set_index("timestamp").sort_index()
+
+    # normalize booleans
+    if "entry_signal" in df.columns:
+        df["entry_signal"] = df["entry_signal"].astype(bool)
+
+    required = ["session_date", "open", "high", "low", "close", "orh", "orl", "orb_breakout_time", "orb_breakout"]
+    missing = [c for c in required if c not in df.columns]
+    if missing:
+        raise ValueError(f"Signals CSV missing required columns: {missing}")
+
+    return df
+
+
+def load_trades(path: str, tz: str) -> pd.DataFrame:
+    if not os.path.exists(path):
+        # It's ok if there are no trades; we still evaluate skipped days
+        return pd.DataFrame()
+
+    t = pd.read_csv(path)
+    if t.empty:
+        return t
+
+    # Parse timestamps
+    for col in ["signal_time", "entry_time", "exit_time"]:
+        if col in t.columns:
+            t[col] = pd.to_datetime(t[col], utc=True, errors="coerce").dt.tz_convert(tz)
+
+    return t
+
+
+def first_orb_breakout_direction(day_df: pd.DataFrame) -> Optional[str]:
+    rows = day_df[day_df["orb_breakout"].isin(["UP", "DOWN"])]
+    if rows.empty:
+        return None
+    return str(rows["orb_breakout"].iloc[0])
+
+
+def get_orb_breakout_time(day_df: pd.DataFrame) -> Optional[pd.Timestamp]:
+    b = day_df["orb_breakout_time"].dropna()
+    if b.empty:
+        return None
+    # Stored as timestamp string in CSV; after load it may still be object.
+    bt = b.iloc[0]
+    if isinstance(bt, pd.Timestamp):
+        return bt
+    # parse if needed
+    return pd.to_datetime(bt, utc=True, errors="coerce").tz_convert(day_df.index.tz)
+
+
+def get_trade_for_day(trades: pd.DataFrame, session_date: str) -> Optional[pd.Series]:
+    if trades is None or trades.empty:
+        return None
+    d = trades[trades["session_date"] == session_date]
+    if d.empty:
+        return None
+    # conservative: one trade per day -> take first
+    return d.iloc[0]
+
+
+def compute_future_mfe_mae_r(
+    day_df: pd.DataFrame,
+    start_ts: pd.Timestamp,
+    side: str,
+    entry_price: float,
+    stop_price: float,
+    horizon_bars: int
+) -> Tuple[float, float, Optional[str]]:
+    """
+    Computes future MFE/MAE in R over next horizon_bars starting at start_ts (inclusive).
+    Also determines which threshold was hit first: +1R or -1R (or None).
+    """
+    risk = abs(entry_price - stop_price)
+    if risk <= 0:
+        return 0.0, 0.0, None
+
+    # Determine slice
+    start_pos = day_df.index.get_indexer([start_ts])[0]
+    end_pos = min(start_pos + horizon_bars, len(day_df) - 1)
+    window = day_df.iloc[start_pos:end_pos + 1]
+
+    mfe = 0.0
+    mae = 0.0  # negative
+    first_hit = None
+
+    # thresholds in price terms
+    if side == "LONG":
+        target_price = entry_price + risk
+        stop_hit_price = entry_price - risk
+    else:
+        target_price = entry_price - risk
+        stop_hit_price = entry_price + risk
+
+    for ts, row in window.iterrows():
+        high = float(row["high"])
+        low = float(row["low"])
+
+        if side == "LONG":
+            mfe = max(mfe, (high - entry_price) / risk)
+            mae = min(mae, (low - entry_price) / risk)
+
+            # Determine which hits first within the bar (ambiguous if both touched)
+            hit_target = high >= target_price
+            hit_stop = low <= stop_hit_price
+            if first_hit is None:
+                if hit_target and hit_stop:
+                    first_hit = "AMBIGUOUS"
+                elif hit_target:
+                    first_hit = "PLUS_1R"
+                elif hit_stop:
+                    first_hit = "MINUS_1R"
+        else:
+            mfe = max(mfe, (entry_price - low) / risk)
+            mae = min(mae, (entry_price - high) / risk)
+
+            hit_target = low <= target_price
+            hit_stop = high >= stop_hit_price
+            if first_hit is None:
+                if hit_target and hit_stop:
+                    first_hit = "AMBIGUOUS"
+                elif hit_target:
+                    first_hit = "PLUS_1R"
+                elif hit_stop:
+                    first_hit = "MINUS_1R"
+
+    return float(mfe), float(mae), first_hit
+
+
+def build_reference_plan_for_skipped_day(day_df: pd.DataFrame, cfg: RealityConfig) -> Optional[Dict[str, Any]]:
+    """
+    Builds a reference (hypothetical) entry/stop for evaluating whether the market offered a move.
+    We anchor entry at the first bar OPEN after ORB breakout time, and stop at the opposite OR boundary.
+    """
+    breakout_time = get_orb_breakout_time(day_df)
+    if breakout_time is None:
+        return None
+    direction = first_orb_breakout_direction(day_df)
+    if direction is None:
+        return None
+
+    # Entry time = first bar at/after breakout_time
+    post = day_df[day_df.index >= breakout_time]
+    if post.empty:
+        return None
+    entry_ts = post.index[0]
+    entry_price = float(post.iloc[0]["open"])
+
+    orh = float(day_df["orh"].iloc[0])
+    orl = float(day_df["orl"].iloc[0])
+
+    buffer = entry_price * (cfg.ref_stop_buffer_perc / 100.0)
+
+    if direction == "UP":
+        side = "LONG"
+        stop_price = orl - buffer
+    else:
+        side = "SHORT"
+        stop_price = orh + buffer
+
+    risk = abs(entry_price - stop_price)
+    if risk <= 0:
+        return None
+
+    return {
+        "ref_side": side,
+        "ref_entry_time": entry_ts,
+        "ref_entry_price": entry_price,
+        "ref_stop_price": stop_price,
+        "ref_risk_per_share": risk,
+        "ref_plan_type": "ORB_REFERENCE",
+        "breakout_time": breakout_time,
+        "thesis_direction": direction,
+        "orh": orh,
+        "orl": orl,
+    }
+
+
+def classify_outcome(took_trade: bool, first_hit: Optional[str]) -> str:
+    """
+    Outcome class based on decision (trade vs skip) and what happened in future path.
+    """
+    if first_hit is None:
+        # Neither +1R nor -1R hit within horizon
+        return "NO_DECISIVE_MOVE"
+
+    if took_trade:
+        if first_hit == "PLUS_1R":
+            return "CORRECT_TRADE"
+        if first_hit == "MINUS_1R":
+            return "WRONG_TRADE"
+        return "AMBIGUOUS_TRADE"
+    else:
+        if first_hit == "PLUS_1R":
+            return "MISSED_OPPORTUNITY"
+        if first_hit == "MINUS_1R":
+            return "CORRECT_SKIP"
+        return "AMBIGUOUS_SKIP"
+
+
+def main():
+    cfg = RealityConfig()
+    args = parse_args()
+    symbol = args.symbol.upper()
+
+
+    signals_path = f"data/{symbol}_30d_5m_yahoo_ema20_orb_signals_conservative.csv"
+    trades_path  = f"data/{symbol}_trades_conservative.csv"
+    out_path     = f"data/{symbol}_decision_vs_reality_conservative.csv"
+
+    print("\n[Module F] Loading signals + trades...")
+    signals = load_signals(signals_path, cfg.timezone)
+    trades = load_trades(trades_path, cfg.timezone)
+
+    sessions = sorted(signals["session_date"].unique())
+    print(f"Signals rows: {len(signals):,} | sessions: {len(sessions)}")
+    print(f"Trades rows: {len(trades):,}" if not trades.empty else "Trades rows: 0")
+
+    rows: List[Dict[str, Any]] = []
+
+    for session_date in sessions:
+        day_df = signals[signals["session_date"] == session_date].copy()
+        if day_df.empty:
+            continue
+
+        # Only evaluate days with a confirmed ORB breakout
+        breakout_time = get_orb_breakout_time(day_df)
+        direction = first_orb_breakout_direction(day_df)
+        if breakout_time is None or direction is None:
+            continue
+
+        trade = get_trade_for_day(trades, session_date)
+        took_trade = trade is not None
+
+        # Determine evaluation anchor
+        if took_trade:
+            side = str(trade["side"]).upper()
+            entry_time = trade["entry_time"]
+            entry_price = float(trade["entry_price"])
+            stop_price = float(trade["stop_price"])
+            risk = float(trade["risk_per_share"])
+            plan_type = "ACTUAL_TRADE"
+        else:
+            ref = build_reference_plan_for_skipped_day(day_df, cfg)
+            if ref is None:
+                continue
+            side = ref["ref_side"]
+            entry_time = ref["ref_entry_time"]
+            entry_price = ref["ref_entry_price"]
+            stop_price = ref["ref_stop_price"]
+            risk = ref["ref_risk_per_share"]
+            plan_type = ref["ref_plan_type"]
+
+        # Evaluate future path over horizon bars starting at entry_time
+        mfe_r, mae_r, first_hit = compute_future_mfe_mae_r(
+            day_df=day_df,
+            start_ts=entry_time,
+            side=side,
+            entry_price=entry_price,
+            stop_price=stop_price,
+            horizon_bars=cfg.horizon_bars
+        )
+
+        outcome = classify_outcome(took_trade, first_hit)
+
+        rows.append({
+            "session_date": session_date,
+            "thesis_direction": direction,
+            "took_trade": took_trade,
+            "plan_type": plan_type,
+
+            "breakout_time": breakout_time,
+            "entry_time_ref": entry_time,
+            "side_ref": side,
+            "entry_price_ref": entry_price,
+            "stop_price_ref": stop_price,
+            "risk_per_share_ref": risk,
+
+            "future_horizon_bars": cfg.horizon_bars,
+            "future_mfe_r": mfe_r,
+            "future_mae_r": mae_r,
+            "first_hit": first_hit,
+            "outcome_class": outcome,
+        })
+
+    result = pd.DataFrame(rows).sort_values("session_date")
+    result.to_csv(out_path, index=False)
+
+    print(f"\n✅ Saved decision vs reality to: {out_path}")
+    print(f"Rows evaluated (ORB-confirmed sessions): {len(result)}")
+
+    if result.empty:
+        print("\nNo ORB-confirmed days found to evaluate. (Check breakout detection / time range.)")
+        return
+
+    # Summary metrics
+    total = len(result)
+    took = int(result["took_trade"].sum())
+    skipped = total - took
+
+    counts = result["outcome_class"].value_counts(dropna=False).to_dict()
+
+    directional_accuracy = (
+        (result["first_hit"] == "PLUS_1R").mean()
+        if total else 0.0
+    )
+
+    missed_opportunities = int((result["outcome_class"] == "MISSED_OPPORTUNITY").sum())
+    correct_skips = int((result["outcome_class"] == "CORRECT_SKIP").sum())
+
+    avg_mfe_skipped = result.loc[~result["took_trade"], "future_mfe_r"].mean()
+    avg_mae_skipped = result.loc[~result["took_trade"], "future_mae_r"].mean()
+
+    avg_mfe_traded = result.loc[result["took_trade"], "future_mfe_r"].mean()
+    avg_mae_traded = result.loc[result["took_trade"], "future_mae_r"].mean()
+
+    print("\n--- Summary (Conservative) ---")
+    print(f"ORB-confirmed days evaluated: {total}")
+    print(f"Days traded: {took} | Days skipped: {skipped}")
+    print("Outcome class counts:", counts)
+
+    print(f"\nDirectional opportunity rate (hit +1R within horizon): {directional_accuracy:.2%}")
+
+    if skipped > 0:
+        print(f"\nSkipped-days avg future MFE (R): {avg_mfe_skipped:.3f}")
+        print(f"Skipped-days avg future MAE (R): {avg_mae_skipped:.3f}")
+        print(f"Missed opportunities (skipped but +1R hit): {missed_opportunities}")
+        print(f"Correct skips (skipped and -1R hit first): {correct_skips}")
+
+    if took > 0:
+        print(f"\nTraded-days avg future MFE (R): {avg_mfe_traded:.3f}")
+        print(f"Traded-days avg future MAE (R): {avg_mae_traded:.3f}")
+
+    print("\nNext: we’ll implement Momentum (Module D/E variants) and run the same Module F for comparison.\n")
+
+
+if __name__ == "__main__":
+    main()

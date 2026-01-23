@@ -13,6 +13,9 @@ p = keyring.get_password(KEYRING_SERVICE, KEYRING_PASS_KEY)
 if not u or not p:
     raise RuntimeError("Missing keyring creds for TradingView.")
 print(u, p)
+#my TV password contains special characters
+tv = TvDatafeed(u, p)
+
 
 tv = TvDatafeed(u, p)
 df = tv.get_hist("TSLA", "NASDAQ", Interval.in_5_minute, n_bars=1500)

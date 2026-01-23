@@ -96,6 +96,36 @@ def notify_market_close_summary_discord(cfg: Config, states: Dict[str, SymbolSta
     }
     send_discord_embeds(cfg, [embed])
 
+
+def notify_or_created_discord(
+    cfg: Config,
+    symbol: str,
+    session_date: str,
+    or_high: float,
+    or_low: float,
+    or_window_end: pd.Timestamp,
+    is_catchup: bool,
+) -> None:
+    """Notify that the Opening Range has been established (one-time per symbol per session)."""
+    t_unix = _to_unix(or_window_end)
+
+    title = f"🟦 {symbol} Opening Range Set"
+    if is_catchup:
+        title += " (catchup)"
+
+    embed = {
+        "title": title,
+        "description": (
+            f"**Session:** `{session_date}` • **TZ:** `{cfg.tz}`\n"
+            f"**OR Window End:** <t:{t_unix}:t> (<t:{t_unix}:R>)\n"
+            f"**OR High:** `{_fmt_price(or_high)}` • **OR Low:** `{_fmt_price(or_low)}`"
+        ),
+        "color": 0x5865F2,
+        "footer": {"text": "ORB monitor • OR created"},
+    }
+
+    send_discord_embeds(cfg, [embed])
+
 # Optional Outlook email sender (disabled by default)
 def send_email(cfg: Config, subject: str, body: str) -> None:
     import smtplib

@@ -1,0 +1,64 @@
+# Ignore data directories
+data/
+outputs/
+logs/
+downloads/
+
+# But allow example schemas
+!data/README.md
+!data/sample.csv
+!outputs/example_schema.json
+!logs/important_log.txt
+# Ignore temporary files
+*.tmp
+*.log
+# Ignore system files
+.DS_Store
+Thumbs.db
+*.csv
+*.xlsx
+*.xls
+*.parquet
+*.sqlite
+
+# Ignore environment files
+.env
+.venv/
+# Ignore IDE files
+.vscode/
+.idea/
+# Ignore compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.class
+# Ignore package files
+node_modules/
+dist/
+build/
+# Ignore coverage reports
+coverage/
+.coverage
+htmlcov/
+# Ignore test result files
+test-results/
+*.trx
+# Ignore backup files
+*~
+*.bak
+*.swp
+# Ignore miscellaneous
+*.zip
+*.tar.gz
+*.egg-info/
+.eggs/
+*.egg
+*.log
+*.db
+*.pid
+*.seed
+*.cover
+*.original
+*.reject
+*.swo
+tv_state.json

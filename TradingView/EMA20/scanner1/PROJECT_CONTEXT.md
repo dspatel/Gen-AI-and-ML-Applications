@@ -1,0 +1,65 @@
+# Project Context — EMA20 Anchored Breakout Scanner
+
+## What this project does
+This project scans a universe of US stocks (from TradingView screener exports) and:
+
+1) Uses **Yahoo Finance daily candles** to identify the most recent **EMA20 “touch/cross”** within the last N trading days.
+2) Anchors (freezes) pre-cross windows (**7D** and **21D**) that remain fixed until the next cross.
+3) Generates **EOD scan outputs** and optional Discord summary/table.
+4) Runs a **live tracker** (yfinance intraday) that fires Discord alerts immediately when conditions are met.
+5) Uses a SQLite **alerts ledger** to dedupe LIVE + EOD alerts and prevent re-run wipeouts.
+
+The user’s timezone is **America/Chicago**.
+
+---
+
+## Key design choices
+
+### Single source of truth
+- **Daily cached data** lives in SQLite (`daily_bars`).
+- **Per-symbol frozen-window state** lives in SQLite (`symbol_state`).
+- **Alerts ledger** lives in SQLite (`alerts_log`).
+
+EOD outputs are derived from the DB, and LIVE uses the same DB state.
+
+### Frozen window philosophy
+- When a new cross is detected, the 7D/21D windows are frozen using *only* the candles **before** CrossDate.
+- Window values are not recomputed daily; they change only when CrossDate changes.
+
+### Alert philosophy
+- The project is designed to reduce noise:
+  - Alerts fire only when a symbol is **armed**.
+  - After firing, a symbol disarms.
+  - With `REARM_ON_REENTRY`, it rearms only after price re-enters the 7D window.
+
+---
+
+## Run modes
+
+### EOD mode (after close)
+- Run `run_step3_scan_from_sqlite.py`.
+- Generates CSV outputs.
+- Optionally sends Discord summary/table.
+
+### Live mode (during session)
+- Run `run_live_tracker_yf.py`.
+- Waits for the configured session start (pre / regular / post / all).
+- Polls yfinance intraday data.
+- Inserts alerts into the ledger and optionally sends Discord alerts.
+
+---
+
+## Files that must be updated when changing behavior
+- `config.py` — toggles and defaults
+- `utils/sqlite_store.py` — schema/migrations/ledger
+- `model.sql` — schema reference (must match)
+- `README.md` + `USER_GUIDE.md` — strategy + operational documentation
+- `CHANGELOG.md` — version notes
+
+---
+
+## Intended future extensions
+- Add scoring/ranking using 7D/21D alignment.
+- Add ATR-based risk sizing.
+- Add multi-timeframe confirmation rules.
+- Add broker or TradingView feed as optional live source.

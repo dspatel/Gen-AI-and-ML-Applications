@@ -45,6 +45,9 @@ class SymbolState:
     or_low: Optional[float] = None
     or_ready: bool = False
 
+    # Notification guard: only send the "OR created" message once per symbol per session.
+    or_notified: bool = False
+
     armed: bool = True  # can detect breakouts
     last_confirm_dt_processed: Optional[pd.Timestamp] = None
     events: List[BreakoutEvent] = field(default_factory=list)
@@ -63,11 +66,22 @@ def filter_session(df: pd.DataFrame, start: pd.Timestamp, end: pd.Timestamp) -> 
     out = df[(df["time_local"] >= start) & (df["time_local"] < end)].copy()
     return out.reset_index(drop=True)
 
+'''
 def build_opening_range(cfg: Config, session_df: pd.DataFrame) -> tuple[float, float]:
     """Compute ORH/ORL from first cfg.orb_bars candles after market open."""
     if len(session_df) < cfg.orb_bars:
         raise RuntimeError(f"Need {cfg.orb_bars} bars for OR, got {len(session_df)}")
     orb = session_df.iloc[: cfg.orb_bars]
+    return float(orb["high"].max()), float(orb["low"].min())
+'''
+def build_opening_range(cfg: Config, session_df: pd.DataFrame) -> tuple[float, float]:
+    session_start = session_df["time_local"].iloc[0]
+    or_end = session_start + pd.Timedelta(minutes=cfg.orb_minutes)
+
+    orb = session_df[session_df["time_local"] < or_end]
+    if orb.empty:
+        raise RuntimeError("No candles found in opening range window")
+
     return float(orb["high"].max()), float(orb["low"].min())
 
 def is_within_range(cfg: Config, close: float, or_high: float, or_low: float) -> bool:
@@ -93,7 +107,8 @@ def scan_catchup_events(
     session_df: pd.DataFrame,
     or_high: float,
     or_low: float,
-    notify_until_dt: pd.Timestamp
+    notify_until_dt: pd.Timestamp,
+    min_confirm_dt_exclusive: Optional[pd.Timestamp] = None,
 ) -> list[BreakoutEvent]:
     """
     Catchup scan:
@@ -123,6 +138,11 @@ def scan_catchup_events(
 
         direction = detect_true_breakout(cfg, or_high, or_low, b_close, c_close)
         if direction is None:
+            i += 1
+            continue
+
+        # De-dupe: skip events at or before an already-processed confirmation timestamp
+        if min_confirm_dt_exclusive is not None and c["time_local"] <= min_confirm_dt_exclusive:
             i += 1
             continue
 
@@ -177,9 +197,11 @@ def process_latest_two_bars_live(cfg: Config, st: SymbolState, session_df: pd.Da
     b_close = float(b["close"])
     c_close = float(c["close"])
 
+    # Re-arm gate: if disarmed, do not emit new signals until a candle CLOSES back inside the OR range.
     if cfg.rearm_after_reentry and not st.armed:
         if is_within_range(cfg, c_close, or_high, or_low):
             st.armed = True
+        # Always advance watermark so we don't reprocess the same candle pair every loop.
         st.last_confirm_dt_processed = confirm_dt
         return None
 

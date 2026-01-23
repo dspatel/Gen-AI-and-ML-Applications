@@ -28,7 +28,7 @@ class Config:
     symbols: list[str] = None  # default set in __post_init__
 
     # Candle sizing (Yahoo/yfinance native intraday intervals only)
-    candle_minutes: int = 5
+    candle_minutes: int = 15
     orb_minutes: int = 30
     period: str = "5d"
     prepost: bool = False
@@ -44,18 +44,24 @@ class Config:
     require_2c_confirm: bool = True     # breakout candle + next candle continues direction
 
     # Live loop behavior
+    persist_state: bool = True
+    state_db_path: str = "state/orb_state.sqlite"
     grace_seconds: int = 15             # wait after bar close for data to finalize
     poll_fallback_seconds: int = 20     # fallback polling if next-close calc fails
 
     # Testing / after hours
-    test_mode: bool = True
+    test_mode: bool = False
     test_date: str = ""                 # "YYYY-MM-DD" or "" to auto-pick latest session in data
 
     # Output
     output_dir: Path = Path("output")
 
     # Notifications
-    enable_notifications: bool = False
+    enable_notifications: bool = True
+
+    # Notify when the Opening Range (OR) is first established for the session.
+    # This fires once per symbol per session (persisted across restarts).
+    notify_on_or_creation: bool = True
 
     enable_discord: bool = True
     discord_webhook_url: str = DISCORD_WEBHOOK_URL       # set in config_local.py
