@@ -1,0 +1,426 @@
+from __future__ import annotations
+
+import os
+import time
+from datetime import datetime, date, timedelta
+from typing import Any, Dict, Optional, Tuple, List
+
+import pandas as pd
+import yfinance as yf
+from zoneinfo import ZoneInfo
+
+from config import CFG
+from utils.io_utils import ensure_dirs, find_latest_file
+from utils.discord_notify import send_discord_message, format_alert_message
+from utils.indicators import compute_ema20_cross_stats
+from utils.sqlite_store import (
+    connect_db,
+    init_db,
+    init_state_tables,
+    init_alerts_log,
+    get_symbol_state,
+    set_armed,
+    set_alert_info,
+    insert_alert_log,
+)
+
+TZ = ZoneInfo(getattr(CFG, "TIMEZONE", "America/Chicago"))
+
+
+def _now_local() -> datetime:
+    return datetime.now(TZ)
+
+
+def _startup_banner_text(run_date: str, symbols: List[str], universe_src: str) -> str:
+    parts = [
+        f"🟦 EMA20 LIVE Tracker STARTED ({'PROD'})",
+        "",
+        f"Date: {run_date}",
+        f"TZ: {getattr(CFG, 'TIMEZONE', 'America/Chicago')}",
+        f"Universe: {os.path.basename(universe_src)} ({len(symbols)} symbols)",
+        "",
+        "Strategy",
+        f"- EMA period: {getattr(CFG, 'EMA_PERIOD', 20)}",
+        f"- Cross lookback: {getattr(CFG, 'CROSS_LOOKBACK_DAYS', 30)} trading days",
+        f"- Primary window: {getattr(CFG, 'WINDOW_DAYS_PRIMARY', 35)}D",
+        f"- Secondary window: {'ON' if getattr(CFG, 'ENABLE_SECONDARY_WINDOW', True) else 'OFF'}" + (
+            f" ({getattr(CFG, 'WINDOW_DAYS_SECONDARY', 21)}D)" if getattr(CFG, 'ENABLE_SECONDARY_WINDOW', True) else ""
+        ),
+        f"- Rearm on re-entry: {getattr(CFG, 'REARM_ON_REENTRY', True)} ({getattr(CFG, 'REENTRY_MODE', 'strict')})",
+        "",
+        "Live",
+        f"- Interval: {getattr(CFG, 'LIVE_INTERVAL', '5m')}",
+        f"- Poll seconds: {getattr(CFG, 'LIVE_POLL_SECONDS', 60)}",
+        f"- Use last completed bar: {getattr(CFG, 'LIVE_USE_LAST_COMPLETED_BAR', True)}",
+        f"- Session mode: {getattr(CFG, 'LIVE_SESSION_MODE', 'RTH')}",
+        f"- Session gate: {getattr(CFG, 'LIVE_SESSION_OPEN', '08:30')} -> {getattr(CFG, 'LIVE_SESSION_CLOSE', '15:00')} ({getattr(CFG, 'TIMEZONE', 'America/Chicago')})",
+        f"- Auto-wait: {getattr(CFG, 'LIVE_AUTO_WAIT_FOR_SESSION_START', True)} | Auto-stop: {getattr(CFG, 'LIVE_AUTO_STOP_AFTER_SESSION_END', True)} | Grace: {getattr(CFG, 'LIVE_CLOSE_GRACE_MINUTES', 2)}m",
+    ]
+    return "\n".join(parts)
+
+
+def _shutdown_banner_text(run_date: str) -> str:
+    now = _now_local().strftime("%Y-%m-%d %H:%M:%S %Z")
+    return "\n".join([
+        f"🟥 EMA20 LIVE Tracker STOPPED ({'PROD'})",
+        "",
+        f"Run date: {run_date}",
+        f"Stopped at: {now}",
+    ])
+
+
+def _to_float(x) -> Optional[float]:
+    try:
+        if x is None or (isinstance(x, float) and pd.isna(x)):
+            return None
+        return float(x)
+    except Exception:
+        return None
+
+
+def _parse_hhmm_today(hhmm: str) -> datetime:
+    """Build tz-aware datetime for today's date at HH:MM in TZ."""
+    now = _now_local()
+    hh, mm = hhmm.split(":")
+    return now.replace(hour=int(hh), minute=int(mm), second=0, microsecond=0)
+
+
+def _is_weekday_trading_day(d: date) -> bool:
+    # Simple trading day check (Mon-Fri). Holidays are handled implicitly by empty data.
+    return d.weekday() < 5
+
+
+def load_live_symbols() -> Tuple[List[str], str]:
+    ensure_dirs(CFG.SYMBOLS_DIR, CFG.OUTPUT_DIR)
+
+    cross = find_latest_file(CFG.SYMBOLS_DIR, prefix="ema20_cross_", suffix=".csv")
+    if cross is not None:
+        df = pd.read_csv(cross)
+        col = "Symbol" if "Symbol" in df.columns else df.columns[0]
+        syms = [str(s).strip().upper() for s in df[col].dropna().tolist()]
+        return syms, cross
+
+    latest = find_latest_file(CFG.SYMBOLS_DIR, prefix="symbols_", suffix=".csv")
+    if latest is None:
+        raise FileNotFoundError(f"No ema20_cross_*.csv or symbols_*.csv in {CFG.SYMBOLS_DIR}. Run Step 1/3 first.")
+    df = pd.read_csv(latest)
+    col = "Symbol" if "Symbol" in df.columns else ("Ticker" if "Ticker" in df.columns else df.columns[0])
+    syms = [str(s).strip().upper() for s in df[col].dropna().tolist()]
+    return syms, latest
+
+
+def fetch_intraday(symbol: str, interval: str) -> pd.DataFrame:
+    t = yf.Ticker(symbol)
+
+    # yfinance can intermittently throw inside .history() (a common symptom is:
+    # "TypeError: 'NoneType' object is not subscriptable" when upstream returns
+    # an empty/None chart payload). A single symbol failure must NOT crash the
+    # live tracker loop.
+    prepost = bool(getattr(CFG, "LIVE_INCLUDE_PREPOST", False))
+    max_retries = int(getattr(CFG, "LIVE_YF_RETRIES", 2))
+    retry_sleep = float(getattr(CFG, "LIVE_YF_RETRY_SLEEP_SEC", 1.0))
+    last_err: Exception | None = None
+    df = None
+    for attempt in range(max_retries + 1):
+        try:
+            df = t.history(period="1d", interval=interval, prepost=prepost)
+            last_err = None
+            break
+        except Exception as e:  # noqa: BLE001
+            last_err = e
+            if attempt < max_retries:
+                time.sleep(retry_sleep)
+            else:
+                df = None
+
+    if df is None or (hasattr(df, "empty") and df.empty):
+        if last_err is not None:
+            print(f"[WARN] {symbol}: intraday fetch failed ({type(last_err).__name__}: {last_err}). Skipping.")
+        # Return an empty DF with expected columns so downstream stays safe.
+        return pd.DataFrame(columns=["Timestamp", "Open", "High", "Low", "Close", "Volume"])
+    if df is None or df.empty:
+        return pd.DataFrame()
+    df = df.reset_index()
+    ts_col = "Datetime" if "Datetime" in df.columns else ("Date" if "Date" in df.columns else df.columns[0])
+    df[ts_col] = pd.to_datetime(df[ts_col], errors="coerce", utc=True)
+    df = df.dropna(subset=[ts_col]).rename(columns={ts_col: "Timestamp"})
+    df["Timestamp"] = df["Timestamp"].dt.tz_convert(TZ)
+    return df
+
+
+def main() -> None:
+    ensure_dirs(CFG.SYMBOLS_DIR, CFG.OUTPUT_DIR, os.path.dirname(CFG.DB_PATH))
+    conn = connect_db(CFG.DB_PATH)
+    init_db(conn, wal_mode=bool(getattr(CFG, "SQLITE_WAL_MODE", True)))
+    init_state_tables(conn)
+    init_alerts_log(conn)
+
+    symbols, src = load_live_symbols()
+
+
+    # Ensure morning prep has populated symbol_state + daily_bars.
+    # Live tracker depends on window highs/lows frozen at last EMA20 cross.
+    # If symbol_state is empty (fresh DB or Step2 not run), run Step2 once automatically.
+    try:
+        cur = conn.execute('SELECT COUNT(1) FROM symbol_state;')
+        n_state = int(cur.fetchone()[0] or 0)
+    except Exception:
+        n_state = 0
+
+    if n_state == 0:
+        print('[WARN] symbol_state is empty. Running Step2 (run_step2_fetch_yf_to_sqlite.py) to build state before live monitoring...')
+        import subprocess, sys
+        cmd = [sys.executable, os.path.join(os.path.dirname(__file__), 'run_step2_fetch_yf_to_sqlite.py')]
+        rc = subprocess.call(cmd)
+        if rc != 0:
+            print(f'[ERROR] Step2 failed with exit code {rc}. Live tracker cannot run without state. Exiting.')
+            return
+        # Re-open connection to pick up schema changes and fresh state
+        conn.close()
+        conn = connect_db(CFG.DB_PATH)
+
+
+    interval = getattr(CFG, "LIVE_INTERVAL", "5m")
+    poll_seconds = int(getattr(CFG, "LIVE_POLL_SECONDS", 60))
+    use_completed = bool(getattr(CFG, "LIVE_USE_LAST_COMPLETED_BAR", True))
+
+    run_date = date.today().isoformat()
+
+    # Session gating settings
+    session_open = getattr(CFG, "LIVE_SESSION_OPEN", "08:30")
+    session_close = getattr(CFG, "LIVE_SESSION_CLOSE", "15:00")
+    auto_wait = bool(getattr(CFG, "LIVE_AUTO_WAIT_FOR_SESSION_START", True))
+    auto_stop = bool(getattr(CFG, "LIVE_AUTO_STOP_AFTER_SESSION_END", True))
+    close_grace = int(getattr(CFG, "LIVE_CLOSE_GRACE_MINUTES", 2))
+    wait_print_every = int(getattr(CFG, "LIVE_PRINT_WAIT_STATUS_EVERY_SECONDS", 300))
+
+    open_dt = _parse_hhmm_today(session_open)
+    close_dt = _parse_hhmm_today(session_close) + timedelta(minutes=close_grace)
+
+    banner = _startup_banner_text(run_date, symbols, src)
+    print("\n" + "=" * 90)
+    print(banner)
+    print("=" * 90 + "\n")
+    if (
+        getattr(CFG, "DISCORD_ENABLED", False)
+        and getattr(CFG, "DISCORD_WEBHOOK_URL", "")
+        and getattr(CFG, "DISCORD_SEND_STARTUP_BANNER", True)
+    ):
+        send_discord_message(CFG.DISCORD_WEBHOOK_URL, banner)
+
+    last_wait_print = 0.0
+
+    try:
+        while True:
+            now = _now_local()
+            event_date = now.date().isoformat()
+            event_time = now.strftime("%H:%M:%S")
+
+            # Simple non-trading day gate (weekends). Holidays will naturally have empty bars.
+            if not _is_weekday_trading_day(now.date()):
+                if auto_stop:
+                    print(f"[INFO] {event_date} is not a weekday trading day. Exiting live tracker.")
+                    break
+                time.sleep(poll_seconds)
+                continue
+
+            # Auto-wait before session
+            if now < open_dt:
+                if auto_wait:
+                    # Print occasionally so it doesn't look "stuck"
+                    if (time.time() - last_wait_print) >= wait_print_every:
+                        print(f"[WAIT] Session not started yet. Waiting until {open_dt.strftime('%H:%M:%S %Z')} ...")
+                        last_wait_print = time.time()
+                    time.sleep(min(poll_seconds, 30))
+                    continue
+                else:
+                    print(f"[INFO] Started before open ({open_dt.strftime('%H:%M %Z')}); continuing without wait gate.")
+
+            # Auto-stop after session end + grace
+            if now >= close_dt and auto_stop:
+                print(f"[INFO] Session ended ({close_dt.strftime('%H:%M:%S %Z')}). Auto-stopping live tracker.")
+                break
+
+            for sym in symbols:
+                state = get_symbol_state(conn, sym)
+                if state is None:
+                    continue
+
+                d1 = int(state.get("window_days_primary") or CFG.WINDOW_DAYS_PRIMARY)
+                wh1 = _to_float(state.get("window_high_primary"))
+                wl1 = _to_float(state.get("window_low_primary"))
+                if wh1 is None or wl1 is None:
+                    continue
+
+                d2 = None
+                wh2 = None
+                wl2 = None
+                if getattr(CFG, "ENABLE_SECONDARY_WINDOW", False):
+                    d2 = int(state.get("window_days_secondary") or CFG.WINDOW_DAYS_SECONDARY)
+                    wh2 = _to_float(state.get("window_high_secondary"))
+                    wl2 = _to_float(state.get("window_low_secondary"))
+
+                armed = int(state.get("armed", 1))
+                cross_date = state.get("last_cross_date")
+                cross_dir = state.get("last_cross_direction")
+
+                intra = fetch_intraday(sym, interval)
+                if intra.empty:
+                    continue
+
+                idx = -2 if (use_completed and len(intra) >= 2) else -1
+                bar = intra.iloc[idx]
+                candle_ts = bar["Timestamp"]
+                if candle_ts is None:
+                    continue
+
+                candle_time = pd.Timestamp(candle_ts).strftime("%Y-%m-%d %H:%M:%S %Z")
+                # Trigger candle OHLC (this is the candle we evaluate)
+                candle_open = float(bar.get("Open", bar["Close"]))
+                candle_high = float(bar.get("High", bar["Close"]))
+                candle_low = float(bar.get("Low", bar["Close"]))
+                close = float(bar["Close"])
+
+                # Day (session) OHLC as known at alert time from intraday series
+                try:
+                    day_open_at_alert = float(intra.iloc[0].get("Open", intra.iloc[0]["Close"]))
+                except Exception:
+                    day_open_at_alert = close
+                day_high_at_alert = float(intra["High"].max())
+                day_low_at_alert = float(intra["Low"].min())
+                day_close_at_alert = close
+
+                daily = pd.read_sql_query(
+                    "SELECT date, ema20, ema20_h, ema20_l FROM daily_bars WHERE symbol=? ORDER BY date DESC LIMIT 1;",
+                    conn,
+                    params=(sym,),
+                )
+                if daily.empty:
+                    continue
+                ema20 = _to_float(daily.iloc[0].get("ema20"))
+                ema20_h = _to_float(daily.iloc[0].get("ema20_h"))
+                ema20_l = _to_float(daily.iloc[0].get("ema20_l"))
+                if ema20 is None:
+                    continue
+
+                # EMA20 cross stats (daily candles) — useful feature for model / filtering
+                try:
+                    lookback_td = int(getattr(CFG, "EMA20_CROSS_COUNT_LOOKBACK_TD", 30))
+                    include_day = bool(getattr(CFG, "EMA20_CROSS_COUNT_INCLUDE_EVENT_DAY", True))
+                    ddf = pd.read_sql_query(
+                        "SELECT date as Date, high as High, low as Low, close as Close, ema20 as EMA20 "
+                        "FROM daily_bars WHERE symbol=? AND date<=? ORDER BY date ASC;",
+                        conn,
+                        params=(sym, event_date),
+                    )
+                    cross_stats = compute_ema20_cross_stats(ddf, asof_date=event_date, lookback_td=lookback_td, include_event_day=include_day)
+                except Exception:
+                    cross_stats = {"lookback_td": int(getattr(CFG, "EMA20_CROSS_COUNT_LOOKBACK_TD", 30)),
+                                   "count_total": None, "count_bull": None, "count_bear": None,
+                                   "days_since_last_cross": None, "cross_density": None}
+
+                long_signal = (close > wh1) and (close > ema20)
+                short_signal = (close < wl1) and (close < ema20)
+                signal = "LONG" if long_signal else ("SHORT" if short_signal else None)
+
+                # Rearm on re-entry
+                if getattr(CFG, "REARM_ON_REENTRY", True) and armed == 0:
+                    if wl1 <= close <= wh1:
+                        set_armed(conn, sym, 1)
+                        armed = 1
+
+                if signal is None or armed != 1:
+                    continue
+
+                rng1 = max(wh1 - wl1, 1e-9)
+                break_dist1 = (close - wh1) if long_signal else (wl1 - close)
+                break_pct1 = break_dist1 / rng1
+
+                break_pct2 = None
+                if d2 is not None and wh2 is not None and wl2 is not None:
+                    rng2 = max(wh2 - wl2, 1e-9)
+                    break_dist2 = (close - wh2) if long_signal else (wl2 - close)
+                    break_pct2 = break_dist2 / rng2
+
+                ema_dist = (close - ema20) if long_signal else (ema20 - close)
+
+                alert: Dict[str, Any] = {
+                    "Symbol": sym,
+                    "Signal": signal,
+                    "EventDate": event_date,
+                    "EventTime": event_time,
+                    "CandleTime": candle_time,
+                    # Prices at trigger time
+                    "TriggerPrice": close,
+                    "CandleOpen": candle_open,
+                    "CandleHigh": candle_high,
+                    "CandleLow": candle_low,
+                    "CandleClose": close,
+
+                    "DayOpen_AtAlert": day_open_at_alert,
+                    "DayHigh_AtAlert": day_high_at_alert,
+                    "DayLow_AtAlert": day_low_at_alert,
+                    "DayClose_AtAlert": day_close_at_alert,
+
+                    # Keep legacy key used elsewhere (ledger uses TriggerPrice/CandleClose for LIVE)
+                    "TodayClose": close,
+                    "EMA20": ema20,
+                    "EMA20_H": ema20_h,
+                    "EMA20_L": ema20_l,
+                    "Ema20CrossLookbackTD": cross_stats.get("lookback_td"),
+                    "Ema20CrossCountTotal": cross_stats.get("count_total"),
+                    "Ema20CrossCountBull": cross_stats.get("count_bull"),
+                    "Ema20CrossCountBear": cross_stats.get("count_bear"),
+                    "Ema20CrossDaysSinceLast": cross_stats.get("days_since_last_cross"),
+                    "Ema20CrossDensity": cross_stats.get("cross_density"),
+                    "LatestCrossDate": cross_date,
+                    "LatestCrossDirection": cross_dir,
+                    "PrimaryWindowDaysUsed": d1,
+                    f"WindowHigh_{d1}D_preCross": wh1,
+                    f"WindowLow_{d1}D_preCross": wl1,
+                    f"BreakPct_{d1}D": break_pct1,
+                    "EmaDistance": ema_dist,
+                }
+                if d2 is not None and wh2 is not None and wl2 is not None:
+                    alert.update({
+                        "SecondaryWindowDaysUsed": d2,
+                        f"WindowHigh_{d2}D_preCross": wh2,
+                        f"WindowLow_{d2}D_preCross": wl2,
+                        f"BreakPct_{d2}D": break_pct2,
+                    })
+
+                inserted = insert_alert_log(conn, alert, source="LIVE")
+                if not inserted:
+                    continue
+
+                set_armed(conn, sym, 0)
+                set_alert_info(conn, sym, event_date, signal)
+
+                if (
+                    getattr(CFG, "DISCORD_ENABLED", False)
+                    and getattr(CFG, "DISCORD_WEBHOOK_URL", "")
+                    and getattr(CFG, "DISCORD_SEND_LIVE_ALERTS", True)
+                ):
+                    # Optionally hide EMA20 cross stats in Discord (still stored in DB/CSV)
+                    if not getattr(CFG, "DISCORD_SHOW_EMA20_CROSS_STATS", True):
+                        for k in ["Ema20CrossLookbackTD","Ema20CrossCountTotal","Ema20CrossCountBull","Ema20CrossCountBear","Ema20CrossDaysSinceLast","Ema20CrossDensity"]:
+                            alert.pop(k, None)
+                    msg = format_alert_message(alert, env='PROD')
+                    send_discord_message(CFG.DISCORD_WEBHOOK_URL, msg)
+
+            time.sleep(poll_seconds)
+
+    except KeyboardInterrupt:
+        print("\nKeyboardInterrupt: stopping live tracker...\n")
+    finally:
+        if (
+            getattr(CFG, "DISCORD_ENABLED", False)
+            and getattr(CFG, "DISCORD_WEBHOOK_URL", "")
+            and getattr(CFG, "DISCORD_SEND_SHUTDOWN_BANNER", True)
+        ):
+            send_discord_message(CFG.DISCORD_WEBHOOK_URL, _shutdown_banner_text(run_date))
+        conn.close()
+
+
+if __name__ == "__main__":
+    main()

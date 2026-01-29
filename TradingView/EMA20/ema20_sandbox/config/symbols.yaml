@@ -1,9 +1,0 @@
-# Central symbol list for batch testing
-# Add/remove symbols here. Set enabled: false to skip.
-symbols:
-  - ticker: SPY
-    enabled: true
-  - ticker: NVDA
-    enabled: true
-  - ticker: TSLA
-    enabled: true
