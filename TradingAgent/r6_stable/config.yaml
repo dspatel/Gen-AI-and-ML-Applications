@@ -1,0 +1,58 @@
+version: 1.0.0
+
+asof_date_cst: null
+
+db:
+  path: "./artifacts/r6_stable/orb_core.sqlite"
+
+paths:
+  research_output_dir: "./artifacts/r6_stable/research"
+  cache_source_db_path: "./orb_research.db"
+
+timezone: "America/Chicago"
+
+session:
+  start: "08:30"
+  end: "15:00"
+  calendar: "NYSE"
+
+symbols:
+  mode: "csv" # list | single | csv
+  single: "SPY"
+  list: ["SPY"]
+  csv_path: "./r6_stable/symbols.csv"
+
+market_data:
+  provider: "yahoo" # yahoo for live paper signals now; switch to alpaca after subscription
+  alpaca_feed: "iex"
+  opening_range_minutes: 30
+  interval: "15m"
+  lookback_days: [3, 5, 9]
+
+replay:
+  enabled: true
+  tag_replay_alerts: true
+
+paper:
+  enabled: true
+  dry_run: false
+  strategy_id: "R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY"
+  risk_pct_per_trade: 0.005
+  max_notional_pct: 0.20
+  max_notional_dollars: 5000.0
+  default_equity: 100000.0
+  poll_seconds: 10
+  dashboard: true
+  dashboard_min_refresh_seconds: 30
+  stop_buffer: 0.01
+  short_requires_inventory: false
+  confidence_sizing_enabled: false
+  confidence_floor: 0.62
+  confidence_full: 0.85
+  confidence_min_multiplier: 0.50
+  time_exit: "15:00"
+
+discord:
+  enabled: true
+  webhook_url: "https://discord.com/api/webhooks/1475728215296315687/ZH0dH2JMeQun4ER-TcbckmTizCVAoYiU34kesMN5AJDCxfnkap9L2X7rZpE4HW23jLi5"
+  templates_path: "./agent/orb_r6/templates/discord_alerts.yaml"

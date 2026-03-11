@@ -1,0 +1,46 @@
+version: 1.0.0
+db:
+  path: ./artifacts/ema20_stable/ema20_core.sqlite
+paths:
+  research_output_dir: ./artifacts/ema20_stable/research
+  source_r6_db_path: ./artifacts/r6_stable/orb_core.sqlite
+timezone: America/Chicago
+session:
+  start: 08:30
+  end: '15:00'
+  calendar: NYSE
+symbols:
+  mode: csv
+  single: SPY
+  list:
+  - SPY
+  csv_path: ./ema20_stable/symbols.csv
+market_data:
+  interval: 15m
+  source_r6_db_path: ./artifacts/r6_stable/orb_core.sqlite
+strategy:
+  primary_window_days: 7
+  secondary_window_days: 35
+  cross_lookback_days:
+  - 30
+  monthly_flat_thresholds:
+  - 0.001
+  flat_size_multiplier: 0.5
+  monthly_opposite_mode: block
+  monthly_flat_mode: block
+  allow_reentry: true
+  max_reentries_per_cycle: 1
+  reentry_reset_bars: 2
+  reentry_cooldown_bars: 4
+  entry_variants:
+  - E2
+  exit_variants:
+  - X2
+  daily_invalidation_days:
+  - 1
+  atr_period: 14
+  atr_trail_multipliers:
+  - 2.0
+  time_stop_days:
+  - 20
+  retest_max_bars: 6

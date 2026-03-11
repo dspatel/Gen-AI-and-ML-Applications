@@ -1,0 +1,37 @@
+version: 0.10.11
+
+# Optional anchor date (CST) for backtests.
+# - If null/blank: src.run anchors to CURRENT session.
+# - If set (YYYY-MM-DD): RR at session start uses ONLY prior sessions; once today's OR is ready, RR automatically includes it (include_today_or=1).
+asof_date_cst: null
+
+db:
+  path: "./data/db/orb_core.sqlite"
+
+timezone: "America/Chicago"
+
+session:
+  start: "08:30"
+  end: "15:00"
+  calendar: "NYSE"
+
+symbols:
+  mode: "list"          # list | single | csv
+  single: "AAPL"
+  list: ["SPY", "AAPL", "NVDA","TSLA","MSFT","AMZN","GOOGL","META ", "V","ADBE","AMD","MA","VGT"]
+  csv_path: "./data/symbols.csv"
+
+market_data:
+  opening_range_minutes: 30
+  interval: "15m"
+  lookback_days: [3, 5, 9]
+
+
+replay:
+  enabled: true
+  tag_replay_alerts: true
+
+discord:
+  enabled: true
+  webhook_url: "https://discord.com/api/webhooks/1471906562049183938/GzNFWbZex_c7i0_s-7cSqpb7j7cA_PQDZ5a1HZAnqL2lK7Axa7ZBilMFZEjbGzJevbzO"
+  templates_path: "./templates/discord_alerts.yaml"

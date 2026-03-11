@@ -1,0 +1,181 @@
+remote_only: false
+us_only: true
+remote_us_only: true
+no_senior_manager: true
+local_commute_focus: true
+hybrid_in_person_local_only: false
+local_commute_keywords:
+  - "bartlett"
+  - "chicago"
+  - "illinois"
+  - "naperville"
+  - "schaumburg"
+  - "arlington heights"
+  - "oak brook"
+  - "rosemont"
+hybrid_keywords:
+  - "hybrid"
+  - "in office 2 days"
+  - "in office 3 days"
+  - "flexible onsite"
+onsite_keywords:
+  - "onsite"
+  - "on-site"
+  - "in-office"
+  - "in office"
+  - "office-based"
+us_positive_keywords:
+  - "united states"
+  - "us-"
+  - "usa"
+  - "u.s."
+  - "remote us"
+  - "remote - us"
+  - "remote - united states"
+non_us_keywords:
+  - "canada"
+  - "ontario"
+  - "mexico"
+  - "mohali"
+  - "bangalore"
+  - "hyderabad"
+  - "gurgaon"
+  - "pune"
+  - "mumbai"
+  - "london"
+  - "dublin"
+  - "berlin"
+  - "amsterdam"
+  - "tokyo"
+  - "singapore"
+  - "india"
+  - "ireland"
+  - "germany"
+  - "france"
+  - "united kingdom"
+  - "uk"
+  - "europe"
+  - "australia"
+
+# Matching weights: experience/skills fit is intentionally strongest.
+weights:
+  title: 10
+  seniority_title: 6
+  seniority_text: 2
+  domain: 6
+  must_have: 14
+  nice_to_have: 2
+  profile_skill: 6
+  resume_fit: 10
+  local_non_remote_boost: 12
+  non_local_non_remote_penalty: 30
+
+target_titles:
+  - "manager data science"
+  - "manager analytics"
+  - "data science manager"
+  - "analytics manager"
+  - "manager decision science"
+  - "manager business analytics"
+  - "manager data analytics"
+  - "manager business intelligence"
+
+management_focus: true
+management_title_keywords:
+  - "manager"
+
+target_seniority_keywords:
+  - "manager"
+
+target_domain_keywords:
+  - "data science"
+  - "analytics"
+  - "experimentation"
+  - "ab testing"
+  - "business intelligence"
+  - "decision science"
+  - "insights"
+  - "reporting"
+  - "kpi"
+
+exclude_title_keywords:
+  - "senior manager"
+  - "director"
+  - "head of"
+  - "vice president"
+  - "vp "
+  - "account manager"
+  - "program manager"
+  - "partner development manager"
+  - "business development manager"
+  - "events manager"
+  - "support process"
+  - "customer support"
+  - "solutions manager"
+  - "machine learning engineer"
+  - "ml engineer"
+  - "data engineer"
+  - "software engineer"
+  - "research engineer"
+  - "ai engineer"
+  - "staff engineer"
+  - "principal engineer"
+  - "architect"
+  - "account executive"
+  - "sales"
+  - "marketing"
+  - "product manager"
+  - "field enablement"
+  - "training manager"
+  - "partner manager"
+  - "recruiter"
+  - "customer success"
+  - "partnerships"
+  - "legal"
+  - "compliance counsel"
+  - "designer"
+
+preferred_locations:
+  - "United States"
+  - "Remote"
+  - "Illinois"
+  - "Chicago"
+  - "Dallas"
+  - "New York"
+  - "San Francisco"
+  - "Seattle"
+
+must_have_skills:
+  - "python"
+  - "snowflake"
+  - "sql"
+  - "tableau"
+  - "ab testing"
+  - "leadership"
+  - "stakeholder"
+  - "analytics"
+
+nice_to_have_skills:
+  - "llm"
+  - "rag"
+  - "prompt engineering"
+  - "airflow"
+  - "power bi"
+  - "power apps"
+  - "etl"
+  - "scikit-learn"
+
+sponsorship_required: true
+sponsorship_positive_keywords:
+  - "h1b"
+  - "h-1b"
+  - "visa sponsorship"
+  - "sponsorship available"
+  - "employment visa"
+  - "transfer sponsorship"
+sponsorship_negative_keywords:
+  - "no sponsorship"
+  - "unable to sponsor"
+  - "not sponsor"
+  - "must be authorized to work without sponsorship"
+  - "cannot provide visa"

@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Runtime data
+data/*.json
+data/apply_runs/*.json
+data/learning/*.json
+state/*.json
+
+# Local config copies
+config/profile.yaml
+config/preferences.yaml
+config/sources.yaml
+config/automation.yaml

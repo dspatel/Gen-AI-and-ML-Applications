@@ -1,0 +1,98 @@
+{
+  "artifacts": {
+    "ablation_chop": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_ablation_chop_20260226_182733.csv",
+    "ablation_entry": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_ablation_entry_20260226_182733.csv",
+    "ablation_exit": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_ablation_exit_20260226_182733.csv",
+    "ablation_flat": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_ablation_flat_20260226_182733.csv",
+    "ablation_lookback": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_ablation_lookback_20260226_182733.csv",
+    "ablation_max_new": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_ablation_max_new_20260226_182733.csv",
+    "ablation_max_open": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_ablation_max_open_20260226_182733.csv",
+    "summary": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_walkforward_summary_20260226_182733.json",
+    "walkforward": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_walkforward_20260226_182733.csv"
+  },
+  "locked_variant_from_train": "L30_F0.0010_E1_X1D1__CH4__MO4__ME4",
+  "splits": [
+    {
+      "artifacts": {
+        "metrics": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_variant_metrics_20260226_182635.csv",
+        "summary": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_summary_20260226_182635.json",
+        "trades": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_trades_20260226_182635.csv"
+      },
+      "end_date": "2024-12-31",
+      "run_id": "5df789f3-f156-4c41-8169-6e8198cdbee8",
+      "selected_variant": "L30_F0.0010_E1_X1D1__CH4__MO4__ME4",
+      "split": "train",
+      "start_date": "2023-01-03",
+      "trades_count": 86,
+      "variant_metrics": {
+        "avg_hold_days": 13.104651162790695,
+        "avg_return_pct": 1.606129582436279,
+        "avg_weighted_return_pct": 1.5780745889928618,
+        "long_trades": 77,
+        "max_drawdown_pct": 21.924386059994426,
+        "profit_factor": 2.2092393659821146,
+        "short_trades": 9,
+        "total_return_pct": 198.15714416309632,
+        "trades_count": 86,
+        "variant_id": "L30_F0.0010_E1_X1D1__CH4__MO4__ME4",
+        "win_rate": 0.4069767441860465
+      },
+      "variants_tested": 1
+    },
+    {
+      "artifacts": {
+        "metrics": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_variant_metrics_20260226_182709.csv",
+        "summary": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_summary_20260226_182709.json",
+        "trades": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_trades_20260226_182709.csv"
+      },
+      "end_date": "2025-12-31",
+      "run_id": "03204da1-0a30-44bc-9116-9f16b30624f3",
+      "selected_variant": "L30_F0.0010_E1_X1D1__CH4__MO4__ME4",
+      "split": "validate",
+      "start_date": "2025-01-01",
+      "trades_count": 55,
+      "variant_metrics": {
+        "avg_hold_days": 12.181818181818182,
+        "avg_return_pct": -0.0774186828995285,
+        "avg_weighted_return_pct": -0.1750301251066271,
+        "long_trades": 39,
+        "max_drawdown_pct": 30.77480032765584,
+        "profit_factor": 0.8931682201476316,
+        "short_trades": 16,
+        "total_return_pct": -13.289870692742822,
+        "trades_count": 55,
+        "variant_id": "L30_F0.0010_E1_X1D1__CH4__MO4__ME4",
+        "win_rate": 0.4
+      },
+      "variants_tested": 1
+    },
+    {
+      "artifacts": {
+        "metrics": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_variant_metrics_20260226_182733.csv",
+        "summary": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_summary_20260226_182733.json",
+        "trades": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_trades_20260226_182733.csv"
+      },
+      "end_date": "2026-02-23",
+      "run_id": "b4a7604e-c98b-48d3-be26-f5da950f93b3",
+      "selected_variant": "L30_F0.0010_E1_X1D1__CH4__MO4__ME4",
+      "split": "test",
+      "start_date": "2026-01-01",
+      "trades_count": 9,
+      "variant_metrics": {
+        "avg_hold_days": 8.444444444444445,
+        "avg_return_pct": 0.6906965701544802,
+        "avg_weighted_return_pct": 0.6906965701544802,
+        "long_trades": 6,
+        "max_drawdown_pct": 21.955473931685862,
+        "profit_factor": 1.2495203805062345,
+        "short_trades": 3,
+        "total_return_pct": 3.3091125701171897,
+        "trades_count": 9,
+        "variant_id": "L30_F0.0010_E1_X1D1__CH4__MO4__ME4",
+        "win_rate": 0.3333333333333333
+      },
+      "variants_tested": 1
+    }
+  ],
+  "status": "completed"
+}

@@ -1,0 +1,26 @@
+{
+  "run_id": "5a99a0f4-e0c8-46f6-9e17-efd377962e80",
+  "best_variant": "R6_CONF62_LIMIT1_NO_LONG_PREOR__RR_REENTRY_FAIL_2R",
+  "best_variant_side_breakdown": [
+    {
+      "side": "LONG",
+      "trades": 18,
+      "win_rate": 0.4444444444444444,
+      "avg_r": 0.45311137165532206,
+      "pf": 0.0,
+      "ret_pct": 4.120519899739716
+    },
+    {
+      "side": "SHORT",
+      "trades": 59,
+      "win_rate": 0.559322033898305,
+      "avg_r": 0.5274909863336429,
+      "pf": 0.0,
+      "ret_pct": 16.65635051907872
+    }
+  ],
+  "best_variant_same_bar_entry_exit_count": 0,
+  "best_variant_overlap_violations": 0,
+  "best_variant_overlap_samples": [],
+  "trades_in_run": 3979
+}

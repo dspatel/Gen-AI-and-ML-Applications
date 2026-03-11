@@ -1,0 +1,81 @@
+{
+  "artifacts": {
+    "buyhold_symbols": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_buyhold_symbols_20260227_143415.csv",
+    "metrics": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_variant_metrics_20260227_143415.csv",
+    "summary": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_summary_20260227_143415.json",
+    "trades": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_trades_20260227_143415.csv",
+    "variant_vs_buyhold": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_variant_vs_buyhold_20260227_143415.csv"
+  },
+  "best_variant": {
+    "avg_hold_days": 13.555555555555555,
+    "avg_return_pct": 1.1471702758864724,
+    "avg_symbol_excess_vs_buyhold_pct": 39.063134872664406,
+    "avg_weighted_return_pct": 1.2526321303484587,
+    "buyhold_equal_weight_return_pct": -42.005631280568274,
+    "excess_vs_buyhold_equal_weight_pct": 60.89933838793698,
+    "long_trades": 18,
+    "max_drawdown_pct": 24.654245866043965,
+    "profit_factor": 1.7323892534114493,
+    "short_trades": 0,
+    "symbols_beating_buyhold_count": 8,
+    "total_return_pct": 18.893707107368705,
+    "trades_count": 18,
+    "variant_id": "L60_F0.0010_E2_X2ATR2.50__CH999__MO2__ME2",
+    "win_rate": 0.3333333333333333
+  },
+  "buyhold_benchmark": {
+    "best_symbol": {
+      "buyhold_return_pct": -7.775946405784772,
+      "symbol": "MA"
+    },
+    "equal_weight_return_pct": -42.005631280568274,
+    "median_return_pct": -27.11164426039474,
+    "symbols_count": 16,
+    "worst_symbol": {
+      "buyhold_return_pct": -97.66494424802829,
+      "symbol": "AMZN"
+    }
+  },
+  "data_sync_stats": {
+    "alpaca_ingest": {
+      "feed": "iex",
+      "fetched_rows": 0,
+      "provider": "alpaca",
+      "symbols_fetched": 16,
+      "symbols_requested": 16,
+      "upsert_rows": 0,
+      "windows_fetched": 35
+    },
+    "provider": "auto",
+    "r6_copy": {
+      "copied_rows": 394,
+      "source_db": "E:\\Machine Learning\\TradingAgent\\artifacts\\r6_stable\\orb_core.sqlite",
+      "source_rows": 394,
+      "symbols": 16
+    }
+  },
+  "end_date": "2023-01-03",
+  "run_id": "12dfaf68-7833-4f3c-a6d3-3fe3d8d9d562",
+  "start_date": "2021-07-04",
+  "status": "completed",
+  "symbols": [
+    "SPY",
+    "AAPL",
+    "NVDA",
+    "TSLA",
+    "MSFT",
+    "AMZN",
+    "GOOGL",
+    "META",
+    "V",
+    "ADBE",
+    "AMD",
+    "MA",
+    "VGT",
+    "VOO",
+    "SCHG",
+    "VTI"
+  ],
+  "trades_count": 222,
+  "variants_tested": 12
+}

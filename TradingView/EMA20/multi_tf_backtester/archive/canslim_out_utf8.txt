@@ -1,0 +1,17 @@
+﻿--- INITIATING CANSLIM FUNDAMENTAL + TECHNICAL EXPERIMENT ---
+Scraping live S&P 500 components from Wikipedia...
+Successfully scraped 506 symbols.
+Tracking 51 symbols.
+Loading all portfolio data from DB...
+
+Running daily backtest simulation combining Technicals + CANSLIM Fundamentals...
+
+=== CANSLIM FUNDAMENTAL + TECHNICAL RESULTS (2021-2025) ===
+Total Return: 24.12%
+Annualized Return: 11.46%
+Maximum Drawdown: -16.96%
+
+Conclusion Evaluation:
+DEGRADED. Passing momentum trades through fundamental lagging EPS data reduced returns.
+This verifies Phase 8 findings: Absolute Momentum precedes fundamental earnings reality by months.
+

@@ -1,0 +1,13 @@
+--- BEST config for OVERALL RETURN ---
+  MACD: 37 trades | WR: 59%
+  Overall Ret: -25.7% | B&H: +101.9%
+
+--- BEST config for 2022 BEAR MARKET ---
+  2022 Return: -38.4%
+    LONG QLD Entry: 2021-12-07 | Exit: 2022-01-07 | PnL: -6.9% | Reason: Trailing Stop
+    SHORT SQQQ Entry: 2022-03-08 | Exit: 2022-03-18 | PnL: -24.0% | Reason: Trailing Stop
+    SHORT SQQQ Entry: 2022-05-06 | Exit: 2022-05-17 | PnL: +1.7% | Reason: MACD Up (Profit)
+    SHORT SQQQ Entry: 2022-06-06 | Exit: 2022-06-23 | PnL: +24.1% | Reason: MACD Up (Profit)
+    SHORT SQQQ Entry: 2022-07-08 | Exit: 2022-07-28 | PnL: -18.5% | Reason: Trailing Stop
+    SHORT SQQQ Entry: 2022-09-15 | Exit: 2022-10-04 | PnL: +10.4% | Reason: MACD Up (Profit)
+    SHORT SQQQ Entry: 2022-10-12 | Exit: 2022-11-10 | PnL: -25.1% | Reason: Trailing Stop

@@ -1,0 +1,50 @@
+version: 1.0.0
+
+asof_date_cst: null
+
+db:
+  path: "./artifacts/r6_stable/orb_core.sqlite"
+
+paths:
+  research_output_dir: "./artifacts/r6_stable/research"
+  cache_source_db_path: "./orb_research.db"
+
+timezone: "America/Chicago"
+
+session:
+  start: "08:30"
+  end: "15:00"
+  calendar: "NYSE"
+
+symbols:
+  mode: "csv"
+  single: "SPY"
+  list: ["SPY"]
+  csv_path: "./r6_stable/symbols.csv"
+
+market_data:
+  provider: "alpaca" # historical research
+  alpaca_feed: "iex"
+  opening_range_minutes: 30
+  interval: "15m"
+  lookback_days: [3, 5, 9]
+
+replay:
+  enabled: true
+  tag_replay_alerts: true
+
+paper:
+  enabled: true
+  dry_run: false
+  strategy_id: "R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY"
+  risk_pct_per_trade: 0.005
+  max_notional_pct: 0.20
+  default_equity: 100000.0
+  poll_seconds: 10
+  stop_buffer: 0.01
+  time_exit: "15:00"
+
+discord:
+  enabled: false
+  webhook_url: ""
+  templates_path: "./agent/orb_r6/templates/discord_alerts.yaml"

@@ -1,0 +1,8 @@
+# Locked short strategy universe v1 (balanced activity + consistency)
+ADBE
+MA
+NVDA
+QQQ
+SPY
+V
+VOO

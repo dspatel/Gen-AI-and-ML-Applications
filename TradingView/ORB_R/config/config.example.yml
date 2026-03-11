@@ -1,0 +1,37 @@
+
+run:
+  mode: TEST
+  asof_date: "2026-02-05"
+
+market:
+  timezone: America/Chicago
+  exchange: XNYS
+
+data:
+  interval: "1m"
+
+orb:
+  orb_minutes: 30
+
+reference:
+  historical_days: 5
+  include_today_or: false
+
+universe:
+  symbols: ["SPY", "TSLA", "NVDA"]
+  symbols_file: "config/symbols_watchlist.txt"
+
+
+breakouts:
+  confirm:
+    close_required: true
+  rearm:
+    inside_reset_pct: 0.10
+
+
+storage:
+  enabled: true
+  mode: TEST        # TEST or PROD
+  db_dir: "db"
+  prod_db_name: "orb_ref_prod.sqlite"
+  test_db_name: "orb_ref_test.sqlite"

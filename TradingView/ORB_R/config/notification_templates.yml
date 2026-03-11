@@ -1,0 +1,9 @@
+
+default:
+  title: "{symbol} — RefRange Breakout ({direction}) — {breakout_strength}"
+  lines:
+    - "Decision: {decision} ({confidence_pct}%)"
+    - "Ref: {ref_low:.2f}–{ref_high:.2f} (W={ref_width:.2f}) | Lookback: {historical_days} + today:{include_today_or} | Sessions used: {sessions_used}"
+    - "Open alignment: {open_alignment} | Ref shape: {reference_shape}"
+    - "Regime: {regime} | Bias: {direction_bias}"
+    - "Breakout intensity: closePen {close_pen:.2%} | wickPen {wick_pen:.2%} | body {body_norm:.2%}"

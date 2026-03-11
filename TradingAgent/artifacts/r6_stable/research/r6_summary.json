@@ -1,0 +1,71 @@
+{
+  "artifacts": {
+    "calculation_checks": "artifacts/r6_stable/research/r6_calculation_checks.json",
+    "confidence_sizing_report": "artifacts/r6_stable/research/r6_confidence_sizing_report.csv",
+    "events": "artifacts/r6_stable/research/r6_events.csv",
+    "exit_reason_performance": "artifacts/r6_stable/research/r6_exit_reason_performance.csv",
+    "metrics": "artifacts/r6_stable/research/r6_variant_metrics.csv",
+    "subset": "artifacts/r6_stable/research/r6_subset_performance.csv",
+    "summary": "artifacts/r6_stable/research/r6_summary.json",
+    "trades": "artifacts/r6_stable/research/r6_trades.csv",
+    "yearly": "artifacts/r6_stable/research/r6_yearly_returns.csv"
+  },
+  "best_variant": {
+    "avg_r": 0.04710015857126102,
+    "max_drawdown_pct": 30.410260349974195,
+    "profit_factor": 1.1990556204123592,
+    "total_return_pct": 360.2520354191739,
+    "trades_count": 7004,
+    "variant_id": "R6_CONF54_LIMIT1__EMA20_TRAIL_ONLY",
+    "win_rate": 0.19146202170188464
+  },
+  "calculation_checks": {
+    "entry_not_after_signal": 0,
+    "events_count": 9214,
+    "extreme_r_over_10_abs": 106,
+    "limit1_violations": 0,
+    "ret_pct_formula_mismatch": 0,
+    "risk_le_zero": 0,
+    "rr_exit_missing_rr_bounds": 0,
+    "trades_count": 160707
+  },
+  "confidence_sizing_backtest": {
+    "avg_confidence": 0.8486122331217542,
+    "baseline_avg_r": -0.0317437563089256,
+    "baseline_pf": 0.9407460534019003,
+    "baseline_return_pct": -45.910930249087315,
+    "mean_scale": 0.885145136606538,
+    "trades_count": 3466,
+    "uplift_return_pct": 5.22749950978816,
+    "variant_id": "R6_CONF62_LIMIT1_NO_LONG_PREOR__RR_REENTRY_FAIL_2R",
+    "weighted_avg_r": -0.027073240845967437,
+    "weighted_pf": 0.9432190725789076,
+    "weighted_return_pct": -40.683430739299155
+  },
+  "end_date": "2026-02-24",
+  "events_count": 9214,
+  "interval": "15m",
+  "run_id": "057a65a4-ce14-43b2-a34e-731bb722dac1",
+  "start_date": "2023-01-03",
+  "status": "completed",
+  "symbols": [
+    "SPY",
+    "AAPL",
+    "NVDA",
+    "TSLA",
+    "MSFT",
+    "AMZN",
+    "GOOGL",
+    "META",
+    "V",
+    "ADBE",
+    "AMD",
+    "MA",
+    "VGT",
+    "VOO",
+    "SCHG",
+    "VTI"
+  ],
+  "trades_count": 160707,
+  "variants_tested": 35
+}

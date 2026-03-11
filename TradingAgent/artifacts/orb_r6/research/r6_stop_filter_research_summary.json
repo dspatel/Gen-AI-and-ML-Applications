@@ -1,0 +1,29 @@
+{
+  "base_variant": "R6_CONF62_LIMIT1__OR_REENTRY_FAIL_2R",
+  "split": {
+    "train_end": "2025-12-31",
+    "test_start": "2026-01-01"
+  },
+  "stop_diagnostics": {
+    "variant": "R6_CONF62_LIMIT1__OR_REENTRY_FAIL_2R",
+    "trades_total": 154,
+    "stops_total": 46,
+    "stop_rate_pct": 29.87012987012987,
+    "stop_avg_r": -1.0,
+    "stops_worse_than_-1R_pct": 0.0,
+    "avg_stop_slippage_R": 0.0
+  },
+  "train_selected_filter": {
+    "filter": "exclude_balanced",
+    "train_trades": 110,
+    "train_ret_pct": 12.756807794332147,
+    "train_pf": 1.6262571354184345,
+    "train_avg_r": 0.22151606440448307,
+    "train_stop_rate": 0.2727272727272727,
+    "test_trades": 14,
+    "test_ret_pct": -0.04913484746741359,
+    "test_pf": 0.9890344237717642,
+    "test_avg_r": -0.00451553115597548,
+    "test_stop_rate": 0.35714285714285715
+  }
+}

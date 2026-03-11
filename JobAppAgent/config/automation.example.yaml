@@ -1,0 +1,26 @@
+# One-command autopilot settings.
+mode: "autopilot"
+
+# Candidate selection
+min_score: 20
+limit: 5
+
+# Apply behavior
+auto_submit: true
+auto_fill: true
+allow_auto_sites:
+  - "greenhouse"
+  - "lever"
+max_submissions: 3
+
+# Runtime behavior
+interactive: true
+dry_run: false
+headless: false
+bootstrap_accounts: true
+retry_after_bootstrap: true
+
+# Learning + dedupe
+learn_from_manual: true
+learn_sensitive: true
+dedupe_applied: true

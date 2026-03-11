@@ -1,0 +1,50 @@
+# Personal identity
+first_name: "YourFirstName"
+last_name: "YourLastName"
+email: "you@example.com"
+phone: "+1-555-555-5555"
+city: "Seattle, WA"
+linkedin_url: "https://www.linkedin.com/in/your-handle"
+github_url: "https://github.com/your-handle"
+
+# Resume path used for basic file-upload autofill
+resume_path: "C:/Users/your-user/Documents/resume.pdf"
+
+# Optional cover letter path
+cover_letter_path: "C:/Users/your-user/Documents/cover-letter.pdf"
+
+# Common required application questions (used by autopilot autofill).
+# Keep sensitive EEO fields out unless you explicitly want to auto-answer them.
+application_answers:
+  skip_sensitive_questions: true
+  work_authorized_us: "yes"
+  requires_sponsorship: "yes"
+  future_sponsorship_required: "yes"
+  willing_to_relocate: "no"
+  country: "United States"
+  state: "Illinois"
+  city: "Chicago"
+  salary_expectation: ""
+  portfolio_url: ""
+  website_url: ""
+  custom:
+    "background check": "yes"
+
+# Account bootstrap for sites that require account creation/login before apply.
+# Password is read from env var first, then create_account_password fallback.
+account_bootstrap:
+  enabled: true
+  email: "you@example.com"
+  first_name: "YourFirstName"
+  last_name: "YourLastName"
+  password_env_var: "JOBAPP_ACCOUNT_PASSWORD"
+  create_account_password: ""
+  prompt_for_verification: true
+
+# Skills used by ranking
+skills:
+  - "python"
+  - "machine learning"
+  - "sql"
+  - "aws"
+  - "data engineering"

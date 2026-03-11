@@ -1,0 +1,8 @@
+pandas>=2.0.0
+numpy>=1.24.0
+pyyaml>=6.0
+pandas-market-calendars>=4.4.0
+yfinance>=0.2.40
+python-dateutil>=2.8.2
+
+requests>=2.31.0

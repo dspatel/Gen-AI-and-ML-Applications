@@ -1,0 +1,17 @@
+# User-selected focus universe
+SPY
+AAPL
+NVDA
+TSLA
+MSFT
+AMZN
+GOOGL
+META
+V
+ADBE
+AMD
+MA
+VGT
+QQQ
+QQQM
+VOO

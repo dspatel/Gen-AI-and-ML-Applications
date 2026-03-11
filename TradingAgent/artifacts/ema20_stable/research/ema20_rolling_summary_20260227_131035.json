@@ -1,0 +1,30 @@
+{
+  "artifacts": {
+    "folds": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_rolling_folds_20260227_131035.csv",
+    "splits": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_rolling_splits_20260227_131035.csv",
+    "summary": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_rolling_summary_20260227_131035.json"
+  },
+  "avg_test_excess_vs_buyhold_equal_weight_pct": -6.248563906560378,
+  "avg_test_max_drawdown_pct": 10.83991090435623,
+  "avg_test_profit_factor": 1.213314118017786,
+  "avg_test_total_return_pct": -2.438453687829462,
+  "config_path": "ema20_stable/config.walkforward.optimized.yaml",
+  "end_date": "2026-02-23",
+  "folds_count": 7,
+  "gate": {
+    "max_test_dd_pct": 30.0,
+    "min_test_excess_vs_buyhold_pct": 0.0,
+    "min_test_pf": 1.2,
+    "min_test_trades": 5
+  },
+  "start_date": "2021-01-04",
+  "status": "completed",
+  "test_pass_count": 1,
+  "test_pass_rate": 0.14285714285714285,
+  "window_months": {
+    "step": 6,
+    "test": 3,
+    "train": 18,
+    "validate": 6
+  }
+}

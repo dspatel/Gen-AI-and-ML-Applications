@@ -1,0 +1,48 @@
+run:
+  mode: TEST            # TEST or PROD
+  asof_date: "2026-02-05"   # YYYY-MM-DD
+
+market:
+  timezone: America/Chicago
+  exchange: XNYS
+
+data:
+  interval: "15m"
+
+orb:
+  orb_minutes: 30
+
+reference:
+  horizons: [3, 5, 9]
+  include_today_or: false
+  min_coverage_ratio: 0.80   # coverage-based validity threshold
+
+universe:
+  symbols: ["SPY", "TSLA", "NVDA"]
+  symbols_file: "config/symbols_watchlist.txt"
+
+breakouts:
+  close_only: true
+  inside_reset_pct: 0.10
+  min_bars_between_alerts: 0
+  confirm_closes: 1
+
+storage:
+  enabled: true
+  db_path_test: "db/orb_ref_test.sqlite"
+  db_path_prod: "db/orb_ref_prod.sqlite"
+
+reporting:
+  output_dir_test: "reports_test"
+  output_dir_prod: "reports"
+
+
+notifications:
+  templates_path: "config/notification_templates.yml"
+  discord_webhook_url: "https://discord.com/api/webhooks/1457517484625104897/XjfLZF2jJyxe0MWY1AyjRcBP349ToLjzm9jr2VbwZuIzqnYaeo3P3QXrbCdsT8NEuWWu"
+  enabled: true
+  replay_tag: true
+
+interpretation:
+  labels_path: "config/labels.yml"
+  decision_rules_path: "config/decision_rules.yml"

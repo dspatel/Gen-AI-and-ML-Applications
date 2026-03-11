@@ -1,0 +1,4 @@
+pandas>=2.2.0
+requests>=2.31.0
+pandas_market_calendars>=4.4.0
+pyyaml>=6.0.1

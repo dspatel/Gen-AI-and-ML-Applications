@@ -1,0 +1,41 @@
+{
+  "artifacts": {
+    "skipped": "artifacts/multi_agent_router/backtests/router_backtest_skipped_20260224_103436.csv",
+    "summary": "artifacts/multi_agent_router/backtests/router_backtest_summary_20260224_103436.json",
+    "trades": "artifacts/multi_agent_router/backtests/router_backtest_trades_20260224_103436.csv"
+  },
+  "avg_r": -0.8666907772274304,
+  "end_date": "2026-02-24",
+  "final_equity": 98788.22004150407,
+  "initial_equity": 100000.0,
+  "max_drawdown_pct": 6.404158357757483,
+  "profit_factor": 0.6157263100495743,
+  "signals_total": 4999,
+  "skip_reasons": {
+    "lost_arbitration": 23,
+    "no_bars": 9,
+    "position_open": 672
+  },
+  "skipped_total": 704,
+  "source_performance": [
+    {
+      "avg_r": -0.025972651717705478,
+      "return_pct": -1.0973438311765893,
+      "source": "ORB",
+      "trades": 3137,
+      "win_rate": 0.2617150143449155
+    },
+    {
+      "avg_r": -3.1441802070409084,
+      "return_pct": -1.2117799584959288,
+      "source": "R6",
+      "trades": 1158,
+      "win_rate": 0.3177892918825561
+    }
+  ],
+  "start_date": "2025-01-01",
+  "status": "completed",
+  "total_return_pct": -1.2117799584959288,
+  "trades_total": 4295,
+  "win_rate": 0.2768335273573923
+}

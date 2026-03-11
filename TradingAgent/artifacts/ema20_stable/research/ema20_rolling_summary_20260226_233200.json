@@ -1,0 +1,28 @@
+{
+  "artifacts": {
+    "folds": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_rolling_folds_20260226_233200.csv",
+    "splits": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_rolling_splits_20260226_233200.csv",
+    "summary": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_rolling_summary_20260226_233200.json"
+  },
+  "avg_test_max_drawdown_pct": 14.284125969342066,
+  "avg_test_profit_factor": 1.0488981378701399,
+  "avg_test_total_return_pct": -9.302380632731639,
+  "config_path": "ema20_stable/_tmp_rolling_x1x2.yaml",
+  "end_date": "2026-02-23",
+  "folds_count": 3,
+  "gate": {
+    "max_test_dd_pct": 30.0,
+    "min_test_pf": 1.2,
+    "min_test_trades": 5
+  },
+  "start_date": "2023-01-03",
+  "status": "completed",
+  "test_pass_count": 1,
+  "test_pass_rate": 0.3333333333333333,
+  "window_months": {
+    "step": 6,
+    "test": 3,
+    "train": 18,
+    "validate": 6
+  }
+}

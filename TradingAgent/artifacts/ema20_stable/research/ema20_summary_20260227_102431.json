@@ -1,0 +1,62 @@
+{
+  "artifacts": {
+    "metrics": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_variant_metrics_20260227_102431.csv",
+    "summary": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_summary_20260227_102431.json",
+    "trades": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_trades_20260227_102431.csv"
+  },
+  "best_variant": {
+    "avg_hold_days": 10.736842105263158,
+    "avg_return_pct": 0.12920670371725698,
+    "avg_weighted_return_pct": 0.13915566318107153,
+    "long_trades": 13,
+    "max_drawdown_pct": 17.216544755496976,
+    "profit_factor": 1.1011302999473047,
+    "short_trades": 6,
+    "total_return_pct": 1.35238920491636,
+    "trades_count": 19,
+    "variant_id": "L60_F0.0010_E2_X2ATR2.00__CH999__MO2__ME2",
+    "win_rate": 0.3684210526315789
+  },
+  "data_sync_stats": {
+    "alpaca_ingest": {
+      "feed": "iex",
+      "fetched_rows": 0,
+      "provider": "alpaca",
+      "symbols_fetched": 3,
+      "symbols_requested": 16,
+      "upsert_rows": 0,
+      "windows_fetched": 12
+    },
+    "provider": "auto",
+    "r6_copy": {
+      "copied_rows": 97154,
+      "source_db": "E:\\Machine Learning\\TradingAgent\\artifacts\\r6_stable\\orb_core.sqlite",
+      "source_rows": 97154,
+      "symbols": 16
+    }
+  },
+  "end_date": "2024-01-03",
+  "run_id": "f7d9ea28-7920-4aa4-906c-1cc5ff070c42",
+  "start_date": "2023-07-04",
+  "status": "completed",
+  "symbols": [
+    "SPY",
+    "AAPL",
+    "NVDA",
+    "TSLA",
+    "MSFT",
+    "AMZN",
+    "GOOGL",
+    "META",
+    "V",
+    "ADBE",
+    "AMD",
+    "MA",
+    "VGT",
+    "VOO",
+    "SCHG",
+    "VTI"
+  ],
+  "trades_count": 203,
+  "variants_tested": 12
+}

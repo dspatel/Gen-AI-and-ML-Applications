@@ -1,0 +1,67 @@
+
+open_alignment:
+  metric: or_overlap_ratio
+  bins:
+    - {max: 0.15, label: "Fragmented", icon: "🔴", note: "ORs rarely overlap; opens are dislocated."}
+    - {max: 0.40, label: "Mixed",       icon: "🟡", note: "Some overlap; opens are drifting."}
+    - {max: 1.00, label: "Aligned",     icon: "🟢", note: "ORs overlap strongly; opens align."}
+
+reference_shape:
+  metric: inflation_factor
+  bins:
+    - {max: 1.40, label: "Tight",     icon: "🟢", note: "Reference width near typical daily OR."}
+    - {max: 2.30, label: "Wide",      icon: "🟡", note: "Reference wider than typical OR."}
+    - {max: 99.0, label: "Stretched", icon: "🔴", note: "Reference very wide; be cautious."}
+
+regime:
+  rules:
+    - when: {inside_min: 0.55, range_to_or_max: 2.5}
+      label: "Chop / Mean-revert"
+      icon: "🟢"
+      note: "Closes stay inside OR often; limited expansion."
+    - when: {inside_max: 0.45, range_to_or_min: 3.0}
+      label: "Expansion / Trend"
+      icon: "🔴"
+      note: "Closes often outside OR; strong expansion."
+    - when: {}
+      label: "Balanced"
+      icon: "🟡"
+      note: "Mixed regime."
+
+direction_bias:
+  rules:
+    - when: {bias_min: 0.08, consistency_min: 0.55}
+      label: "Up-lean"
+      icon: "🟢"
+      note: "More closes above ORH than below ORL."
+    - when: {bias_max: -0.08, consistency_min: 0.55}
+      label: "Down-lean"
+      icon: "🔴"
+      note: "More closes below ORL than above ORH."
+    - when: {}
+      label: "Neutral"
+      icon: "⚪"
+      note: "No consistent directional lean."
+
+breakout_strength:
+  rules:
+    - when: {close_pen_max: 0.03}
+      label: "Soft"
+      icon: "🟡"
+      note: "Marginal close beyond boundary."
+    - when: {close_pen_max: 0.10}
+      label: "Clean"
+      icon: "🟢"
+      note: "Clear close beyond boundary."
+    - when: {close_pen_min: 0.10, body_norm_min: 0.06}
+      label: "Strong"
+      icon: "🔥"
+      note: "Strong penetration and body."
+    - when: {close_pen_min: 0.18}
+      label: "Explosive"
+      icon: "🚀"
+      note: "Very large penetration."
+    - when: {}
+      label: "Clean"
+      icon: "🟢"
+      note: "Default."

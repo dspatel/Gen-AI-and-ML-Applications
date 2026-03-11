@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Runtime and generated outputs
+artifacts/research/
+artifacts/runtime/
+artifacts/reports/
+orb_research.db-wal
+orb_research.db-shm
+analysis_*.csv
+analysis_*.json
+orb_summary.json
+orb_trades.csv
+orb_experiment_metrics.csv
+orb_side_performance.csv
+orb_constraint_comparison.csv
+orb_yearly_returns.csv
+live_trade_summary.json
+strategy_reselection_summary.json
+r6_confidence_curve_sensitivity.csv
+__pycache__/
+
+# Optional local overrides
+.env

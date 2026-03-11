@@ -1,0 +1,18 @@
+{
+    "accounts": [
+        {
+            "name": "Live Real Money",
+            "key": "AKOVO5GM43JVMDJBCOIOWQGZFY",
+            "secret": "E4KfYuJr9LXoUQVdrwD6mF7friQDkwe3RBHYV39Jj7PM",
+            "base_url": "https://api.alpaca.markets",
+            "max_alloc_percent": 0.10
+        },
+        {
+            "name": "Paper Account",
+            "key": "PKIQ4XBRNM4OID2S7BOG72DOM4",
+            "secret": "921ixem4CaDbeH5Bne5dg979LSbXXuXBP5NEhUCszjyD",
+            "base_url": "https://paper-api.alpaca.markets",
+            "max_alloc_percent": 0.10
+        }
+    ]
+}

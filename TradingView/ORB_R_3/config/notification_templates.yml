@@ -1,0 +1,14 @@
+default:
+  title: '{symbol} {direction} Breakout ({horizon_days}D) @ {event_time}'
+  lines:
+  - "\U0001F552 Breakout candle: {event_time}"
+  - "Decision: {decision} ({confidence_pct:d}%) \u2014 {decision_reasons}"
+  - '{story}'
+  - "Ref: {ref_low:.2f}\u2013{ref_high:.2f} (W={ref_width:.2f}) | Inflation {inflation_factor:.2f}\
+    \ | OR overlap adj {or_overlap_adjacent_count:d}/{or_overlap_adjacent_total:d}\
+    \ ({or_overlap_adjacent_pct:.0%}) | all-days {or_overlap_days_count:d}/{or_days:d}\
+    \ | pairs {or_overlap_pairs_pct:.0%}"
+  - 'Intensity: closePen {close_pen:.2%} | wickPen {wick_pen:.2%} | body {body_norm:.2%}
+    | range {range_norm:.2%}'
+  - 'Ladder: this {horizon_days}D | broke before [{broken_horizons_before}] | now
+    [{broken_horizons_after}] | simultaneous [{simultaneous_horizons}]'

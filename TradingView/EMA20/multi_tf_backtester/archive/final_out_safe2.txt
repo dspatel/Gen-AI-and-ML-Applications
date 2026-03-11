@@ -1,0 +1,21 @@
+Loading all portfolio data from DB...
+Calculating 16-Symbol Equal Weight Benchmark (2021 - 2026)...
+Benchmark Return: +192.8% | Max DD: 40.7%
+Preparing ML Training Data from 2018-01-01 to 2020-12-31...
+Training XGBoost on 8912 samples. Base Win Rate: 53.7%...
+Model Training Complete.
+
+Top 3 Important Features:
+macd_hist_norm    0.122643
+ret_5d            0.107160
+dist_ema20        0.104954
+dtype: float32
+Loading FinBERT NLP Model (ProsusAI/finbert)...
+Running Full Tri-Engine simulation over 1294 days...
+
+--- FINAL INSTITUTIONAL ALPHA ENGINE ---
+Tri-Engine Return: +75.6% (vs B&H +192.8%)
+Tri-Engine Max Drawdown: 28.3% (vs B&H 40.7%)
+Total Trades: 78 | Win Rate: 53.8%
+Average Trade PNL: 9.0%
+

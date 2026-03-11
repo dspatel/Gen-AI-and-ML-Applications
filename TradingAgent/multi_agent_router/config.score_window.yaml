@@ -1,0 +1,29 @@
+session:
+  timezone: America/Chicago
+  calendar: NYSE
+  start: 08:30
+  end: '15:00'
+state_db:
+  path: ./artifacts/multi_agent_router/router_state.sqlite
+sources:
+  orb:
+    enabled: true
+    db_path: ./orb_research.db
+    weight: 1.0
+    default_confidence: 0.72
+  r6:
+    enabled: true
+    db_path: ./artifacts/r6_stable/orb_core.sqlite
+    weight: 1.0
+execution:
+  dry_run: false
+  poll_seconds: 5
+  arbitration_mode: score_window
+  decision_window_seconds: 180
+  max_signal_age_seconds: 600
+  forced_exit_time_ct: '14:50'
+  risk_pct_per_trade: 0.005
+  max_notional_pct: 0.2
+  max_notional_dollars: 5000.0
+  short_requires_inventory: true
+  r6_stop_buffer: 0.01

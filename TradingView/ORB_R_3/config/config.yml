@@ -1,0 +1,102 @@
+# ORB Reference-Range Project Configuration (Template)
+#
+# Quick start
+# ----------
+# 1) Copy this file to: config/config.yml
+# 2) Update universe.symbols + notifications.discord.webhook_url (optional)
+# 3) Install + run:
+#      pip install -e .
+#      python -m tools.live_tracker
+#
+# Notes
+# -----
+# - All times are interpreted in America/Chicago (CT).
+# - The live tracker is "DB-first" for daily Opening Ranges:
+#     (a) try DB, (b) fetch if missing, (c) store, (d) if still missing -> skip safely.
+# - You can override a few runtime settings via CLI (poll/status), but config is the default.
+
+run:
+  # LIVE: poll during market hours and emit alerts as they occur.
+  # SIM : run a replay-style run using historical data (recommended outside market hours).
+  # Allowed: LIVE | SIM
+  mode: LIVE
+
+  # Polling cadence for LIVE mode.
+  # Allowed: any positive integer seconds.
+  poll_seconds: 60
+
+  # Print a heartbeat line every N seconds (helps confirm the tracker is running).
+  # Allowed: any positive integer seconds.
+  status_every: 30
+
+  # End-of-day summary message to Discord (LIVE mode).
+  send_summary: true
+
+market:
+  # Trading session times (CT). Defaults match regular US equities.
+  # If you ever scan premarket/afterhours, we can add those later.
+  session_open: "08:30"
+  session_close: "15:00"
+
+universe:
+  # Symbols to scan
+  symbols:
+    - SPY
+    - TSLA
+    - NVDA
+
+bars:
+  # Candle interval and ORB window length.
+  # interval: "1m" | "2m" | "5m" | "15m" (yfinance commonly supports these)
+  interval: "15m"
+
+  # Opening range duration in minutes.
+  orb_minutes: 30
+
+horizons:
+  # Reference-range horizons (in *days*).
+  # Example: [3, 5, 9] computes separate reference ranges using last 3, 5, and 9 sessions.
+  days: [3, 5, 9]
+
+  # Minimum number of sessions required to emit a horizon's output.
+  # Example: if horizon=9 and min_sessions_required=7, we will emit once we have >=7 sessions.
+  min_sessions_required: 3
+
+storage:
+  enabled: true
+
+  # TEST: writes to storage.test_db_name
+  # PROD: writes to storage.prod_db_name
+  mode: TEST
+
+  db_dir: "db"
+  prod_db_name: "orb_ref_prod.sqlite"
+  test_db_name: "orb_ref_test.sqlite"
+
+cache:
+  # Optional on-disk caching of fetched OHLCV bars (useful for debugging and stability).
+  enabled: true
+  dir: "cache"
+
+notifications:
+  enabled: true
+
+  # If storage.mode=TEST, set this true to still send Discord notifications.
+  send_in_test_mode: true
+
+  # For Discord webhooks: create a channel -> Edit Channel -> Integrations -> Webhooks
+  discord:
+    webhook_url: ""   # <-- paste your webhook here
+
+    # Optional display name for the webhook bot.
+    username: "ORB_REF"
+
+provider:
+  # Data provider.
+  # Allowed: YFINANCE
+  name: "YFINANCE"
+
+logging:
+  # INFO is recommended. Use DEBUG only when troubleshooting.
+  # Allowed: DEBUG | INFO | WARNING | ERROR
+  level: "INFO"

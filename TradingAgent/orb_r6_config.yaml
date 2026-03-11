@@ -1,0 +1,39 @@
+version: 0.10.11
+
+asof_date_cst: null
+
+db:
+  path: "./artifacts/orb_r6/orb_core.sqlite"
+
+paths:
+  research_output_dir: "./artifacts/orb_r6/research"
+  cache_source_db_path: "./orb_research.db"
+
+timezone: "America/Chicago"
+
+session:
+  start: "08:30"
+  end: "15:00"
+  calendar: "NYSE"
+
+symbols:
+  mode: "list" # list | single | csv
+  single: "SPY"
+  list: ["SPY"]
+  csv_path: "./artifacts/orb_r6/symbols.csv"
+
+market_data:
+  provider: "alpaca" # alpaca | yahoo | auto
+  alpaca_feed: "iex"
+  opening_range_minutes: 30
+  interval: "15m"
+  lookback_days: [3, 5, 9]
+
+replay:
+  enabled: true
+  tag_replay_alerts: true
+
+discord:
+  enabled: false
+  webhook_url: ""
+  templates_path: "./agent/orb_r6/templates/discord_alerts.yaml"

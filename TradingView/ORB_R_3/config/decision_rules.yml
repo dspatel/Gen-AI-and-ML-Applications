@@ -1,0 +1,58 @@
+
+# Decision & confidence rules (editable without code)
+# Scores are combined and clipped to [0, 1].
+#
+# This is intentionally simple + interpretable.
+#
+weights:
+  reference: 0.25
+  regime: 0.20
+  bias: 0.25
+  breakout_quality: 0.30
+
+reference:
+  # uses inflation_factor as a proxy for tight vs stretched reference range
+  tight:
+    max_inflation_factor: 1.6
+    score: 1.0
+    reason: "Tight reference range"
+  stretched:
+    min_inflation_factor: 2.2
+    score: 0.2
+    reason: "Stretched reference range"
+
+regime:
+  # uses median_inside_own_or_pct and median_range_to_or
+  trending:
+    max_inside_pct: 0.55
+    min_range_to_or: 2.5
+    score: 1.0
+    reason: "Expansion / trend regime"
+  choppy:
+    min_inside_pct: 0.70
+    max_range_to_or: 2.0
+    score: 0.25
+    reason: "Choppy / mean-reversion regime"
+
+bias:
+  # uses mean_direction_bias and bias_consistency
+  consistent:
+    min_consistency: 0.70
+    score: 1.0
+    reason: "Directional bias consistent"
+  mixed:
+    max_consistency: 0.55
+    score: 0.35
+    reason: "Directional bias mixed"
+
+breakout_quality:
+  # uses close_pen and body_norm (normalized by ref_width)
+  strong:
+    min_close_pen: 0.06
+    min_body_norm: 0.05
+    score: 1.0
+    reason: "Strong close breakout"
+  weak:
+    max_close_pen: 0.02
+    score: 0.30
+    reason: "Weak close breakout"

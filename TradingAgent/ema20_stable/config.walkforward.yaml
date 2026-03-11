@@ -1,0 +1,62 @@
+version: 1.0.0
+
+db:
+  path: "./artifacts/ema20_stable/ema20_core.sqlite"
+
+paths:
+  research_output_dir: "./artifacts/ema20_stable/research"
+  source_r6_db_path: "./artifacts/r6_stable/orb_core.sqlite"
+
+timezone: "America/Chicago"
+
+session:
+  start: "08:30"
+  end: "15:00"
+  calendar: "NYSE"
+
+symbols:
+  mode: "csv"
+  single: "SPY"
+  list: ["SPY"]
+  csv_path: "./ema20_stable/symbols.csv"
+
+market_data:
+  provider: "auto" # r6_cache | alpaca | auto
+  alpaca_feed: "iex"
+  interval: "15m"
+  source_r6_db_path: "./artifacts/r6_stable/orb_core.sqlite"
+
+strategy:
+  primary_window_days: 7
+  secondary_window_days: 35
+  cross_lookback_days: [30, 60]
+  monthly_flat_thresholds: [0.0010]
+  flat_size_multiplier: 0.50
+  monthly_opposite_mode: "block"
+  monthly_flat_mode: "reduce"
+  require_daily_ema_side: true
+  require_secondary_window_confirm: true
+  chop_filter_enabled: true
+  chop_lookback_days: 20
+  chop_cross_count_max_values: [3, 4, 999]
+
+  allow_reentry: true
+  max_reentries_per_cycle: 1
+  reentry_reset_bars: 2
+  reentry_cooldown_bars: 4
+
+  entry_variants: ["E1", "E2"]
+  exit_variants: ["X1", "X2", "X4"]
+
+  daily_invalidation_days: [2]
+  atr_period: 14
+  atr_trail_multipliers: [2.0]
+  time_stop_days: [20]
+  retest_max_bars: 6
+  max_open_positions_values: [2, 4]
+  max_new_entries_per_day_values: [2, 4]
+  transaction_cost_bps: 2.0
+  side_mode: "both" # both | long_only | short_only
+  market_regime_filter_enabled: false
+  market_regime_symbol: "SPY"
+  market_regime_ema_period: 200

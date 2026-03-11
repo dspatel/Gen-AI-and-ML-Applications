@@ -1,0 +1,34 @@
+# Greenhouse board tokens
+# Example: stripe, notion, reddit, datadog
+greenhouse_boards:
+  - "stripe"
+  - "datadog"
+  - "reddit"
+  - "mongodb"
+  - "coursera"
+  - "flexport"
+  - "airtable"
+  - "asana"
+  - "airbnb"
+  - "anthropic"
+  - "brex"
+  - "chime"
+  - "coinbase"
+  - "databricks"
+  - "dropbox"
+  - "figma"
+  - "gusto"
+  - "instacart"
+  - "khanacademy"
+  - "postman"
+  - "robinhood"
+  - "scaleai"
+  - "twilio"
+  - "discord"
+  - "okta"
+  - "zscaler"
+
+# Lever company tokens
+# Example: netflix, coinbase, robinhood
+lever_companies:
+  - "netflix"

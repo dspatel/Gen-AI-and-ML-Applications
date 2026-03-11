@@ -1,0 +1,57 @@
+{
+  "artifacts": {
+    "calculation_checks": "artifacts/orb_r6/research/r6_calculation_checks.json",
+    "events": "artifacts/orb_r6/research/r6_events.csv",
+    "exit_reason_performance": "artifacts/orb_r6/research/r6_exit_reason_performance.csv",
+    "metrics": "artifacts/orb_r6/research/r6_variant_metrics.csv",
+    "subset": "artifacts/orb_r6/research/r6_subset_performance.csv",
+    "summary": "artifacts/orb_r6/research/r6_summary.json",
+    "trades": "artifacts/orb_r6/research/r6_trades.csv",
+    "yearly": "artifacts/orb_r6/research/r6_yearly_returns.csv"
+  },
+  "best_variant": {
+    "avg_r": 0.04744655733759517,
+    "max_drawdown_pct": 30.381120178524277,
+    "profit_factor": 1.2009159066405775,
+    "total_return_pct": 364.694084197124,
+    "trades_count": 6992,
+    "variant_id": "R6_CONF54_LIMIT1__EMA20_TRAIL_ONLY",
+    "win_rate": 0.19179061784897025
+  },
+  "calculation_checks": {
+    "entry_not_after_signal": 0,
+    "events_count": 9206,
+    "extreme_r_over_10_abs": 94,
+    "limit1_violations": 0,
+    "ret_pct_formula_mismatch": 0,
+    "risk_le_zero": 0,
+    "rr_exit_missing_rr_bounds": 0,
+    "trades_count": 160418
+  },
+  "end_date": "2026-02-23",
+  "events_count": 9206,
+  "interval": "15m",
+  "run_id": "52dc3d23-4462-4b78-a254-885b4c821fe2",
+  "start_date": "2023-01-03",
+  "status": "completed",
+  "symbols": [
+    "SPY",
+    "AAPL",
+    "NVDA",
+    "TSLA",
+    "MSFT",
+    "AMZN",
+    "GOOGL",
+    "META",
+    "V",
+    "ADBE",
+    "AMD",
+    "MA",
+    "VGT",
+    "VOO",
+    "SCHG",
+    "VTI"
+  ],
+  "trades_count": 160418,
+  "variants_tested": 35
+}

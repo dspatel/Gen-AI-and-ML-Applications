@@ -1,0 +1,19 @@
+templates:
+  breakout_default: |
+    {tag}{dir_emoji} **{symbol} {direction} Breakout (H{primary_horizon})**
+    🕒 **Break candle:** {bar_close_ts_cst} CT
+    🧭 **Mode:** {mode_emoji} {mode} | **RR:** {rr_phase_emoji} {rr_phase}
+
+    🧠 **Decision:** {decision_emoji} **{decision} ({confidence_pct}%)** — {decision_story}
+    🧾 Reasons: {reasons_short}
+
+    📏 **Reference (H{primary_horizon})**
+    🧱 Ref: {ref_low:.2f} – {ref_high:.2f} (W={ref_width:.2f}) | 🫧 Inflation: {inflation_factor:.2f}
+    {overlap_emoji} {overlap_label} | {infl_emoji} {infl_label} | {bias_emoji} {bias_label}
+
+    💥 **Trigger quality**
+    {strength_emoji} {strength_label} | 📍 closePen {close_pen_pct:.2f}% | {wick_emoji} wickPen {wick_pen_pct:.2f}% | {clean_emoji} {clean_label}
+    {body_emoji} body {body_norm_pct:.2f}% | 📏 range {range_norm_pct:.2f}% | 🎯 closePos {close_pos_pct:.0f}% | 💪 strength {breakout_strength:.2f}
+
+    🪜 **Horizons**
+    🥇 Primary: H{primary_horizon} | 🤝 Also: {also_horizons}

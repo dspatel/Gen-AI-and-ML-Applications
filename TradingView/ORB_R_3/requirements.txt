@@ -1,0 +1,7 @@
+
+pyyaml
+pytest
+exchange-calendars
+pandas
+yfinance
+requests>=2.31

@@ -1,0 +1,81 @@
+{
+  "artifacts": {
+    "buyhold_symbols": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_buyhold_symbols_20260227_171328.csv",
+    "metrics": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_variant_metrics_20260227_171328.csv",
+    "summary": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_summary_20260227_171328.json",
+    "trades": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_trades_20260227_171328.csv",
+    "variant_vs_buyhold": "E:/Machine Learning/TradingAgent/artifacts/ema20_stable/research/ema20_variant_vs_buyhold_20260227_171328.csv"
+  },
+  "best_variant": {
+    "avg_hold_days": 11.7,
+    "avg_return_pct": -0.2155459643669027,
+    "avg_symbol_excess_vs_buyhold_pct": -13.08383255415958,
+    "avg_weighted_return_pct": -0.2155459643669027,
+    "buyhold_equal_weight_return_pct": 8.0771592928977,
+    "excess_vs_buyhold_equal_weight_pct": -11.11278614989732,
+    "long_trades": 10,
+    "max_drawdown_pct": 9.940440521547266,
+    "profit_factor": 0.8939649752179434,
+    "short_trades": 0,
+    "symbols_beating_buyhold_count": 0,
+    "total_return_pct": -3.035626856999618,
+    "trades_count": 10,
+    "variant_id": "L60_F0.0010_E2_X2ATR3.50__CH4__MO2__ME2",
+    "win_rate": 0.5
+  },
+  "buyhold_benchmark": {
+    "best_symbol": {
+      "buyhold_return_pct": 18.821876920375736,
+      "symbol": "AMD"
+    },
+    "equal_weight_return_pct": 8.0771592928977,
+    "median_return_pct": 7.851655639833799,
+    "symbols_count": 16,
+    "worst_symbol": {
+      "buyhold_return_pct": -15.586001805533423,
+      "symbol": "TSLA"
+    }
+  },
+  "data_sync_stats": {
+    "alpaca_ingest": {
+      "feed": "iex",
+      "fetched_rows": 0,
+      "provider": "alpaca",
+      "symbols_fetched": 3,
+      "symbols_requested": 16,
+      "upsert_rows": 0,
+      "windows_fetched": 12
+    },
+    "provider": "auto",
+    "r6_copy": {
+      "copied_rows": 97154,
+      "source_db": "E:\\Machine Learning\\TradingAgent\\artifacts\\r6_stable\\orb_core.sqlite",
+      "source_rows": 97154,
+      "symbols": 16
+    }
+  },
+  "end_date": "2024-01-03",
+  "run_id": "ec20574a-b527-4d56-be84-c9ba24e24f1c",
+  "start_date": "2023-07-04",
+  "status": "completed",
+  "symbols": [
+    "SPY",
+    "AAPL",
+    "NVDA",
+    "TSLA",
+    "MSFT",
+    "AMZN",
+    "GOOGL",
+    "META",
+    "V",
+    "ADBE",
+    "AMD",
+    "MA",
+    "VGT",
+    "VOO",
+    "SCHG",
+    "VTI"
+  ],
+  "trades_count": 22,
+  "variants_tested": 2
+}

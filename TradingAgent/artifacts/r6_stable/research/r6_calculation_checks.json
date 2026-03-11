@@ -1,0 +1,10 @@
+{
+  "entry_not_after_signal": 0,
+  "events_count": 9214,
+  "extreme_r_over_10_abs": 106,
+  "limit1_violations": 0,
+  "ret_pct_formula_mismatch": 0,
+  "risk_le_zero": 0,
+  "rr_exit_missing_rr_bounds": 0,
+  "trades_count": 160707
+}

@@ -1,0 +1,36 @@
+use_icons: true
+thresholds:
+  overlap_high_pairs_pct: 0.60
+  overlap_low_pairs_pct: 0.30
+  inflation_tight_max: 1.60
+  inflation_stretched_min: 2.20
+  confidence_high: 0.70
+  confidence_low: 0.45
+
+phrases:
+  overlap:
+    high: "ORs clustered"
+    mid: "ORs mixed"
+    low: "ORs disjoint"
+  inflation:
+    tight: "tight range"
+    normal: "normal range"
+    stretched: "stretched range"
+  confidence:
+    high: "high confidence"
+    mid: "medium confidence"
+    low: "low confidence"
+
+icons:
+  overlap:
+    high: "🧩"
+    mid: "🧠"
+    low: "🌀"
+  inflation:
+    tight: "🎯"
+    normal: "📦"
+    stretched: "🪗"
+  decision:
+    LONG: "📈"
+    SHORT: "📉"
+    NO_TRADE: "⏸️"

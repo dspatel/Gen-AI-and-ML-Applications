@@ -1,0 +1,42 @@
+run:
+  mode: TEST
+  asof_date: "2026-02-05"
+
+market:
+  timezone: America/Chicago
+  exchange: XNYS
+
+data:
+  interval: "15m"
+
+orb:
+  orb_minutes: 30
+
+reference:
+  horizons: [3, 5, 9]
+  include_today_or: false
+  min_sessions_required: 3
+
+universe:
+  symbols: ["SPY", "TSLA", "NVDA"]
+  symbols_file: "config/symbols_watchlist.txt"
+
+breakouts:
+  close_required: true
+  confirm_closes: 1
+  inside_reset_pct: 0.10
+  min_bars_between_alerts: 0
+
+storage:
+  enabled: true
+  mode: TEST        # TEST or PROD
+  db_dir: "db"
+  prod_db_name: "orb_ref_prod.sqlite"
+  test_db_name: "orb_ref_test.sqlite"
+
+notifications:
+  enabled: TRUE
+  send_in_test_mode: true
+  discord:
+    webhook_url: "https://discord.com/api/webhooks/1470675055301230798/js4udu-E9PgYobVifVfa5LnnBE-wguJyV59Q2jdpIiPob8zy16iiDKlws_O4KsAov2Qg"   # set to your Discord webhook
+    username: "ORB_REF"

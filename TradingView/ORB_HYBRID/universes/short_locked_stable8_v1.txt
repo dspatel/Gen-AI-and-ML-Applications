@@ -1,0 +1,9 @@
+# Locked short strategy universe v1 (max split consistency)
+GOOGL
+MA
+NVDA
+QQQ
+QQQM
+SPY
+V
+VOO

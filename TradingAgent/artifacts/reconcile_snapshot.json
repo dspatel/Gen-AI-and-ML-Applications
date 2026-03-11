@@ -1,0 +1,931 @@
+{
+  "orb": {
+    "broker_error": null,
+    "broker_base": "https://paper-api.alpaca.markets/v2",
+    "broker_open_positions": [
+      {
+        "asset_id": "03fb07bb-5db1-4077-8dea-5d711b272625",
+        "symbol": "AMD",
+        "exchange": "NASDAQ",
+        "asset_class": "us_equity",
+        "asset_marginable": true,
+        "qty": "23",
+        "qty_available": "0",
+        "avg_entry_price": "214.018696",
+        "side": "long",
+        "market_value": "4965.355",
+        "cost_basis": "4922.430008",
+        "unrealized_pl": "42.924992",
+        "unrealized_plpc": "0.00872",
+        "unrealized_intraday_pl": "42.924992",
+        "unrealized_intraday_plpc": "0.00872",
+        "current_price": "215.885",
+        "lastday_price": "196.6",
+        "change_today": "0.09809"
+      },
+      {
+        "asset_id": "f801f835-bfe6-4a9d-a6b1-ccbb84bfd75f",
+        "symbol": "AMZN",
+        "exchange": "NASDAQ",
+        "asset_class": "us_equity",
+        "asset_marginable": true,
+        "qty": "24",
+        "qty_available": "0",
+        "avg_entry_price": "207.6",
+        "side": "long",
+        "market_value": "5022.9552",
+        "cost_basis": "4982.4",
+        "unrealized_pl": "40.5552",
+        "unrealized_plpc": "0.00814",
+        "unrealized_intraday_pl": "40.5552",
+        "unrealized_intraday_plpc": "0.00814",
+        "current_price": "209.2898",
+        "lastday_price": "205.27",
+        "change_today": "0.01958"
+      },
+      {
+        "asset_id": "fc6a5dcd-4a70-4b8d-b64f-d83a6dae9ba4",
+        "symbol": "META",
+        "exchange": "NASDAQ",
+        "asset_class": "us_equity",
+        "asset_marginable": true,
+        "qty": "7",
+        "qty_available": "0",
+        "avg_entry_price": "639.07",
+        "side": "long",
+        "market_value": "4481.61",
+        "cost_basis": "4473.49",
+        "unrealized_pl": "8.12",
+        "unrealized_plpc": "0.00182",
+        "unrealized_intraday_pl": "8.12",
+        "unrealized_intraday_plpc": "0.00182",
+        "current_price": "640.23",
+        "lastday_price": "637.25",
+        "change_today": "0.00468"
+      },
+      {
+        "asset_id": "4ce9353c-66d1-46c2-898f-fce867ab0247",
+        "symbol": "NVDA",
+        "exchange": "NASDAQ",
+        "asset_class": "us_equity",
+        "asset_marginable": true,
+        "qty": "26",
+        "qty_available": "0",
+        "avg_entry_price": "192.214615",
+        "side": "long",
+        "market_value": "5024.2374",
+        "cost_basis": "4997.57999",
+        "unrealized_pl": "26.65741",
+        "unrealized_plpc": "0.00533",
+        "unrealized_intraday_pl": "26.65741",
+        "unrealized_intraday_plpc": "0.00533",
+        "current_price": "193.2399",
+        "lastday_price": "191.55",
+        "change_today": "0.00882"
+      },
+      {
+        "asset_id": "b28f4066-5c6d-479b-a2af-85dc1a8f16fb",
+        "symbol": "SPY",
+        "exchange": "ARCA",
+        "asset_class": "us_equity",
+        "asset_marginable": true,
+        "qty": "7",
+        "qty_available": "7",
+        "avg_entry_price": "686.103572",
+        "side": "long",
+        "market_value": "4811.835",
+        "cost_basis": "4802.725004",
+        "unrealized_pl": "9.109996",
+        "unrealized_plpc": "0.0019",
+        "unrealized_intraday_pl": "9.109996",
+        "unrealized_intraday_plpc": "0.0019",
+        "current_price": "687.405",
+        "lastday_price": "682.39",
+        "change_today": "0.00735"
+      },
+      {
+        "asset_id": "8ccae427-5dd0-45b3-b5fe-7ba5e422c766",
+        "symbol": "TSLA",
+        "exchange": "NASDAQ",
+        "asset_class": "us_equity",
+        "asset_marginable": true,
+        "qty": "-12",
+        "qty_available": "-12",
+        "avg_entry_price": "404.61",
+        "side": "short",
+        "market_value": "-4855.32",
+        "cost_basis": "-4855.32",
+        "unrealized_pl": "0",
+        "unrealized_plpc": "0",
+        "unrealized_intraday_pl": "0",
+        "unrealized_intraday_plpc": "0",
+        "current_price": "404.61",
+        "lastday_price": "399.83",
+        "change_today": "0.01196"
+      },
+      {
+        "asset_id": "6e3904e8-c564-4bf3-af47-7b377412552d",
+        "symbol": "VGT",
+        "exchange": "ARCA",
+        "asset_class": "us_equity",
+        "asset_marginable": true,
+        "qty": "-6",
+        "qty_available": "-6",
+        "avg_entry_price": "739.616667",
+        "side": "short",
+        "market_value": "-4435.11",
+        "cost_basis": "-4437.700002",
+        "unrealized_pl": "2.590002",
+        "unrealized_plpc": "0.00058",
+        "unrealized_intraday_pl": "2.590002",
+        "unrealized_intraday_plpc": "0.00058",
+        "current_price": "739.185",
+        "lastday_price": "726.85",
+        "change_today": "0.01697"
+      }
+    ],
+    "broker_open_orders": [
+      {
+        "id": "20680e19-197f-472f-ab33-044a16bc0442",
+        "client_order_id": "orb-stop-recover-AMZN-253355a7f97c480c",
+        "created_at": "2026-02-24T17:50:06.331069384Z",
+        "updated_at": "2026-02-24T17:50:06.339762674Z",
+        "submitted_at": "2026-02-24T17:50:06.338567404Z",
+        "filled_at": null,
+        "expired_at": null,
+        "canceled_at": null,
+        "failed_at": null,
+        "replaced_at": null,
+        "replaced_by": null,
+        "replaces": null,
+        "asset_id": "f801f835-bfe6-4a9d-a6b1-ccbb84bfd75f",
+        "symbol": "AMZN",
+        "asset_class": "us_equity",
+        "notional": null,
+        "qty": "24",
+        "filled_qty": "0",
+        "filled_avg_price": null,
+        "order_class": "",
+        "order_type": "stop",
+        "type": "stop",
+        "side": "sell",
+        "position_intent": "sell_to_close",
+        "time_in_force": "day",
+        "limit_price": null,
+        "stop_price": "207.85",
+        "status": "new",
+        "extended_hours": false,
+        "legs": null,
+        "trail_percent": null,
+        "trail_price": null,
+        "hwm": null,
+        "subtag": null,
+        "source": null,
+        "expires_at": "2026-02-24T21:00:00Z"
+      },
+      {
+        "id": "221da718-226c-4efe-a96c-4030d7d68d87",
+        "client_order_id": "orb-stop-update-META-4738735af3614d6a",
+        "created_at": "2026-02-24T17:45:06.806881Z",
+        "updated_at": "2026-02-24T17:45:06.814882Z",
+        "submitted_at": "2026-02-24T17:45:06.813527Z",
+        "filled_at": null,
+        "expired_at": null,
+        "canceled_at": null,
+        "failed_at": null,
+        "replaced_at": null,
+        "replaced_by": null,
+        "replaces": null,
+        "asset_id": "fc6a5dcd-4a70-4b8d-b64f-d83a6dae9ba4",
+        "symbol": "META",
+        "asset_class": "us_equity",
+        "notional": null,
+        "qty": "7",
+        "filled_qty": "0",
+        "filled_avg_price": null,
+        "order_class": "",
+        "order_type": "stop",
+        "type": "stop",
+        "side": "sell",
+        "position_intent": "sell_to_close",
+        "time_in_force": "day",
+        "limit_price": null,
+        "stop_price": "638.06",
+        "status": "new",
+        "extended_hours": false,
+        "legs": null,
+        "trail_percent": null,
+        "trail_price": null,
+        "hwm": null,
+        "subtag": null,
+        "source": "access_key",
+        "expires_at": "2026-02-24T21:00:00Z"
+      },
+      {
+        "id": "ac95fd47-5d74-49b5-9491-a8dfc9f8cd7e",
+        "client_order_id": "orb-stop-update-NVDA-9b054e4d64324202",
+        "created_at": "2026-02-24T17:45:03.560691Z",
+        "updated_at": "2026-02-24T17:45:04.191074Z",
+        "submitted_at": "2026-02-24T17:45:04.18647Z",
+        "filled_at": null,
+        "expired_at": null,
+        "canceled_at": null,
+        "failed_at": null,
+        "replaced_at": null,
+        "replaced_by": null,
+        "replaces": null,
+        "asset_id": "4ce9353c-66d1-46c2-898f-fce867ab0247",
+        "symbol": "NVDA",
+        "asset_class": "us_equity",
+        "notional": null,
+        "qty": "26",
+        "filled_qty": "0",
+        "filled_avg_price": null,
+        "order_class": "",
+        "order_type": "stop",
+        "type": "stop",
+        "side": "sell",
+        "position_intent": "sell_to_close",
+        "time_in_force": "day",
+        "limit_price": null,
+        "stop_price": "191.97",
+        "status": "new",
+        "extended_hours": false,
+        "legs": null,
+        "trail_percent": null,
+        "trail_price": null,
+        "hwm": null,
+        "subtag": null,
+        "source": "access_key",
+        "expires_at": "2026-02-24T21:00:00Z"
+      },
+      {
+        "id": "6f98d76d-81e8-4f6a-9a5f-9ff95233f765",
+        "client_order_id": "orb-stop-recover-AMD-a81a52bf00964131",
+        "created_at": "2026-02-24T17:20:05.408583Z",
+        "updated_at": "2026-02-24T17:20:05.417332Z",
+        "submitted_at": "2026-02-24T17:20:05.415818Z",
+        "filled_at": null,
+        "expired_at": null,
+        "canceled_at": null,
+        "failed_at": null,
+        "replaced_at": null,
+        "replaced_by": null,
+        "replaces": null,
+        "asset_id": "03fb07bb-5db1-4077-8dea-5d711b272625",
+        "symbol": "AMD",
+        "asset_class": "us_equity",
+        "notional": null,
+        "qty": "23",
+        "filled_qty": "0",
+        "filled_avg_price": null,
+        "order_class": "",
+        "order_type": "stop",
+        "type": "stop",
+        "side": "sell",
+        "position_intent": "sell_to_close",
+        "time_in_force": "day",
+        "limit_price": null,
+        "stop_price": "212.61",
+        "status": "new",
+        "extended_hours": false,
+        "legs": null,
+        "trail_percent": null,
+        "trail_price": null,
+        "hwm": null,
+        "subtag": null,
+        "source": "access_key",
+        "expires_at": "2026-02-24T21:00:00Z"
+      }
+    ],
+    "db_open_positions": [
+      {
+        "symbol": "AMD",
+        "side": "LONG",
+        "qty": 23,
+        "entry_ts": "2026-02-24 17:15:00+0000",
+        "stop_order_id": "6f98d76d-81e8-4f6a-9a5f-9ff95233f765",
+        "broker_order_id": "2914a20c-0088-45c0-95b6-3c3e50537d7a",
+        "strategy_id": "TF15_STACK_TSNP_UNLIMITED_LONG_CUTOFF_NONE"
+      },
+      {
+        "symbol": "AMZN",
+        "side": "LONG",
+        "qty": 24,
+        "entry_ts": "2026-02-24 15:30:00+0000",
+        "stop_order_id": "20680e19-197f-472f-ab33-044a16bc0442",
+        "broker_order_id": "3f27b755-e239-4be9-adf1-e9764d5a8201",
+        "strategy_id": "TF15_STACK_TSNP_UNLIMITED_LONG_CUTOFF_NONE"
+      },
+      {
+        "symbol": "META",
+        "side": "LONG",
+        "qty": 7,
+        "entry_ts": "2026-02-24 17:00:00+0000",
+        "stop_order_id": "221da718-226c-4efe-a96c-4030d7d68d87",
+        "broker_order_id": "3295c5b4-02e0-4110-ab43-06b07e40f168",
+        "strategy_id": "TF15_STACK_TSNP_UNLIMITED_LONG_CUTOFF_NONE"
+      },
+      {
+        "symbol": "NVDA",
+        "side": "LONG",
+        "qty": 26,
+        "entry_ts": "2026-02-24 16:00:00+0000",
+        "stop_order_id": "ac95fd47-5d74-49b5-9491-a8dfc9f8cd7e",
+        "broker_order_id": "643cef08-91a6-4a63-a28a-82d8b710b94b",
+        "strategy_id": "TF15_STACK_TSNP_UNLIMITED_LONG_CUTOFF_NONE"
+      }
+    ],
+    "mismatches": [
+      {
+        "symbol": "SPY",
+        "db_signed_qty": 0,
+        "broker_signed_qty": 7,
+        "delta": 7
+      },
+      {
+        "symbol": "TSLA",
+        "db_signed_qty": 0,
+        "broker_signed_qty": -12,
+        "delta": -12
+      },
+      {
+        "symbol": "VGT",
+        "db_signed_qty": 0,
+        "broker_signed_qty": -6,
+        "delta": -6
+      }
+    ],
+    "db_signed": {
+      "AMD": 23,
+      "AMZN": 24,
+      "META": 7,
+      "NVDA": 26
+    },
+    "broker_signed": {
+      "AMD": 23,
+      "AMZN": 24,
+      "META": 7,
+      "NVDA": 26,
+      "SPY": 7,
+      "TSLA": -12,
+      "VGT": -6
+    },
+    "recent_events": [
+      {
+        "created_at": "2026-02-24T17:45:04.756084+00:00",
+        "symbol": "AMZN",
+        "level": "ERROR",
+        "event_type": "stop_update_failed",
+        "message": "Failed to update stop for AMZN",
+        "data_json": "{\"attempted_stop\": 207.9855507111745, \"error\": \"{\\\"available\\\":\\\"0\\\",\\\"code\\\":40310000,\\\"existing_qty\\\":\\\"24\\\",\\\"held_for_orders\\\":\\\"24\\\",\\\"message\\\":\\\"insufficient qty available for order (requested: 24, available: 0)\\\",\\\"related_orders\\\":[\\\"6889536a-13c6-494b-b6b5-f441ca213c19\\\"],\\\"symbol\\\":\\\"AMZN\\\"}\", \"old_stop\": 207.84808027112467, \"old_stop_canceled\": 1, \"position_id\": \"c901a8ec-b047-4e0f-a267-b493357ee641\", \"restored_stop_order_id\": null}"
+      },
+      {
+        "created_at": "2026-02-24T17:15:07.233476+00:00",
+        "symbol": "AMD",
+        "level": "WARN",
+        "event_type": "protective_stop_deferred",
+        "message": "Deferred protective stop for AMD due to broker wash-trade guard",
+        "data_json": "{\"error\": \"{\\\"code\\\":40310000,\\\"existing_order_id\\\":\\\"2914a20c-0088-45c0-95b6-3c3e50537d7a\\\",\\\"message\\\":\\\"potential wash trade detected. use complex orders\\\",\\\"reject_reason\\\":\\\"opposite side market/stop order exists\\\"}\", \"qty\": 23, \"side\": \"LONG\", \"stop_price\": 212.6099951171875, \"strategy_id\": \"TF15_STACK_TSNP_UNLIMITED_LONG_CUTOFF_NONE\"}"
+      },
+      {
+        "created_at": "2026-02-24T17:10:09.662508+00:00",
+        "symbol": "VGT",
+        "level": "WARN",
+        "event_type": "protective_stop_deferred",
+        "message": "Deferred protective stop for VGT due to broker wash-trade guard",
+        "data_json": "{\"error\": \"{\\\"code\\\":40310000,\\\"existing_order_id\\\":\\\"fcc0107e-5b56-487f-ae86-cd657981c6f6\\\",\\\"message\\\":\\\"potential wash trade detected. use complex orders\\\",\\\"reject_reason\\\":\\\"opposite side market/stop order exists\\\"}\", \"qty\": 6, \"side\": \"LONG\", \"stop_price\": 737.4245703125, \"strategy_id\": \"TF15_STACK_TSNP_UNLIMITED_LONG_CUTOFF_NONE\"}"
+      },
+      {
+        "created_at": "2026-02-24T17:09:10.509290+00:00",
+        "symbol": "VGT",
+        "level": "WARN",
+        "event_type": "protective_stop_deferred",
+        "message": "Deferred protective stop for VGT due to broker wash-trade guard",
+        "data_json": "{\"error\": \"{\\\"code\\\":40310000,\\\"existing_order_id\\\":\\\"440ce347-87f6-4282-825a-93a02a9b0dc8\\\",\\\"message\\\":\\\"potential wash trade detected. use complex orders\\\",\\\"reject_reason\\\":\\\"opposite side market/stop order exists\\\"}\", \"qty\": 6, \"side\": \"LONG\", \"stop_price\": 737.4245703125, \"strategy_id\": \"TF15_STACK_TSNP_UNLIMITED_LONG_CUTOFF_NONE\"}"
+      },
+      {
+        "created_at": "2026-02-24T17:00:09.722987+00:00",
+        "symbol": "META",
+        "level": "WARN",
+        "event_type": "protective_stop_deferred",
+        "message": "Deferred protective stop for META due to broker wash-trade guard",
+        "data_json": "{\"error\": \"{\\\"code\\\":40310000,\\\"existing_order_id\\\":\\\"3295c5b4-02e0-4110-ab43-06b07e40f168\\\",\\\"message\\\":\\\"potential wash trade detected. use complex orders\\\",\\\"reject_reason\\\":\\\"opposite side market/stop order exists\\\"}\", \"qty\": 7, \"side\": \"LONG\", \"stop_price\": 637.6900732421875, \"strategy_id\": \"TF15_STACK_TSNP_UNLIMITED_LONG_CUTOFF_NONE\"}"
+      },
+      {
+        "created_at": "2026-02-24T17:00:05.793209+00:00",
+        "symbol": "TSLA",
+        "level": "WARN",
+        "event_type": "protective_stop_deferred",
+        "message": "Deferred protective stop for TSLA due to broker wash-trade guard",
+        "data_json": "{\"error\": \"{\\\"code\\\":40310000,\\\"existing_order_id\\\":\\\"ba47e3db-e4b6-4588-836a-cface3574649\\\",\\\"message\\\":\\\"potential wash trade detected. use complex orders\\\",\\\"reject_reason\\\":\\\"opposite side market/stop order exists\\\"}\", \"qty\": 12, \"side\": \"LONG\", \"stop_price\": 402.250009765625, \"strategy_id\": \"TF15_STACK_TSNP_UNLIMITED_LONG_CUTOFF_NONE\"}"
+      },
+      {
+        "created_at": "2026-02-24T16:00:03.946128+00:00",
+        "symbol": "NVDA",
+        "level": "WARN",
+        "event_type": "protective_stop_deferred",
+        "message": "Deferred protective stop for NVDA due to broker wash-trade guard",
+        "data_json": "{\"error\": \"{\\\"code\\\":40310000,\\\"existing_order_id\\\":\\\"643cef08-91a6-4a63-a28a-82d8b710b94b\\\",\\\"message\\\":\\\"potential wash trade detected. use complex orders\\\",\\\"reject_reason\\\":\\\"opposite side market/stop order exists\\\"}\", \"qty\": 26, \"side\": \"LONG\", \"stop_price\": 191.80869506835938, \"strategy_id\": \"TF15_STACK_TSNP_UNLIMITED_LONG_CUTOFF_NONE\"}"
+      },
+      {
+        "created_at": "2026-02-24T15:35:52.645003+00:00",
+        "symbol": "VTI",
+        "level": "WARN",
+        "event_type": "protective_stop_deferred",
+        "message": "Deferred protective stop for VTI due to broker wash-trade guard",
+        "data_json": "{\"error\": \"{\\\"code\\\":40310000,\\\"existing_order_id\\\":\\\"df5698b3-7229-4aa4-ba2f-da903e110ab4\\\",\\\"message\\\":\\\"potential wash trade detected. use complex orders\\\",\\\"reject_reason\\\":\\\"opposite side market/stop order exists\\\"}\", \"qty\": 14, \"side\": \"LONG\", \"stop_price\": 337.05500244140626, \"strategy_id\": \"TF15_STACK_TSNP_UNLIMITED_LONG_CUTOFF_NONE\"}"
+      },
+      {
+        "created_at": "2026-02-24T15:35:50.444932+00:00",
+        "symbol": "SCHG",
+        "level": "WARN",
+        "event_type": "protective_stop_deferred",
+        "message": "Deferred protective stop for SCHG due to broker wash-trade guard",
+        "data_json": "{\"error\": \"{\\\"code\\\":40310000,\\\"existing_order_id\\\":\\\"5f4a7a9a-a090-4d5b-97f7-2833cb6ae48d\\\",\\\"message\\\":\\\"potential wash trade detected. use complex orders\\\",\\\"reject_reason\\\":\\\"opposite side market/stop order exists\\\"}\", \"qty\": 162, \"side\": \"LONG\", \"stop_price\": 30.514999618530272, \"strategy_id\": \"TF15_STACK_TSNP_UNLIMITED_LONG_CUTOFF_NONE\"}"
+      },
+      {
+        "created_at": "2026-02-24T15:35:48.124631+00:00",
+        "symbol": "VOO",
+        "level": "WARN",
+        "event_type": "protective_stop_deferred",
+        "message": "Deferred protective stop for VOO due to broker wash-trade guard",
+        "data_json": "{\"error\": \"{\\\"code\\\":40310000,\\\"existing_order_id\\\":\\\"e4e58a79-7c10-4aeb-9cd6-82ee54243c66\\\",\\\"message\\\":\\\"potential wash trade detected. use complex orders\\\",\\\"reject_reason\\\":\\\"opposite side market/stop order exists\\\"}\", \"qty\": 7, \"side\": \"LONG\", \"stop_price\": 628.2000219726563, \"strategy_id\": \"TF15_STACK_TSNP_UNLIMITED_LONG_CUTOFF_NONE\"}"
+      },
+      {
+        "created_at": "2026-02-24T15:35:46.112061+00:00",
+        "symbol": "VGT",
+        "level": "WARN",
+        "event_type": "protective_stop_deferred",
+        "message": "Deferred protective stop for VGT due to broker wash-trade guard",
+        "data_json": "{\"error\": \"{\\\"code\\\":40310000,\\\"existing_order_id\\\":\\\"ea000908-25b7-4254-b907-ee9dffc58b2c\\\",\\\"message\\\":\\\"potential wash trade detected. use complex orders\\\",\\\"reject_reason\\\":\\\"opposite side market/stop order exists\\\"}\", \"qty\": 6, \"side\": \"LONG\", \"stop_price\": 734.5550024414063, \"strategy_id\": \"TF15_STACK_TSNP_UNLIMITED_LONG_CUTOFF_NONE\"}"
+      },
+      {
+        "created_at": "2026-02-24T15:35:43.189665+00:00",
+        "symbol": "AMZN",
+        "level": "WARN",
+        "event_type": "protective_stop_deferred",
+        "message": "Deferred protective stop for AMZN due to broker wash-trade guard",
+        "data_json": "{\"error\": \"{\\\"code\\\":40310000,\\\"existing_order_id\\\":\\\"3f27b755-e239-4be9-adf1-e9764d5a8201\\\",\\\"message\\\":\\\"potential wash trade detected. use complex orders\\\",\\\"reject_reason\\\":\\\"opposite side market/stop order exists\\\"}\", \"qty\": 24, \"side\": \"LONG\", \"stop_price\": 205.9500067138672, \"strategy_id\": \"TF15_STACK_TSNP_UNLIMITED_LONG_CUTOFF_NONE\"}"
+      },
+      {
+        "created_at": "2026-02-24T15:35:41.020215+00:00",
+        "symbol": "TSLA",
+        "level": "WARN",
+        "event_type": "protective_stop_deferred",
+        "message": "Deferred protective stop for TSLA due to broker wash-trade guard",
+        "data_json": "{\"error\": \"{\\\"code\\\":40310000,\\\"existing_order_id\\\":\\\"a0bce13f-59e3-47b7-a507-3327c1bee900\\\",\\\"message\\\":\\\"potential wash trade detected. use complex orders\\\",\\\"reject_reason\\\":\\\"opposite side market/stop order exists\\\"}\", \"qty\": 12, \"side\": \"LONG\", \"stop_price\": 401.8800146484375, \"strategy_id\": \"TF15_STACK_TSNP_UNLIMITED_LONG_CUTOFF_NONE\"}"
+      },
+      {
+        "created_at": "2026-02-24T15:35:38.795775+00:00",
+        "symbol": "SPY",
+        "level": "WARN",
+        "event_type": "protective_stop_deferred",
+        "message": "Deferred protective stop for SPY due to broker wash-trade guard",
+        "data_json": "{\"error\": \"{\\\"code\\\":40310000,\\\"existing_order_id\\\":\\\"ea89fbe9-c661-475e-8a67-92e8289b2d6d\\\",\\\"message\\\":\\\"potential wash trade detected. use complex orders\\\",\\\"reject_reason\\\":\\\"opposite side market/stop order exists\\\"}\", \"qty\": 7, \"side\": \"LONG\", \"stop_price\": 682.99, \"strategy_id\": \"TF15_OR_REENTRY_FAIL_LIMIT1_LONG_CUTOFF_NONE\"}"
+      }
+    ]
+  },
+  "r6": {
+    "broker_error": null,
+    "broker_base": "https://paper-api.alpaca.markets/v2",
+    "broker_open_positions": [
+      {
+        "asset_id": "f801f835-bfe6-4a9d-a6b1-ccbb84bfd75f",
+        "symbol": "AMZN",
+        "exchange": "NASDAQ",
+        "asset_class": "us_equity",
+        "asset_marginable": true,
+        "qty": "23",
+        "qty_available": "23",
+        "avg_entry_price": "209.592174",
+        "side": "long",
+        "market_value": "4813.578",
+        "cost_basis": "4820.620002",
+        "unrealized_pl": "-7.042002",
+        "unrealized_plpc": "-0.00146",
+        "unrealized_intraday_pl": "-7.042002",
+        "unrealized_intraday_plpc": "-0.00146",
+        "current_price": "209.286",
+        "lastday_price": "205.27",
+        "change_today": "0.01956"
+      }
+    ],
+    "broker_open_orders": [],
+    "db_open_positions": [],
+    "mismatches": [
+      {
+        "symbol": "AMZN",
+        "db_signed_qty": 0,
+        "broker_signed_qty": 23,
+        "delta": 23
+      }
+    ],
+    "db_signed": {},
+    "broker_signed": {
+      "AMZN": 23
+    },
+    "recent_events": [
+      {
+        "ts": "2026-02-24T11:52:25.167285-06:00",
+        "symbol": "VTI",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT VTI: required qty=14, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":14,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T11:52:23.689200-06:00",
+        "symbol": "SCHG",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT SCHG: required qty=164, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":164,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T11:52:21.381393-06:00",
+        "symbol": "MA",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT MA: required qty=10, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":10,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T11:52:19.599119-06:00",
+        "symbol": "ADBE",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT ADBE: required qty=20, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":20,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T11:52:18.167323-06:00",
+        "symbol": "V",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT V: required qty=16, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":16,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T11:52:16.556644-06:00",
+        "symbol": "META",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT META: required qty=7, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":7,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T11:52:14.554072-06:00",
+        "symbol": "AMZN",
+        "level": "WARN",
+        "event_type": "broker_untracked_position",
+        "message": "AMZN has broker open position but no DB open row; skipping new entries",
+        "data_json": "{\"broker_side\":\"long\",\"broker_qty\":\"23\"}"
+      },
+      {
+        "ts": "2026-02-24T11:52:13.635527-06:00",
+        "symbol": "MSFT",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT MSFT: required qty=13, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":13,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T11:52:12.228119-06:00",
+        "symbol": "TSLA",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT TSLA: required qty=12, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":12,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T11:46:07.962322-06:00",
+        "symbol": "AMZN",
+        "level": "WARN",
+        "event_type": "broker_untracked_position",
+        "message": "AMZN has broker open position but no DB open row; skipping new entries",
+        "data_json": "{\"broker_side\":\"long\",\"broker_qty\":\"23\"}"
+      },
+      {
+        "ts": "2026-02-24T11:31:13.304695-06:00",
+        "symbol": "AMZN",
+        "level": "WARN",
+        "event_type": "broker_untracked_position",
+        "message": "AMZN has broker open position but no DB open row; skipping new entries",
+        "data_json": "{\"broker_side\":\"long\",\"broker_qty\":\"23\"}"
+      },
+      {
+        "ts": "2026-02-24T11:16:06.373092-06:00",
+        "symbol": "AMZN",
+        "level": "WARN",
+        "event_type": "broker_untracked_position",
+        "message": "AMZN has broker open position but no DB open row; skipping new entries",
+        "data_json": "{\"broker_side\":\"long\",\"broker_qty\":\"23\"}"
+      },
+      {
+        "ts": "2026-02-24T11:10:47.677387-06:00",
+        "symbol": "VTI",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT VTI: required qty=14, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":14,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T11:10:45.972945-06:00",
+        "symbol": "SCHG",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT SCHG: required qty=164, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":164,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T11:10:43.618268-06:00",
+        "symbol": "MA",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT MA: required qty=10, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":10,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T11:10:41.800447-06:00",
+        "symbol": "ADBE",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT ADBE: required qty=20, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":20,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T11:10:40.373170-06:00",
+        "symbol": "V",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT V: required qty=16, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":16,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T11:10:38.828955-06:00",
+        "symbol": "META",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT META: required qty=7, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":7,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T11:10:36.941936-06:00",
+        "symbol": "AMZN",
+        "level": "ERROR",
+        "event_type": "entry_submit_failed",
+        "message": "AMZN entry submit failed: Alpaca API error 403: {\"code\":40310000,\"existing_order_id\":\"118f913a-dff5-4ae1-941d-601e870b1329\",\"message\":\"potential wash trade detected. use complex orders\",\"reject_reason\":\"opposite side market/stop order exists\"}",
+        "data_json": null
+      },
+      {
+        "ts": "2026-02-24T11:10:34.496477-06:00",
+        "symbol": "MSFT",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT MSFT: required qty=13, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":13,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T11:10:33.057654-06:00",
+        "symbol": "TSLA",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT TSLA: required qty=12, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":12,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T10:01:25.919482-06:00",
+        "symbol": "VTI",
+        "level": "WARN",
+        "event_type": "broker_untracked_position",
+        "message": "VTI has broker open position but no DB open row; skipping new entries",
+        "data_json": "{\"broker_side\":\"long\",\"broker_qty\":\"14\"}"
+      },
+      {
+        "ts": "2026-02-24T10:01:25.098492-06:00",
+        "symbol": "SCHG",
+        "level": "WARN",
+        "event_type": "broker_untracked_position",
+        "message": "SCHG has broker open position but no DB open row; skipping new entries",
+        "data_json": "{\"broker_side\":\"long\",\"broker_qty\":\"162\"}"
+      },
+      {
+        "ts": "2026-02-24T10:01:24.100543-06:00",
+        "symbol": "VOO",
+        "level": "WARN",
+        "event_type": "broker_untracked_position",
+        "message": "VOO has broker open position but no DB open row; skipping new entries",
+        "data_json": "{\"broker_side\":\"long\",\"broker_qty\":\"7\"}"
+      },
+      {
+        "ts": "2026-02-24T10:01:23.285414-06:00",
+        "symbol": "VGT",
+        "level": "WARN",
+        "event_type": "broker_untracked_position",
+        "message": "VGT has broker open position but no DB open row; skipping new entries",
+        "data_json": "{\"broker_side\":\"long\",\"broker_qty\":\"6\"}"
+      },
+      {
+        "ts": "2026-02-24T10:01:19.664198-06:00",
+        "symbol": "AMZN",
+        "level": "WARN",
+        "event_type": "broker_untracked_position",
+        "message": "AMZN has broker open position but no DB open row; skipping new entries",
+        "data_json": "{\"broker_side\":\"long\",\"broker_qty\":\"24\"}"
+      },
+      {
+        "ts": "2026-02-24T10:01:18.434407-06:00",
+        "symbol": "TSLA",
+        "level": "WARN",
+        "event_type": "broker_untracked_position",
+        "message": "TSLA has broker open position but no DB open row; skipping new entries",
+        "data_json": "{\"broker_side\":\"long\",\"broker_qty\":\"12\"}"
+      },
+      {
+        "ts": "2026-02-24T10:01:17.551395-06:00",
+        "symbol": "NVDA",
+        "level": "WARN",
+        "event_type": "broker_untracked_position",
+        "message": "NVDA has broker open position but no DB open row; skipping new entries",
+        "data_json": "{\"broker_side\":\"long\",\"broker_qty\":\"26\"}"
+      },
+      {
+        "ts": "2026-02-24T10:01:16.184231-06:00",
+        "symbol": "SPY",
+        "level": "WARN",
+        "event_type": "broker_untracked_position",
+        "message": "SPY has broker open position but no DB open row; skipping new entries",
+        "data_json": "{\"broker_side\":\"long\",\"broker_qty\":\"7\"}"
+      },
+      {
+        "ts": "2026-02-24T10:01:05.360686-06:00",
+        "symbol": "VTI",
+        "level": "WARN",
+        "event_type": "broker_untracked_position",
+        "message": "VTI has broker open position but no DB open row; skipping new entries",
+        "data_json": "{\"broker_side\":\"long\",\"broker_qty\":\"14\"}"
+      },
+      {
+        "ts": "2026-02-24T10:01:04.569934-06:00",
+        "symbol": "SCHG",
+        "level": "WARN",
+        "event_type": "broker_untracked_position",
+        "message": "SCHG has broker open position but no DB open row; skipping new entries",
+        "data_json": "{\"broker_side\":\"long\",\"broker_qty\":\"162\"}"
+      },
+      {
+        "ts": "2026-02-24T10:01:03.640429-06:00",
+        "symbol": "VOO",
+        "level": "WARN",
+        "event_type": "broker_untracked_position",
+        "message": "VOO has broker open position but no DB open row; skipping new entries",
+        "data_json": "{\"broker_side\":\"long\",\"broker_qty\":\"7\"}"
+      },
+      {
+        "ts": "2026-02-24T10:01:02.733712-06:00",
+        "symbol": "VGT",
+        "level": "WARN",
+        "event_type": "broker_untracked_position",
+        "message": "VGT has broker open position but no DB open row; skipping new entries",
+        "data_json": "{\"broker_side\":\"long\",\"broker_qty\":\"6\"}"
+      },
+      {
+        "ts": "2026-02-24T10:01:01.997991-06:00",
+        "symbol": "MA",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT MA: required qty=10, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":10,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T10:01:00.177710-06:00",
+        "symbol": "ADBE",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT ADBE: required qty=20, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":20,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T10:00:58.708230-06:00",
+        "symbol": "V",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT V: required qty=16, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":16,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T10:00:57.329096-06:00",
+        "symbol": "META",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT META: required qty=7, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":7,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T10:00:55.414075-06:00",
+        "symbol": "AMZN",
+        "level": "WARN",
+        "event_type": "broker_untracked_position",
+        "message": "AMZN has broker open position but no DB open row; skipping new entries",
+        "data_json": "{\"broker_side\":\"long\",\"broker_qty\":\"24\"}"
+      },
+      {
+        "ts": "2026-02-24T10:00:54.595798-06:00",
+        "symbol": "MSFT",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT MSFT: required qty=13, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":13,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T10:00:53.285832-06:00",
+        "symbol": "TSLA",
+        "level": "WARN",
+        "event_type": "broker_untracked_position",
+        "message": "TSLA has broker open position but no DB open row; skipping new entries",
+        "data_json": "{\"broker_side\":\"long\",\"broker_qty\":\"12\"}"
+      },
+      {
+        "ts": "2026-02-24T10:00:52.397612-06:00",
+        "symbol": "NVDA",
+        "level": "WARN",
+        "event_type": "broker_untracked_position",
+        "message": "NVDA has broker open position but no DB open row; skipping new entries",
+        "data_json": "{\"broker_side\":\"long\",\"broker_qty\":\"26\"}"
+      },
+      {
+        "ts": "2026-02-24T10:00:50.841687-06:00",
+        "symbol": "SPY",
+        "level": "WARN",
+        "event_type": "broker_untracked_position",
+        "message": "SPY has broker open position but no DB open row; skipping new entries",
+        "data_json": "{\"broker_side\":\"long\",\"broker_qty\":\"7\"}"
+      },
+      {
+        "ts": "2026-02-24T08:46:19.976607-06:00",
+        "symbol": "VTI",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT VTI: required qty=14, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":14,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T08:46:18.851447-06:00",
+        "symbol": "SCHG",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT SCHG: required qty=164, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":164,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T08:46:17.192230-06:00",
+        "symbol": "MA",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT MA: required qty=10, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":10,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T08:46:15.283767-06:00",
+        "symbol": "ADBE",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT ADBE: required qty=20, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":20,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T08:46:14.118051-06:00",
+        "symbol": "V",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT V: required qty=16, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":16,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T08:46:12.746547-06:00",
+        "symbol": "META",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT META: required qty=7, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":7,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T08:46:11.077726-06:00",
+        "symbol": "MSFT",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT MSFT: required qty=13, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":13,\"available_long_qty\":0}"
+      },
+      {
+        "ts": "2026-02-24T08:46:09.520040-06:00",
+        "symbol": "TSLA",
+        "level": "WARN",
+        "event_type": "short_blocked_no_inventory",
+        "message": "Blocked SHORT TSLA: required qty=12, available long qty=0",
+        "data_json": "{\"strategy_id\":\"R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY\",\"planned_qty\":12,\"available_long_qty\":0}"
+      }
+    ]
+  }
+}

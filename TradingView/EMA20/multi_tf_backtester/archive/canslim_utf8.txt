@@ -1,0 +1,18 @@
+﻿conda.exe : Traceback (most recent call last):
+At C:\ProgramData\miniconda3\shell\condabin\Conda.psm1:153 
+char:17
++ ...             & $Env:CONDA_EXE $Env:_CE_M $Env:_CE_CONDA 
+$Command @Othe ...
++                 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most rec 
+   ent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "E:\Machine Learning\TradingView\EMA20\multi_tf_backtester
+\canslim_experiment.py", line 16, in <module>
+    import matplotlib.pyplot as plt
+ModuleNotFoundError: No module named 'matplotlib'
+
+ERROR conda.cli.main_run:execute(127): `conda run python 
+canslim_experiment.py` failed. (See above for error)
