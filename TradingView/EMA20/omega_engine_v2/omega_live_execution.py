@@ -146,6 +146,17 @@ class OmegaLiveExecutionEngine:
         # Silenced Discord Heartbeat for Phase 14 1-minute resolution (prevent discord spam)
         logger.info(f"💓 OMEGA HEARTBEAT | Woke Up at {heartbeat_time} | Scanning {len(self.universe.get_universe())} tickers...")
         
+        # --- PHASE 25 COOLDOWN LEDGER READ ---
+        # Loads a local memory DB to prevent 60-second recursive revenge-trading flips
+        cooldown_file = os.path.join(os.path.dirname(__file__), 'omega_cooldown.json')
+        try:
+            with open(cooldown_file, 'r') as f:
+                cooldown_db = json.load(f)
+        except Exception:
+            cooldown_db = {}
+        import pytz
+        current_ts = datetime.now(pytz.timezone('America/New_York')).timestamp()
+
         # --- 1. Manage Existing Positions ---
         active_symbols = []
         try:
@@ -165,7 +176,8 @@ class OmegaLiveExecutionEngine:
             # we must liquidate the ENTIRE Straddle (both Call and Put) simultaneously 
             # to preserve the net mathematical payout and avoid naked directional risk.
             
-            exit_targets = set()
+            # Dictionary keyed by root_ticker to deduplicate identical leg liquidations
+            exit_targets = {}
             
             for position in positions:
                 symbol = position.symbol # The OCC String
@@ -176,9 +188,9 @@ class OmegaLiveExecutionEngine:
                 root_ticker = match.group(1) if match else symbol
                 
                 if unrealized_plpc > 25.0:
-                    exit_targets.add((root_ticker, "PROFIT TARGET", unrealized_plpc))
-                elif unrealized_plpc <= -20.0:
-                    exit_targets.add((root_ticker, "PHASE 24: HARD -20% VEGA STOP", unrealized_plpc))
+                    exit_targets[root_ticker] = ("PROFIT TARGET", unrealized_plpc)
+                elif unrealized_plpc <= -50.0:
+                    exit_targets[root_ticker] = ("PHASE 24: HARD -50% VEGA STOP (SPREAD ADJUSTED)", unrealized_plpc)
                 else:
                     # Intraday 2.5-Hour Theta Time Hook
                     time_held, action_type = self._get_position_time_held_and_action(symbol)
@@ -186,10 +198,11 @@ class OmegaLiveExecutionEngine:
                     # CRITICAL FIX: Only apply aggressive Theta Time Stops to Long Options (Action 1: Straddle)
                     # Short Premium (Iron Condors/Spreads) mathematically rely on holding to collect time decay.
                     if action_type == 1 and time_held >= 2.5 and unrealized_plpc < 5.0:
-                        exit_targets.add((root_ticker, "THETA TIME STOP (2.5hr)", unrealized_plpc))
+                        exit_targets[root_ticker] = ("THETA TIME STOP (2.5hr)", unrealized_plpc)
                     
             # Execute synchronized paired liquidations
-            for root_ticker, reason, trigger_plpc in exit_targets:
+            for root_ticker, data in exit_targets.items():
+                reason, trigger_plpc = data
                 msg = f"{'🟢' if 'PROFIT' in reason else '🔴'} **{reason} HIT [{root_ticker}]**: Leg at {trigger_plpc:+.1f}%. Liquidating entire Option Structure."
                 self.post_to_discord(msg)
                 logger.info(msg)
@@ -200,12 +213,16 @@ class OmegaLiveExecutionEngine:
                     p_root = match.group(1) if match else position.symbol
                     if p_root == root_ticker:
                         try:
-                            qty_abs = abs(float(position.qty))
-                            close_side = OrderSide.SELL if float(position.qty) > 0 else OrderSide.BUY
-                            req = MarketOrderRequest(symbol=position.symbol, qty=qty_abs, side=close_side, time_in_force=TimeInForce.DAY)
-                            o = self.trading_client.submit_order(order_data=req)
+                            # Use native Alpaca positional liquidator to prevent "Naked Selling" margin logic errors
+                            o = self.trading_client.close_position(symbol_or_asset_id=position.symbol)
                             self._log_internal_reason(str(o.id), reason, p_root)
                             logger.info(f"Liquidated Leg Component: {position.symbol}")
+                            
+                            # --- REGISTER 15-MINUTE COOLDOWN BAN ---
+                            cooldown_db[p_root] = current_ts
+                            try:
+                                with open(cooldown_file, 'w') as f: json.dump(cooldown_db, f)
+                            except: pass
                         except Exception as oe:
                             logger.error(f"Alpaca Exit Execution Failed for leg {position.symbol}: {oe}")
             # Rebuild Active Symbols completely fresh after liquidations
@@ -237,7 +254,7 @@ class OmegaLiveExecutionEngine:
         current_minute = now_est.minute
         
         # 1. Prevent generating triggers on yesterday's close during the first 15 minutes of the market
-        if now_est.hour == 9 and current_minute < 15:
+        if now_est.hour == 9 and current_minute >= 30 and current_minute < 45:
             logger.info("Market recently opened. Exits actively monitored. Awaiting first structural 15-Minute candle (09:45 AM) before authorizing new option capital.")
             return
 
@@ -356,6 +373,12 @@ class OmegaLiveExecutionEngine:
         for ticker in target_tickers:
             is_active_holding = (ticker in active_symbols)
                 
+            # --- PHASE 25: REVENGE-TRADING COOLDOWN QUARANTINE ---
+            if ticker in cooldown_db and not is_active_holding:
+                if (current_ts - cooldown_db[ticker]) < (15 * 60):
+                    logger.info(f"[{ticker}] is under a strict 15-Minute Cooldown ban from a recent Liquidation event. Bypassing Entry scanning completely.")
+                    continue
+            
             try:
                 # Poll Real-time 15-minute OHLC data natively from Alpaca
                 req = StockBarsRequest(
@@ -477,12 +500,15 @@ class OmegaLiveExecutionEngine:
                         p_root = match.group(1) if match else pos.symbol
                         if p_root == weakest_ticker:
                             try:
-                                qty_abs = abs(float(pos.qty))
-                                close_side = OrderSide.SELL if float(pos.qty) > 0 else OrderSide.BUY
-                                req = MarketOrderRequest(symbol=pos.symbol, qty=qty_abs, side=close_side, time_in_force=TimeInForce.DAY)
-                                o = self.trading_client.submit_order(order_data=req)
-                                self._log_internal_reason(str(o.id), "DYNAMIC ROTATION LIQUIDATION", weakest_ticker)
+                                co = self.trading_client.close_position(symbol_or_asset_id=pos.symbol)
+                                self._log_internal_reason(str(co.id), "DYNAMIC ROTATION LIQUIDATION", weakest_ticker)
                                 logger.info(f"Liquidated Leg Component: {pos.symbol} for Dynamic Rotation")
+                                
+                                # --- REGISTER 15-MINUTE COOLDOWN BAN ---
+                                cooldown_db[weakest_ticker] = current_ts
+                                try:
+                                    with open(cooldown_file, 'w') as f: json.dump(cooldown_db, f)
+                                except: pass
                             except Exception as oe:
                                 logger.error(f"Rotation Execution Failed for leg {pos.symbol}: {oe}")
                                 

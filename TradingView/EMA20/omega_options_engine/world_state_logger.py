@@ -112,12 +112,7 @@ class OptionsWorldStateLogger:
         
         conn.commit()
         conn.close()
-        
-        # Suppress duplicate logs natively since OmegaBaselineActor AND the main engine both invoke this layer
-        cls = self.__class__
-        if not getattr(cls, '_initialized_logged', False):
-            logger.info(f"Initialized Omega Telemetry Database at {self.db_path}")
-            setattr(cls, '_initialized_logged', True)
+        logger.info(f"Initialized Omega Telemetry Database at {self.db_path}")
 
     def log_state_and_action(self, timestamp: str, ticker: str, underlying_price: float, 
                              vix: float, spy_trend: float, options_chain: pd.DataFrame, 
