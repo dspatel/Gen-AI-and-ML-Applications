@@ -1,0 +1,25 @@
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [NVDA]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [MSFT]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [SPY]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [AMZN]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [QQQ]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [AAPL]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_portfolio_backtester:
+==================================================
+INFO:omega_portfolio_backtester:    CROSS-SECTIONAL PORTFOLIO PERFORMANCE    
+INFO:omega_portfolio_backtester:==================================================
+INFO:omega_portfolio_backtester:Total Portfolio Trades:    961
+INFO:omega_portfolio_backtester:Win Rate:                  51.30%
+INFO:omega_portfolio_backtester:Average Option Win:        +32.55%
+INFO:omega_portfolio_backtester:Average Option Loss:       -29.79%
+INFO:omega_portfolio_backtester:Cumulative Portfolio PnL:  +210.43%
+INFO:omega_portfolio_backtester:
+--- EXIT BREAKDOWN ---
+INFO:omega_portfolio_backtester:PROFIT TARGET (+25%): 493
+INFO:omega_portfolio_backtester:Phase 24: Hard -20% Vega Stop: 468
+INFO:omega_portfolio_backtester:==================================================
+

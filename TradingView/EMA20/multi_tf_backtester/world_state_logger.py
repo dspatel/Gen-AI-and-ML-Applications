@@ -30,6 +30,10 @@ def init_db():
         cur.execute('ALTER TABLE world_state_log ADD COLUMN fred_data JSON')
     except sqlite3.OperationalError:
         pass
+    try:
+        cur.execute('ALTER TABLE world_state_log ADD COLUMN options_data JSON')
+    except sqlite3.OperationalError:
+        pass
     conn.commit()
     return conn
 
@@ -114,34 +118,61 @@ def fetch_newsapi_headlines(start_time, end_time):
         
     return headlines
 
-def fetch_macro_headlines(start_time, end_time):
-    print("Fetching Yahoo Finance (Macro) news...")
-    headlines = []
+def get_alpaca_headers():
+    accounts_path = os.path.join(os.path.dirname(__file__), 'alpaca_accounts.json')
     try:
-        for symbol in ["SPY", "^VIX"]:
-            ticker = yf.Ticker(symbol)
-            news = ticker.news
+        with open(accounts_path, 'r') as f:
+            acc_data = json.load(f)
+            for acc in acc_data.get('accounts', []):
+                if acc.get('name') == 'Live Real Money':
+                    return {
+                        "APCA-API-KEY-ID": acc.get('key'),
+                        "APCA-API-SECRET-KEY": acc.get('secret')
+                    }
+    except Exception as e:
+        print(f"Failed to load alpaca credentials: {e}")
+    return None
+
+
+def fetch_macro_headlines(start_time, end_time):
+    print("Fetching Alpaca (Macro) news...")
+    headlines = []
+    
+    headers = get_alpaca_headers()
+    if not headers:
+        print("No Alpaca SIP credentials found.")
+        return headlines
+        
+    start_str = start_time.strftime('%Y-%m-%dT%H:%M:%SZ')
+    # NewsAPI endpoints like RFC3339 timestamps for start/end filtering.
+    end_str = end_time.strftime('%Y-%m-%dT%H:%M:%SZ')
+    
+    try:
+        # Fetch proxy macro info via ETFs
+        url = "https://data.alpaca.markets/v1beta1/news"
+        params = {
+            "symbols": "SPY,QQQ,TLT",
+            "start": start_str,
+            "end": end_str,
+            "limit": 30
+        }
+        
+        response = requests.get(url, params=params, headers=headers)
+        if response.status_code == 200:
+            news = response.json().get('news', [])
             for article in news:
-                pub_epoch = article.get('providerPublishTime')
-                if pub_epoch:
-                    pub_dt = datetime.datetime.utcfromtimestamp(pub_epoch)
-                    if not (start_time <= pub_dt <= end_time):
-                        continue
-                    time_str = pub_dt.strftime('%Y-%m-%dT%H:%M:%SZ')
-                else:
-                    time_str = end_time.strftime('%Y-%m-%dT%H:%M:%SZ')
-                    
-                title = article.get('title', '')
-                if not title and 'content' in article:
-                    title = article.get('content', {}).get('title', '')
+                title = article.get('headline', '')
+                pub_time = article.get('created_at', end_str)
                 if title:
                     headlines.append({
-                        "time": time_str,
+                        "time": pub_time,
                         "headline": title,
-                        "source": f"Yahoo-{symbol}"
+                        "source": "Alpaca-Macro"
                     })
+        else:
+             print(f"Error fetching Alpaca macro headlines: HTTP {response.status_code} {response.text}")
     except Exception as e:
-        print(f"Error fetching yahoo macro headlines: {e}")
+        print(f"Error fetching Alpaca macro headlines: {e}")
         
     return headlines
 
@@ -158,29 +189,58 @@ def fetch_fred_data(target_date):
     
     try:
         for series_id, name in fred_series.items():
-            url = f"https://api.stlouisfed.org/fred/series/observations?series_id={series_id}&api_key={FRED_API_KEY}&file_type=json&sort_order=desc&realtime_end={target_date_str}&observation_end={target_date_str}&limit=1"
+            # Request up to 5 days back to perfectly bridge weekends and holidays
+            url = f"https://api.stlouisfed.org/fred/series/observations?series_id={series_id}&api_key={FRED_API_KEY}&file_type=json&sort_order=desc&observation_end={target_date_str}&limit=5"
             response = requests.get(url, timeout=10)
             if response.status_code == 200:
                 data = response.json()
-                if 'observations' in data and len(data['observations']) > 0:
-                    val = data['observations'][0].get('value')
+                for obs in data.get('observations', []):
+                    val = obs.get('value')
                     if val != '.':
                         macro_data[name] = val
-                    else:
-                         url_fallback = f"https://api.stlouisfed.org/fred/series/observations?series_id={series_id}&api_key={FRED_API_KEY}&file_type=json&sort_order=desc&observation_end={target_date_str}&limit=2"
-                         resp_fb = requests.get(url_fallback)
-                         if resp_fb.status_code == 200:
-                             d_fb = resp_fb.json()
-                             for obs in d_fb.get('observations', []):
-                                 if obs.get('value') != '.':
-                                     macro_data[name] = obs.get('value')
-                                     break
+                        break
     except Exception as e:
         print(f"Error fetching FRED data for {target_date}: {e}")
         
     return macro_data
 
-def score_world_state(headlines, fred_data, conn, target_date):
+def fetch_options_data(target_date):
+    print(f"Fetching Volatility and Options Data for {target_date}...")
+    options_data = {}
+    
+    symbols = {
+        'VIX': '^VIX',          # CBOE Volatility Index
+        'VIX_3M': '^VIX3M',     # CBOE 3-Month Volatility
+        'VIX_9D': '^VIX9D',     # CBOE 9-Day Volatility
+        'SKEW': '^SKEW',        # CBOE SKEW Index
+        'VVIX': '^VVIX'         # VIX of VIX
+    }
+    
+    try:
+        # Pull last 7 days to cover weekends and pick closest historical close
+        start_date = (target_date - datetime.timedelta(days=7)).strftime('%Y-%m-%d')
+        end_date = (target_date + datetime.timedelta(days=1)).strftime('%Y-%m-%d')
+        
+        for name, ticker_str in symbols.items():
+            ticker = yf.Ticker(ticker_str)
+            hist = ticker.history(start=start_date, end=end_date)
+            if not hist.empty:
+                # Filter to rows on or before the target_date
+                valid_rows = hist[hist.index.tz_localize(None) <= pd.to_datetime(target_date)]
+                if not valid_rows.empty:
+                    last_val = valid_rows.iloc[-1]['Close']
+                    options_data[name] = float(last_val)
+                    
+        # Calculate Term Structure (Backwardation vs Contango)
+        if 'VIX_9D' in options_data and 'VIX_3M' in options_data:
+            options_data['VIX_Term_Structure_Ratio'] = round(options_data['VIX_9D'] / options_data['VIX_3M'], 3)
+            
+    except Exception as e:
+        print(f"Error fetching options/volatility data for {target_date}: {e}")
+        
+    return options_data
+
+def score_world_state(headlines, fred_data, options_data, conn, target_date):
     target_date_str = target_date.strftime('%Y-%m-%d')
     
     if not headlines:
@@ -219,6 +279,7 @@ def score_world_state(headlines, fred_data, conn, target_date):
     
     headlines_json = json.dumps(headlines)
     fred_json = json.dumps(fred_data)
+    options_json = json.dumps(options_data)
     
     print(f"--- World State Record ({target_date_str}) ---")
     print(f"Processed {valid_articles} global headlines with precision timestamps.")
@@ -227,9 +288,9 @@ def score_world_state(headlines, fred_data, conn, target_date):
     cur = conn.cursor()
     cur.execute('''
         INSERT OR REPLACE INTO world_state_log 
-        (date, sentiment_score, positive_prob, negative_prob, headlines, fred_data)
-        VALUES (?, ?, ?, ?, ?, ?)
-    ''', (target_date_str, polarity, avg_pos, avg_neg, headlines_json, fred_json))
+        (date, sentiment_score, positive_prob, negative_prob, headlines, fred_data, options_data)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    ''', (target_date_str, polarity, avg_pos, avg_neg, headlines_json, fred_json, options_json))
     
     conn.commit()
     print(f"[{target_date_str}] State successfully logged to the Telemetry Hive.")
@@ -269,8 +330,11 @@ if __name__ == "__main__":
             # Fetch FRED Macro Data for the end date target
             fred_data = fetch_fred_data(target_date)
             
+            # Fetch Options/Vol Data
+            options_data = fetch_options_data(target_date)
+            
             # Score and Log
-            score_world_state(all_headlines, fred_data, conn, target_date)
+            score_world_state(all_headlines, fred_data, options_data, conn, target_date)
             
         update_checkpoint(now_utc)
         print("\nCheckpoint successfully updated. Pipeline Sleep Mode Initialized.")

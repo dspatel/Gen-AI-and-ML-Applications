@@ -21,17 +21,18 @@ def run_ingest(
     session_end: str,
     provider: str = "alpaca",
     alpaca_feed: str = "iex",
+    alpaca_env_prefix: str | None = None,
 ):
     src = provider.strip().lower()
     if src == "alpaca":
-        df = fetch_alpaca_intraday(symbol, interval, start_cst, end_cst, feed=alpaca_feed)
+        df = fetch_alpaca_intraday(symbol, interval, start_cst, end_cst, feed=alpaca_feed, env_prefix=alpaca_env_prefix)
         source = f"alpaca:{alpaca_feed}"
     elif src == "yahoo":
         df = fetch_yf_intraday(symbol, interval, start_cst, end_cst)
         source = "yfinance"
     elif src == "auto":
         try:
-            df = fetch_alpaca_intraday(symbol, interval, start_cst, end_cst, feed=alpaca_feed)
+            df = fetch_alpaca_intraday(symbol, interval, start_cst, end_cst, feed=alpaca_feed, env_prefix=alpaca_env_prefix)
             source = f"alpaca:{alpaca_feed}"
         except Exception:
             df = fetch_yf_intraday(symbol, interval, start_cst, end_cst)

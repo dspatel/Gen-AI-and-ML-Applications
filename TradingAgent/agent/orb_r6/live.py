@@ -132,7 +132,7 @@ def run(config_path: str = "orb_r6_config.yaml") -> None:
 
     # Ensure DB has everything we need for today session (prior sessions + OR table + RR rows).
     # This is DB-first: fetch candles if missing, compute ORs, compute RR rows (both variants).
-    ensure_asof_ready(conn, cfg, session_date_cst)
+    ensure_asof_ready(conn, cfg, session_date_cst, alpaca_env_prefix="R6")
 
     # Load RR rows (complete-only). Pre-OR should usually be complete. Post-OR may become complete after OR is computed.
     rr_pre_by_sym: Dict[str, Dict[int, object]] = {}
@@ -190,7 +190,7 @@ def run(config_path: str = "orb_r6_config.yaml") -> None:
 
         # After OR end, refresh RR_post once (because it may have been incomplete earlier).
         if (not refreshed_post_rr) and (now_cst >= or_end_dt):
-            ensure_asof_ready(conn, cfg, session_date_cst)
+            ensure_asof_ready(conn, cfg, session_date_cst, alpaca_env_prefix="R6")
             for sym in symbols:
                 rr_post_by_sym[sym] = load_rr_rows(conn, sym, session_date_cst, or_minutes, interval, include_today_or=1)
                 rr_seed_by_sym[sym] = rr_seed_by_sym[sym] or rr_post_by_sym[sym]
@@ -211,6 +211,7 @@ def run(config_path: str = "orb_r6_config.yaml") -> None:
                     session_end=cfg.session.end,
                     provider=cfg.market_data.provider,
                     alpaca_feed=cfg.market_data.alpaca_feed,
+                    alpaca_env_prefix="R6",
                 )
             except Exception as e:
                 print(f"[WARN] ingest failed for {sym}: {e}")

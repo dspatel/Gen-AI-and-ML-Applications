@@ -27,6 +27,8 @@ class SelectionConfig:
     min_val_trades: int
     data_provider: str
     db_path: str = "orb_research.db"
+    alpaca_env_prefix: str | None = None
+    alpaca_feed: str = "iex"
 
 
 def should_reselect(last_asof_date: str | None, today: date, frequency: str) -> bool:
@@ -66,6 +68,8 @@ class StrategyReselector:
                 start=train_start.isoformat(),
                 end=val_end.isoformat(),
                 provider=self.config.data_provider,
+                env_prefix=self.config.alpaca_env_prefix,
+                alpaca_feed=self.config.alpaca_feed,
             )
             if bars.empty:
                 symbol_reports.append(

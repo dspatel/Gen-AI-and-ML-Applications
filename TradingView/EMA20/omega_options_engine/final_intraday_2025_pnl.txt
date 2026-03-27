@@ -1,0 +1,25 @@
+INFO:omega_actor:NVDA THETA STOP HIT: Straddle held 3.0hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:TSLA THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:META THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:AAPL THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [NVDA]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [TSLA]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [META]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [AMD]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_portfolio_backtester:
+==================================================
+INFO:omega_portfolio_backtester:    CROSS-SECTIONAL PORTFOLIO PERFORMANCE    
+INFO:omega_portfolio_backtester:==================================================
+INFO:omega_portfolio_backtester:Total Portfolio Trades:    4396
+INFO:omega_portfolio_backtester:Win Rate:                  70.75%
+INFO:omega_portfolio_backtester:Average Option Win:        +6.00%
+INFO:omega_portfolio_backtester:Average Option Loss:       -1.27%
+INFO:omega_portfolio_backtester:Cumulative Portfolio PnL:  +1702.98%
+INFO:omega_portfolio_backtester:
+--- EXIT BREAKDOWN ---
+INFO:omega_portfolio_backtester:Profit Target Reached: 293
+INFO:omega_portfolio_backtester:EOD THETA STOP: 2198
+INFO:omega_portfolio_backtester:Theta Time Stop: 1898
+INFO:omega_portfolio_backtester:Phase 24: Hard -20% Vega Stop: 7
+INFO:omega_portfolio_backtester:==================================================
+

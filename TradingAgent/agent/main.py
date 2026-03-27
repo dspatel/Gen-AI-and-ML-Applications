@@ -196,6 +196,8 @@ def main() -> None:
                 min_val_trades=config.min_val_trades,
                 data_provider=config.data_provider,
                 db_path=config.db_path,
+                alpaca_env_prefix=None,
+                alpaca_feed="iex",
             )
         ).run()
     elif args.mode == "trade":
@@ -275,6 +277,8 @@ def main() -> None:
                 min_val_trades=profile.min_val_trades,
                 data_provider=live_provider,
                 selection_data_provider=profile.selection_data_provider,
+                alpaca_env_prefix="ORB",
+                alpaca_feed=profile.live_alpaca_feed,
                 db_path=profile.db_path,
                 dry_run=args.dry_run,
                 risk_pct_per_trade=profile.risk_pct_per_trade,
@@ -317,6 +321,8 @@ def main() -> None:
             min_val_trades=profile.min_val_trades,
             data_provider=live_provider,
             selection_data_provider=profile.selection_data_provider,
+            alpaca_env_prefix="ORB",
+            alpaca_feed=profile.live_alpaca_feed,
             db_path=profile.db_path,
             dry_run=args.dry_run,
             risk_pct_per_trade=profile.risk_pct_per_trade,

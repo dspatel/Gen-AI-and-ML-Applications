@@ -1,0 +1,226 @@
+2026-03-18 00:09:14,143 - INFO - Backtester loaded Alpaca credentials: Paper Account
+2026-03-18 00:09:14,143 - INFO - Loaded Alpaca credentials for account: Paper Account
+2026-03-18 00:09:14,144 - INFO - Initialized Omega Telemetry Database at .\omega_telemetry.db
+2026-03-18 00:09:14,144 - INFO - Execution Engine loaded Alpaca credentials for: Paper Account
+2026-03-18 00:09:14,144 - INFO - Initialized Omega Telemetry Database at E:\Machine Learning\TradingView\EMA20\omega_options_engine\omega_telemetry.db
+2026-03-18 00:09:14,145 - INFO - Initialized Omega Telemetry Database at E:\Machine Learning\TradingView\EMA20\omega_options_engine\omega_backtest_results.db
+2026-03-18 00:09:14,145 - INFO - Initializing Omega Time Machine for Extended 90-Day Backtest...
+2026-03-18 00:09:14,145 - INFO - Fetching historical 15m stock bars for SPY from 2025-12-18 to 2026-03-18...
+2026-03-18 00:09:14,622 - INFO - Loaded 727 15-minute historical bars for SPY.
+2026-03-18 00:09:14,624 - INFO - [2025-12-18 13:30:00+00:00] ORB BREAKOUT: Entering Call SPY260117C00677100 | Underlying: $677.10
+2026-03-18 00:09:14,624 - INFO - SPY THETA STOP HIT: Held 1.5hrs with zero momentum. Cutting Theta bleed.
+2026-03-18 00:09:14,624 - INFO - [2025-12-18 15:00:00+00:00] EXIT TRIGGERED [Theta Time Stop]: Sold SPY260117C00677100. Approx option return: -0.27%
+2026-03-18 00:09:14,624 - INFO - [2025-12-18 15:15:00+00:00] ORB BREAKOUT: Entering Call SPY260117C00679010 | Underlying: $679.01
+2026-03-18 00:09:14,625 - INFO - [2025-12-18 15:45:00+00:00] EOD THETA STOP: Liquidating SPY260117C00679010 at market close.
+2026-03-18 00:09:14,625 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,625 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,625 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,625 - INFO - [2025-12-18 17:00:00+00:00] ORB BREAKOUT: Entering Call SPY260117C00676440 | Underlying: $676.44
+2026-03-18 00:09:14,625 - INFO - SPY TREND STOP HIT: Price 675.78 dropped below EMA 677.4972854955505.
+2026-03-18 00:09:14,625 - INFO - [2025-12-18 17:15:00+00:00] EXIT TRIGGERED [EMA Trend Break]: Sold SPY260117C00676440. Approx option return: -0.49%
+2026-03-18 00:09:14,625 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,625 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,625 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,625 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,625 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,625 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,625 - INFO - ORB Bullish rejected due to Bearish Daily Trend.
+2026-03-18 00:09:14,625 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,625 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,626 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,626 - INFO - ORB Bullish rejected due to Bearish Daily Trend.
+2026-03-18 00:09:14,626 - INFO - ORB Bullish rejected due to Bearish Daily Trend.
+2026-03-18 00:09:14,626 - INFO - ORB Bullish rejected due to Bearish Daily Trend.
+2026-03-18 00:09:14,626 - INFO - ORB Bullish rejected due to Bearish Daily Trend.
+2026-03-18 00:09:14,626 - INFO - ORB Bullish rejected due to Bearish Daily Trend.
+2026-03-18 00:09:14,626 - INFO - ORB Bullish rejected due to Bearish Daily Trend.
+2026-03-18 00:09:14,626 - INFO - ORB Bullish rejected due to Bearish Daily Trend.
+2026-03-18 00:09:14,626 - INFO - ORB Bullish rejected due to Bearish Daily Trend.
+2026-03-18 00:09:14,626 - INFO - ORB Bullish rejected due to Bearish Daily Trend.
+2026-03-18 00:09:14,627 - INFO - [2025-12-19 14:30:00+00:00] ORB BREAKOUT: Entering Call SPY260118C00679410 | Underlying: $679.41
+2026-03-18 00:09:14,627 - INFO - [2025-12-19 15:45:00+00:00] EOD THETA STOP: Liquidating SPY260118C00679410 at market close.
+2026-03-18 00:09:14,627 - INFO - [2025-12-19 16:00:00+00:00] ORB BREAKOUT: Entering Call SPY260118C00679650 | Underlying: $679.65
+2026-03-18 00:09:14,627 - INFO - [2025-12-19 16:45:00+00:00] EOD THETA STOP: Liquidating SPY260118C00679650 at market close.
+2026-03-18 00:09:14,627 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,627 - INFO - [2025-12-19 17:15:00+00:00] ORB BREAKOUT: Entering Call SPY260118C00680680 | Underlying: $680.68
+2026-03-18 00:09:14,627 - INFO - [2025-12-19 17:45:00+00:00] EOD THETA STOP: Liquidating SPY260118C00680680 at market close.
+2026-03-18 00:09:14,627 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,627 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,628 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,628 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,628 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,628 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,628 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,628 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,628 - INFO - [2025-12-19 20:30:00+00:00] ORB BREAKOUT: Entering Call SPY260118C00679940 | Underlying: $679.94
+2026-03-18 00:09:14,628 - INFO - [2025-12-19 20:45:00+00:00] EOD THETA STOP: Liquidating SPY260118C00679940 at market close.
+2026-03-18 00:09:14,628 - INFO - [2025-12-19 21:00:00+00:00] ORB BREAKOUT: Entering Call SPY260118C00680650 | Underlying: $680.65
+2026-03-18 00:09:14,628 - INFO - [2025-12-19 21:45:00+00:00] EOD THETA STOP: Liquidating SPY260118C00680650 at market close.
+2026-03-18 00:09:14,628 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,628 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,628 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,628 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,628 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,628 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,629 - INFO - [2025-12-22 13:15:00+00:00] ORB BREAKOUT: Entering Call SPY260121C00683600 | Underlying: $683.60
+2026-03-18 00:09:14,629 - INFO - SPY THETA STOP HIT: Held 1.5hrs with zero momentum. Cutting Theta bleed.
+2026-03-18 00:09:14,629 - INFO - [2025-12-22 14:45:00+00:00] EXIT TRIGGERED [Theta Time Stop]: Sold SPY260121C00683600. Approx option return: 0.27%
+2026-03-18 00:09:14,629 - INFO - [2025-12-22 15:15:00+00:00] ORB BREAKOUT: Entering Call SPY260121C00683770 | Underlying: $683.77
+2026-03-18 00:09:14,629 - INFO - [2025-12-22 15:45:00+00:00] EOD THETA STOP: Liquidating SPY260121C00683770 at market close.
+2026-03-18 00:09:14,630 - INFO - [2025-12-22 16:00:00+00:00] ORB BREAKOUT: Entering Call SPY260121C00684645 | Underlying: $684.64
+2026-03-18 00:09:14,630 - INFO - [2025-12-22 16:45:00+00:00] EOD THETA STOP: Liquidating SPY260121C00684645 at market close.
+2026-03-18 00:09:14,630 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,630 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,630 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,630 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,630 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,630 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,630 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,630 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,630 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,630 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,630 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,630 - INFO - [2025-12-22 20:30:00+00:00] ORB BREAKOUT: Entering Call SPY260121C00684915 | Underlying: $684.92
+2026-03-18 00:09:14,630 - INFO - [2025-12-22 20:45:00+00:00] EOD THETA STOP: Liquidating SPY260121C00684915 at market close.
+2026-03-18 00:09:14,630 - INFO - [2025-12-22 21:00:00+00:00] ORB BREAKOUT: Entering Call SPY260121C00684980 | Underlying: $684.98
+2026-03-18 00:09:14,631 - INFO - [2025-12-22 21:45:00+00:00] EOD THETA STOP: Liquidating SPY260121C00684980 at market close.
+2026-03-18 00:09:14,631 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,631 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,631 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,631 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,631 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,631 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,632 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,632 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,632 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,632 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,632 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,632 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,632 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,632 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,632 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,632 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,632 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,632 - INFO - [2025-12-23 21:00:00+00:00] ORB BREAKOUT: Entering Call SPY260122C00687700 | Underlying: $687.70
+2026-03-18 00:09:14,632 - INFO - [2025-12-23 21:45:00+00:00] EOD THETA STOP: Liquidating SPY260122C00687700 at market close.
+2026-03-18 00:09:14,632 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,633 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,633 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,633 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,633 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,633 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,634 - INFO - [2025-12-24 16:00:00+00:00] ORB BREAKOUT: Entering Call SPY260123C00689890 | Underlying: $689.89
+2026-03-18 00:09:14,634 - INFO - [2025-12-24 16:45:00+00:00] EOD THETA STOP: Liquidating SPY260123C00689890 at market close.
+2026-03-18 00:09:14,634 - INFO - [2025-12-24 17:00:00+00:00] ORB BREAKOUT: Entering Call SPY260123C00690590 | Underlying: $690.59
+2026-03-18 00:09:14,634 - INFO - [2025-12-24 17:45:00+00:00] EOD THETA STOP: Liquidating SPY260123C00690590 at market close.
+2026-03-18 00:09:14,634 - INFO - [2025-12-24 18:00:00+00:00] ORB BREAKOUT: Entering Call SPY260123C00690110 | Underlying: $690.11
+2026-03-18 00:09:14,634 - INFO - [2025-12-24 18:45:00+00:00] EOD THETA STOP: Liquidating SPY260123C00690110 at market close.
+2026-03-18 00:09:14,634 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,634 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,634 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,635 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,635 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,635 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,635 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,635 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,635 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,637 - INFO - [2025-12-29 13:45:00+00:00] ORB BREAKOUT: Entering Put SPY260128P00687648 | Underlying: $687.65
+2026-03-18 00:09:14,637 - INFO - SPY THETA STOP HIT: Held 1.5hrs with zero momentum. Cutting Theta bleed.
+2026-03-18 00:09:14,637 - INFO - [2025-12-29 15:15:00+00:00] EXIT TRIGGERED [Theta Time Stop]: Sold SPY260128P00687648. Approx option return: -0.22%
+2026-03-18 00:09:14,638 - INFO - [2025-12-29 16:00:00+00:00] ORB BREAKOUT: Entering Put SPY260128P00687480 | Underlying: $687.48
+2026-03-18 00:09:14,638 - INFO - [2025-12-29 16:45:00+00:00] EOD THETA STOP: Liquidating SPY260128P00687480 at market close.
+2026-03-18 00:09:14,638 - INFO - ORB Bearish rejected due to Low Volume.
+2026-03-18 00:09:14,638 - INFO - ORB Bearish rejected due to Low Volume.
+2026-03-18 00:09:14,638 - INFO - ORB Bearish rejected due to Low Volume.
+2026-03-18 00:09:14,638 - INFO - ORB Bearish rejected due to Low Volume.
+2026-03-18 00:09:14,638 - INFO - ORB Bearish rejected due to Low Volume.
+2026-03-18 00:09:14,638 - INFO - ORB Bearish rejected due to Low Volume.
+2026-03-18 00:09:14,638 - INFO - ORB Bearish rejected due to Low Volume.
+2026-03-18 00:09:14,638 - INFO - ORB Bearish rejected due to Low Volume.
+2026-03-18 00:09:14,638 - INFO - ORB Bearish rejected due to Low Volume.
+2026-03-18 00:09:14,638 - INFO - [2025-12-29 21:00:00+00:00] ORB BREAKOUT: Entering Put SPY260128P00687780 | Underlying: $687.78
+2026-03-18 00:09:14,638 - INFO - SPY TREND STOP HIT: Price 688.0 spiked above EMA 687.7254444971012.
+2026-03-18 00:09:14,638 - INFO - [2025-12-29 21:15:00+00:00] EXIT TRIGGERED [EMA Trend Break]: Sold SPY260128P00687780. Approx option return: -0.16%
+2026-03-18 00:09:14,639 - INFO - ORB Bearish rejected due to Low Volume.
+2026-03-18 00:09:14,639 - INFO - ORB Bearish rejected due to Low Volume.
+2026-03-18 00:09:14,639 - INFO - ORB Bearish rejected due to Low Volume.
+2026-03-18 00:09:14,641 - INFO - [2025-12-31 16:00:00+00:00] ORB BREAKOUT: Entering Put SPY260130P00684550 | Underlying: $684.55
+2026-03-18 00:09:14,641 - INFO - [2025-12-31 16:45:00+00:00] EOD THETA STOP: Liquidating SPY260130P00684550 at market close.
+2026-03-18 00:09:14,641 - INFO - [2025-12-31 19:30:00+00:00] ORB BREAKOUT: Entering Put SPY260130P00684560 | Underlying: $684.56
+2026-03-18 00:09:14,641 - INFO - [2025-12-31 19:45:00+00:00] EOD THETA STOP: Liquidating SPY260130P00684560 at market close.
+2026-03-18 00:09:14,641 - INFO - [2025-12-31 20:00:00+00:00] ORB BREAKOUT: Entering Put SPY260130P00683240 | Underlying: $683.24
+2026-03-18 00:09:14,641 - INFO - [2025-12-31 20:45:00+00:00] EOD THETA STOP: Liquidating SPY260130P00683240 at market close.
+2026-03-18 00:09:14,641 - INFO - [2025-12-31 21:00:00+00:00] ORB BREAKOUT: Entering Put SPY260130P00682480 | Underlying: $682.48
+2026-03-18 00:09:14,641 - INFO - [2025-12-31 21:45:00+00:00] EOD THETA STOP: Liquidating SPY260130P00682480 at market close.
+2026-03-18 00:09:14,642 - INFO - ORB Bearish rejected due to Low Volume.
+2026-03-18 00:09:14,642 - INFO - ORB Bearish rejected due to Low Volume.
+2026-03-18 00:09:14,642 - INFO - ORB Bearish rejected due to Low Volume.
+2026-03-18 00:09:14,642 - INFO - ORB Bearish rejected due to Low Volume.
+2026-03-18 00:09:14,642 - INFO - ORB Bearish rejected due to Low Volume.
+2026-03-18 00:09:14,642 - INFO - ORB Bearish rejected due to Low Volume.
+2026-03-18 00:09:14,642 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,642 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,642 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,642 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,642 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,642 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,642 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,642 - INFO - [2026-01-02 11:45:00+00:00] ORB BREAKOUT: Entering Call SPY260201C00686240 | Underlying: $686.24
+2026-03-18 00:09:14,642 - INFO - SPY THETA STOP HIT: Held 1.5hrs with zero momentum. Cutting Theta bleed.
+2026-03-18 00:09:14,642 - INFO - [2026-01-02 13:15:00+00:00] EXIT TRIGGERED [Theta Time Stop]: Sold SPY260201C00686240. Approx option return: -0.34%
+2026-03-18 00:09:14,643 - INFO - [2026-01-02 14:45:00+00:00] ORB BREAKOUT: Entering Call SPY260201C00686190 | Underlying: $686.19
+2026-03-18 00:09:14,643 - INFO - SPY TREND STOP HIT: Price 684.35 dropped below EMA 685.5069708627057.
+2026-03-18 00:09:14,643 - INFO - [2026-01-02 15:00:00+00:00] EXIT TRIGGERED [EMA Trend Break]: Sold SPY260201C00686190. Approx option return: -1.34%
+2026-03-18 00:09:14,643 - INFO - [2026-01-02 16:00:00+00:00] ORB BREAKOUT: Entering Put SPY260201P00681840 | Underlying: $681.84
+2026-03-18 00:09:14,643 - INFO - [2026-01-02 16:45:00+00:00] EOD THETA STOP: Liquidating SPY260201P00681840 at market close.
+2026-03-18 00:09:14,643 - INFO - ORB Bearish rejected due to Low Volume.
+2026-03-18 00:09:14,643 - INFO - ORB Bearish rejected due to Low Volume.
+2026-03-18 00:09:14,643 - INFO - ORB Bearish rejected due to Low Volume.
+2026-03-18 00:09:14,644 - INFO - [2026-01-05 14:15:00+00:00] ORB BREAKOUT: Entering Call SPY260204C00686520 | Underlying: $686.52
+2026-03-18 00:09:14,644 - INFO - [2026-01-05 15:45:00+00:00] EOD THETA STOP: Liquidating SPY260204C00686520 at market close.
+2026-03-18 00:09:14,644 - INFO - [2026-01-05 16:00:00+00:00] ORB BREAKOUT: Entering Call SPY260204C00688360 | Underlying: $688.36
+2026-03-18 00:09:14,645 - INFO - [2026-01-05 16:45:00+00:00] EOD THETA STOP: Liquidating SPY260204C00688360 at market close.
+2026-03-18 00:09:14,645 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,645 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,645 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,645 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,645 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,645 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,645 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,645 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,645 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,645 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,645 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,645 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,645 - INFO - [2026-01-05 21:00:00+00:00] ORB BREAKOUT: Entering Call SPY260204C00687590 | Underlying: $687.59
+2026-03-18 00:09:14,645 - INFO - SPY TREND STOP HIT: Price 687.7 dropped below EMA 687.8492599045677.
+2026-03-18 00:09:14,645 - INFO - [2026-01-05 21:15:00+00:00] EXIT TRIGGERED [EMA Trend Break]: Sold SPY260204C00687590. Approx option return: 0.08%
+2026-03-18 00:09:14,645 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,645 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,646 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,646 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,646 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,646 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,646 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,646 - INFO - [2026-01-06 14:45:00+00:00] ORB BREAKOUT: Entering Call SPY260205C00690075 | Underlying: $690.08
+2026-03-18 00:09:14,646 - INFO - [2026-01-06 15:45:00+00:00] EOD THETA STOP: Liquidating SPY260205C00690075 at market close.
+2026-03-18 00:09:14,647 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,647 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,647 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,647 - INFO - ORB Bullish rejected due to Low Volume.
+2026-03-18 00:09:14,647 - INFO - 
+==================================================
+2026-03-18 00:09:14,647 - INFO -     BLIND DATA OPTIONS PERFORMANCE (SPY)     
+2026-03-18 00:09:14,647 - INFO - ==================================================
+2026-03-18 00:09:14,647 - INFO - Total Simulated Trades:    8
+2026-03-18 00:09:14,647 - INFO - Win Rate:                  25.00%
+2026-03-18 00:09:14,647 - INFO - Average Winning Trade:     +0.18%
+2026-03-18 00:09:14,647 - INFO - Average Losing Trade:      -0.47%
+2026-03-18 00:09:14,647 - INFO - Cumulative Options PnL:    -2.47%
+2026-03-18 00:09:14,647 - INFO - Average Daily Return (ADR): -0.49%
+2026-03-18 00:09:14,647 - INFO - 
+--- EXIT REASON BREAKDOWN ---
+2026-03-18 00:09:14,647 - INFO - Theta Time Stop: 4 trades
+2026-03-18 00:09:14,647 - INFO - EMA Trend Break: 4 trades
+2026-03-18 00:09:14,647 - INFO - ==================================================
+

@@ -12,7 +12,13 @@ from .compute_reference_metrics import compute_reference_metrics_for_asof, ensur
 from .time_utils import combine_cst_date_time
 
 
-def ensure_asof_ready(conn: sqlite3.Connection, cfg: AppConfig, asof_date_cst: str) -> None:
+def ensure_asof_ready(
+    conn: sqlite3.Connection,
+    cfg: AppConfig,
+    asof_date_cst: str,
+    *,
+    alpaca_env_prefix: str | None = None,
+) -> None:
     """DB-first: ensure candles, opening_ranges, and RR metrics exist for an as-of session date.
 
     Rules:
@@ -52,6 +58,7 @@ def ensure_asof_ready(conn: sqlite3.Connection, cfg: AppConfig, asof_date_cst: s
             session_end=cfg.session.end,
             provider=cfg.market_data.provider,
             alpaca_feed=cfg.market_data.alpaca_feed,
+            alpaca_env_prefix=alpaca_env_prefix,
         )
 
     # Step 2: ORs

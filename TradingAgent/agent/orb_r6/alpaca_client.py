@@ -38,13 +38,31 @@ def fetch_alpaca_intraday(
     end_cst: datetime,
     *,
     feed: str = "iex",
+    env_prefix: str | None = None,
 ) -> pd.DataFrame:
-    api_key = os.getenv("ALPACA_API_KEY")
-    secret_key = os.getenv("ALPACA_SECRET_KEY")
-    if not api_key or not secret_key:
-        raise RuntimeError("Missing ALPACA_API_KEY / ALPACA_SECRET_KEY for Alpaca historical ingestion")
+    prefixes: list[str] = []
+    if env_prefix and str(env_prefix).strip():
+        prefixes.append(f"{str(env_prefix).strip().upper()}_")
+    prefixes.append("")
 
-    data_url = _normalize_data_url(os.getenv("ALPACA_DATA_URL") or os.getenv("ALPACA_BASE_URL"))
+    api_key = None
+    secret_key = None
+    data_url = None
+    for pref in prefixes:
+        api_key = os.getenv(f"{pref}ALPACA_API_KEY")
+        secret_key = os.getenv(f"{pref}ALPACA_SECRET_KEY")
+        if api_key and secret_key:
+            data_url = _normalize_data_url(
+                os.getenv(f"{pref}ALPACA_DATA_URL")
+                or os.getenv(f"{pref}ALPACA_BASE_URL")
+                or os.getenv("ALPACA_DATA_URL")
+                or os.getenv("ALPACA_BASE_URL")
+            )
+            break
+    if not api_key or not secret_key:
+        raise RuntimeError("Missing agent-scoped Alpaca credentials for Alpaca historical ingestion")
+    if not data_url:
+        data_url = _normalize_data_url(os.getenv("ALPACA_DATA_URL") or os.getenv("ALPACA_BASE_URL"))
     url = f"{data_url}/stocks/bars"
 
     headers = {

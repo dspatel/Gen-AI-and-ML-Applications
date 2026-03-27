@@ -2,7 +2,7 @@ import pandas as pd
 import os
 import sqlite3
 
-DB_PATH = os.path.join(os.path.dirname(__file__), 'data', 'portfolio_data.db')
+DB_PATH = os.path.join(os.path.dirname(__file__), 'data', 'backtest_data.db')
 
 import requests
 

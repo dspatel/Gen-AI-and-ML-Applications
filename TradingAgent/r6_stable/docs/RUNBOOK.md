@@ -24,7 +24,8 @@ Open a new terminal and verify:
 3. Confirm Alpaca historical mode:
 - in `config.research.yaml`: `market_data.provider: alpaca`
 4. Confirm live paper data mode:
-- in `config.yaml`: `market_data.provider: yahoo`
+- in `config.yaml`: `market_data.provider: alpaca`
+- in `config.yaml`: `market_data.alpaca_feed: sip`
 
 ## Research execution
 
@@ -39,11 +40,6 @@ Open a new terminal and verify:
   - in-session looping only
   - auto-stop after session end
   - terminal dashboard heartbeat
-
-Switch to Alpaca live data later:
-
-- edit `r6_stable/config.yaml`:
-  - `market_data.provider: alpaca`
 
 Discord:
 
@@ -60,3 +56,5 @@ Discord:
 - Pipeline is DB-first and idempotent for candles/events.
 - Last completed runs are in table `r6_strategy_runs`.
 - Paper blocked shorts/missed opportunities are stored in `r6_paper_missed_trades`.
+- Paper startup now cancels stale prior-session orders and attempts to flatten prior-session leftover positions before normal trading resumes.
+- `paper.broker_exit_buffer_minutes` controls how many minutes before `session.end` R6 starts broker flattening. Keep this positive so exits are sent before the market closes.

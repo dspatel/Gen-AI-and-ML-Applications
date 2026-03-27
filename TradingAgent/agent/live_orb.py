@@ -47,6 +47,8 @@ class LiveTradeConfig:
     min_val_trades: int
     data_provider: str
     selection_data_provider: str
+    alpaca_env_prefix: str | None = None
+    alpaca_feed: str = "iex"
     db_path: str = "orb_research.db"
     dry_run: bool = True
     risk_pct_per_trade: float = 0.005
@@ -93,6 +95,8 @@ class LiveOrbTrader:
                 min_val_trades=self.config.min_val_trades,
                 data_provider=self.config.selection_data_provider,
                 db_path=self.config.db_path,
+                alpaca_env_prefix=self.config.alpaca_env_prefix,
+                alpaca_feed=self.config.alpaca_feed,
             )
         )
 
@@ -130,6 +134,8 @@ class LiveOrbTrader:
                 end=asof.isoformat(),
                 provider=self.config.data_provider,
                 timeframe_min=data_tf,
+                env_prefix=self.config.alpaca_env_prefix,
+                alpaca_feed=self.config.alpaca_feed,
             )
             bars_tf = self._filter_to_completed_bars(bars_tf, timeframe_min=data_tf)
             if bars_tf.empty:

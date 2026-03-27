@@ -1,0 +1,20 @@
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [MSFT]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_portfolio_backtester:
+==================================================
+INFO:omega_portfolio_backtester:    CROSS-SECTIONAL PORTFOLIO PERFORMANCE    
+INFO:omega_portfolio_backtester:==================================================
+INFO:omega_portfolio_backtester:Total Portfolio Trades:    168
+INFO:omega_portfolio_backtester:Win Rate:                  76.19%
+INFO:omega_portfolio_backtester:Average Option Win:        +8.66%
+INFO:omega_portfolio_backtester:Average Option Loss:       -2.75%
+INFO:omega_portfolio_backtester:Cumulative Portfolio PnL:  +99.91%
+INFO:omega_portfolio_backtester:
+--- EXIT BREAKDOWN ---
+INFO:omega_portfolio_backtester:EOD THETA STOP: 118
+INFO:omega_portfolio_backtester:Profit Target Reached: 18
+INFO:omega_portfolio_backtester:Theta Time Stop: 31
+INFO:omega_portfolio_backtester:Phase 24: Hard -20% Vega Stop: 1
+INFO:omega_portfolio_backtester:==================================================
+

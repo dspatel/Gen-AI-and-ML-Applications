@@ -35,6 +35,7 @@ class PaperProfile:
     min_train_trades: int = 30
     min_val_trades: int = 10
     live_data_provider: str = "yahoo"
+    live_alpaca_feed: str = "iex"
     selection_data_provider: str = "alpaca"
     risk_pct_per_trade: float = 0.005
     max_notional_pct: float = 0.20
@@ -72,6 +73,7 @@ def load_paper_profile(path: str | None = None) -> PaperProfile:
         "min_train_trades": 30,
         "min_val_trades": 10,
         "live_data_provider": "yahoo",
+        "live_alpaca_feed": "iex",
         "selection_data_provider": "alpaca",
         "risk_pct_per_trade": 0.005,
         "max_notional_pct": 0.20,
@@ -116,6 +118,7 @@ def load_paper_profile(path: str | None = None) -> PaperProfile:
         min_train_trades=int(cfg["min_train_trades"]),
         min_val_trades=int(cfg["min_val_trades"]),
         live_data_provider=str(cfg["live_data_provider"]).strip().lower(),
+        live_alpaca_feed=str(cfg.get("live_alpaca_feed", "iex")).strip().lower() or "iex",
         selection_data_provider=str(cfg["selection_data_provider"]).strip().lower(),
         risk_pct_per_trade=float(cfg["risk_pct_per_trade"]),
         max_notional_pct=float(cfg["max_notional_pct"]),

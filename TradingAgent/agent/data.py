@@ -19,16 +19,39 @@ class Alpaca5mClient:
     feed: str = "iex"
 
     @classmethod
-    def from_env(cls) -> "Alpaca5mClient | None":
-        api_key = os.getenv("ALPACA_API_KEY")
-        secret_key = os.getenv("ALPACA_SECRET_KEY")
-        base = os.getenv("ALPACA_DATA_URL") or os.getenv("ALPACA_BASE_URL") or "https://data.alpaca.markets/v2"
-        normalized = base.rstrip("/")
-        if "paper-api.alpaca.markets" in normalized or normalized.endswith("api.alpaca.markets/v2"):
-            base = "https://data.alpaca.markets/v2"
-        if not api_key or not secret_key:
-            return None
-        return cls(api_key=api_key, secret_key=secret_key, data_url=base)
+    def from_env(
+        cls,
+        env_prefix: str | None = None,
+        feed: str | None = None,
+    ) -> "Alpaca5mClient | None":
+        prefixes: list[str] = []
+        if env_prefix and str(env_prefix).strip():
+            prefixes.append(f"{str(env_prefix).strip().upper()}_")
+        prefixes.append("")
+
+        for pref in prefixes:
+            api_key = os.getenv(f"{pref}ALPACA_API_KEY")
+            secret_key = os.getenv(f"{pref}ALPACA_SECRET_KEY")
+            if not api_key or not secret_key:
+                continue
+            base = (
+                os.getenv(f"{pref}ALPACA_DATA_URL")
+                or os.getenv(f"{pref}ALPACA_BASE_URL")
+                or os.getenv("ALPACA_DATA_URL")
+                or os.getenv("ALPACA_BASE_URL")
+                or "https://data.alpaca.markets/v2"
+            )
+            normalized = base.rstrip("/")
+            if "paper-api.alpaca.markets" in normalized or normalized.endswith("api.alpaca.markets/v2"):
+                base = "https://data.alpaca.markets/v2"
+            selected_feed = (
+                (str(feed).strip().lower() if feed else "")
+                or str(os.getenv(f"{pref}ALPACA_FEED") or "").strip().lower()
+                or str(os.getenv("ALPACA_FEED") or "").strip().lower()
+                or "iex"
+            )
+            return cls(api_key=api_key, secret_key=secret_key, data_url=base, feed=selected_feed)
+        return None
 
     def fetch_intraday(self, symbol: str, start: str, end: str, timeframe_min: int = 5) -> pd.DataFrame:
         url = f"{self.data_url.rstrip('/')}/stocks/bars"
@@ -229,11 +252,34 @@ class Yahoo5mClient:
         return frame[["symbol", "ts", "o", "h", "l", "c", "volume"]]
 
 
-def load_5m_data(symbol: str, start: str, end: str, provider: str) -> tuple[pd.DataFrame, str]:
-    return load_intraday_data(symbol=symbol, start=start, end=end, provider=provider, timeframe_min=5)
+def load_5m_data(
+    symbol: str,
+    start: str,
+    end: str,
+    provider: str,
+    env_prefix: str | None = None,
+    alpaca_feed: str | None = None,
+) -> tuple[pd.DataFrame, str]:
+    return load_intraday_data(
+        symbol=symbol,
+        start=start,
+        end=end,
+        provider=provider,
+        timeframe_min=5,
+        env_prefix=env_prefix,
+        alpaca_feed=alpaca_feed,
+    )
 
 
-def load_intraday_data(symbol: str, start: str, end: str, provider: str, timeframe_min: int = 5) -> tuple[pd.DataFrame, str]:
+def load_intraday_data(
+    symbol: str,
+    start: str,
+    end: str,
+    provider: str,
+    timeframe_min: int = 5,
+    env_prefix: str | None = None,
+    alpaca_feed: str | None = None,
+) -> tuple[pd.DataFrame, str]:
     tf = max(1, int(timeframe_min))
     yf_interval = f"{tf}m"
     p = provider.lower()
@@ -260,7 +306,7 @@ def load_intraday_data(symbol: str, start: str, end: str, provider: str, timefra
         return data, "yahoo"
 
     if p in {"alpaca", "auto"}:
-        client = Alpaca5mClient.from_env()
+        client = Alpaca5mClient.from_env(env_prefix=env_prefix, feed=alpaca_feed)
         if client is None and p == "alpaca":
             raise RuntimeError("Alpaca requested but environment credentials are missing")
         if client is not None:

@@ -98,7 +98,7 @@ python -m agent.main --mode paper
 ```
 
 This mode reads `paper_profile.json` and uses:
-- signal data: Yahoo 5m (`live_data_provider`)
+- signal data: Alpaca intraday (`live_data_provider`)
 - reselection data: Alpaca historical (`selection_data_provider`)
 - order routing: Alpaca paper account
 
@@ -120,19 +120,24 @@ Trade artifacts:
 Required for `--data-provider alpaca` and live paper execution:
 
 ```bash
-setx ALPACA_API_KEY "..."
-setx ALPACA_SECRET_KEY "..."
-setx ALPACA_BASE_URL "https://paper-api.alpaca.markets/v2"
+setx ORB_ALPACA_API_KEY "..."
+setx ORB_ALPACA_SECRET_KEY "..."
+setx ORB_ALPACA_BASE_URL "https://paper-api.alpaca.markets/v2"
+
+setx R6_ALPACA_API_KEY "..."
+setx R6_ALPACA_SECRET_KEY "..."
+setx R6_ALPACA_BASE_URL "https://paper-api.alpaca.markets/v2"
 ```
 
 After `setx`, open a new terminal (or sign out/in).
 
 Data endpoint is automatically normalized to Alpaca market-data API.
 
-For paper mode with delayed free Alpaca data:
-- Use Yahoo for entry/exit signal bars (`live_data_provider: yahoo`)
-- Keep Alpaca paper for order execution
-- Keep Alpaca for reselection history (`selection_data_provider: alpaca`)
+For the current paper configuration:
+- ORB uses `ORB_ALPACA_*` for broker and data
+- R6 uses `R6_ALPACA_*` for broker and data
+- ORB live feed is controlled by `paper_profile.json` -> `live_alpaca_feed`
+- R6 live feed is controlled by `r6_stable/config.yaml` -> `market_data.alpaca_feed`
 
 ## Notes
 - `--dry-run` is strongly recommended before enabling live paper orders.

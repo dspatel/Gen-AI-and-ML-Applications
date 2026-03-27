@@ -1,11 +1,12 @@
 import pandas as pd
-import yfinance as yf
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 import sqlite3
 import os
+import json
+import requests
 
-DB_PATH = os.path.join(os.path.dirname(__file__), 'data', 'portfolio_data.db')
+DB_PATH = os.path.join(os.path.dirname(__file__), 'data', 'backtest_data.db')
 
 class SentimentEngine:
     def __init__(self):
@@ -42,33 +43,52 @@ class SentimentEngine:
         self.model = self.model.to(device)
         self.model.eval() # Set to inference mode
         
+        # Load API keys to access SIP news
+        accounts_path = os.path.join(os.path.dirname(__file__), 'alpaca_accounts.json')
+        headers = {}
+        try:
+            with open(accounts_path, 'r') as f:
+                acc_data = json.load(f)
+                for acc in acc_data.get('accounts', []):
+                    if acc.get('name') == 'Live Real Money':
+                        headers = {
+                            "APCA-API-KEY-ID": acc.get('key'),
+                            "APCA-API-SECRET-KEY": acc.get('secret')
+                        }
+                        break
+        except Exception as e:
+            print(f"Failed to load alpaca credentials: {e}")
+            return
+            
+        if not headers:
+            print("No SIP credentials found in alpaca_accounts.json")
+            return
+        
         with torch.no_grad(): # Disable gradient calculation for faster inference
             for sym in symbols:
-                print(f"Fetching news for {sym}...")
-                ticker = yf.Ticker(sym)
+                print(f"Fetching news for {sym} via Alpaca...")
                 try:
-                    news = ticker.news
-                except:
+                    url = "https://data.alpaca.markets/v1beta1/news"
+                    response = requests.get(url, params={"symbols": sym, "limit": 10}, headers=headers)
+                    if response.status_code == 200:
+                        news = response.json().get('news', [])
+                    else:
+                        print(f"API Error {response.status_code}: {response.text}")
+                        continue
+                except Exception as e:
+                    print(f"Failed to fetch Alpaca news for {sym}: {e}")
                     continue
                     
                 if not news: continue
                 
                 for article in news:
-                    title = article.get('title', '')
-                    if not title and 'content' in article:
-                        title = article.get('content', {}).get('title', '')
-                    
-                    pub_time = article.get('providerPublishTime', 0)
-                    if not pub_time and 'content' in article:
-                        pub_time = article.get('content', {}).get('pubDate', '')
+                    title = article.get('headline', '')
+                    pub_time = article.get('created_at', '')
                     
                     if not title or not pub_time: continue
                     
                     try:
-                        if isinstance(pub_time, (int, float)):
-                            date_str = pd.to_datetime(pub_time, unit='s').strftime('%Y-%m-%d')
-                        else:
-                            date_str = pd.to_datetime(pub_time).strftime('%Y-%m-%d')
+                        date_str = pd.to_datetime(pub_time).strftime('%Y-%m-%d')
                             
                         # Run NLP Inference on GPU
                         inputs = self.tokenizer(title, padding=True, truncation=True, return_tensors='pt').to(device)

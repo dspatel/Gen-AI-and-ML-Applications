@@ -26,7 +26,8 @@ Defaults are stored in `paper_profile.json`.
 Key fields:
 
 - `symbols`
-- `live_data_provider` (default: `yahoo`)
+- `live_data_provider` (current paper profile: `alpaca`)
+- `live_alpaca_feed` (`sip` for paid Alpaca real-time stock data)
 - `selection_data_provider` (default: `alpaca`)
 - `frequency` (`monthly` or `quarterly`)
 - `risk_pct_per_trade`

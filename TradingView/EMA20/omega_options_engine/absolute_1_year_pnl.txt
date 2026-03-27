@@ -1,0 +1,25 @@
+INFO:omega_actor:VRP Trigger [AAPL]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:MSFT THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [SPY]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [IWM]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:AMZN THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [AMZN]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:AAPL THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [AAPL]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_portfolio_backtester:
+==================================================
+INFO:omega_portfolio_backtester:    CROSS-SECTIONAL PORTFOLIO PERFORMANCE    
+INFO:omega_portfolio_backtester:==================================================
+INFO:omega_portfolio_backtester:Total Portfolio Trades:    4411
+INFO:omega_portfolio_backtester:Win Rate:                  70.73%
+INFO:omega_portfolio_backtester:Average Option Win:        +5.77%
+INFO:omega_portfolio_backtester:Average Option Loss:       -1.25%
+INFO:omega_portfolio_backtester:Cumulative Portfolio PnL:  +1637.97%
+INFO:omega_portfolio_backtester:
+--- EXIT BREAKDOWN ---
+INFO:omega_portfolio_backtester:EOD THETA STOP: 2192
+INFO:omega_portfolio_backtester:Profit Target Reached: 272
+INFO:omega_portfolio_backtester:Theta Time Stop: 1941
+INFO:omega_portfolio_backtester:Phase 24: Hard -20% Vega Stop: 6
+INFO:omega_portfolio_backtester:==================================================
+

@@ -4,7 +4,6 @@ import time
 import sys
 import os
 import requests
-import yfinance as yf
 
 from trade_telemetry import log_trade, init_telemetry_db
 
@@ -88,13 +87,21 @@ def parse_target_portfolio(json_path='live_target_portfolio.json'):
 
 def get_current_positions(base_url, headers):
     """Fetches currently held symbols and exact quantities from the live broker."""
-    logging.info("Fetching current live positions from Broker...")
+    logging.info("Fetching current live equity positions from Broker...")
     try:
         response = requests.get(f"{base_url}/v2/positions", headers=headers)
         if response.status_code == 200:
             positions = response.json()
-            pos_dict = {pos["symbol"]: int(float(pos["qty"])) for pos in positions}
-            logging.info(f"Current Live Positions: {list(pos_dict.keys())}")
+            # ALPHA ENGINE FIREWALL: 
+            # We share the API key with the Omega Engine (which trades us_option).
+            # We must exclusively filter for 'us_equity' so Alpha is physically blind 
+            # to Omega's Options and does not automatically liquidate them!
+            pos_dict = {
+                pos["symbol"]: float(pos["qty"]) 
+                for pos in positions 
+                if pos.get("asset_class", "us_equity") == "us_equity"
+            }
+            logging.info(f"Current Live Alpha Positions (Equities Only): {list(pos_dict.keys())}")
             return pos_dict
         else:
              raise Exception(f"HTTP {response.status_code}: {response.text}")
@@ -102,14 +109,29 @@ def get_current_positions(base_url, headers):
         logging.error(f"Failed to fetch live positions: {e}")
         raise
 
-def get_latest_price(symbol):
-    """Fetches the latest real-time or previous close price from Yahoo Finance."""
+def get_latest_price(symbol, headers):
+    """Fetches the latest real-time or previous close price from Alpaca Market Data."""
     try:
-        ticker = yf.Ticker(symbol.replace("-", "."))
-        price = ticker.fast_info['last_price']
-        return price
+        # The Market Data endpoint handles both Paper and Live keys automatically
+        url = f"https://data.alpaca.markets/v2/stocks/snapshots?symbols={symbol}"
+        response = requests.get(url, headers=headers)
+        if response.status_code == 200:
+            data = response.json()
+            snapshot = data.get(symbol, {})
+            
+            # Prefer the exact last tick, fallback to the daily close
+            if snapshot.get('latestTrade'):
+                return float(snapshot['latestTrade']['p'])
+            elif snapshot.get('dailyBar'):
+                return float(snapshot['dailyBar']['c'])
+            elif snapshot.get('prevDailyBar'):
+                return float(snapshot['prevDailyBar']['c'])
+            else:
+                raise Exception("No price components found in snapshot data.")
+        else:
+            raise Exception(f"HTTP {response.status_code}: {response.text}")
     except Exception as e:
-        logging.error(f"Failed to fetch price for {symbol}: {e}")
+        logging.error(f"Failed to fetch price for {symbol} via Alpaca: {e}")
         return None
 
 def execute_market_on_close(symbol, side, base_url, headers, qty=1):
@@ -231,8 +253,8 @@ def sync_portfolio(target_symbols, equity, base_url, headers, target_contexts=No
     # Step 1: Liquidate Sell Signals
     sells = [sym for sym in current_symbols if sym not in target_symbols]
     for sym in sells:
-        qty_to_sell = current_positions.get(sym, 1)
-        price_est = get_latest_price(sym)
+        qty_to_sell = current_positions.get(sym, 1.0)
+        price_est = get_latest_price(sym, headers)
         logging.info(f"SIGNAL DECEASED: Attempting to liquidate position in {sym} (Qty: {qty_to_sell})")
         if execute_market_on_close(sym, 'sell', base_url, headers, qty=qty_to_sell):
             executed_sells[sym] = qty_to_sell
@@ -246,14 +268,14 @@ def sync_portfolio(target_symbols, equity, base_url, headers, target_contexts=No
     logging.info(f"Targeting ${cash_allocation:,.2f} allocation per new leader.")
     
     for sym in buys:
-        price = get_latest_price(sym)
+        price = get_latest_price(sym, headers)
         if not price:
              logging.error(f"Skipping entry for {sym} due to missing price data.")
              continue
              
-        qty_to_buy = int(cash_allocation / price)
-        if qty_to_buy <= 0:
-             logging.warning(f"Allocation for {sym} (${cash_allocation:,.2f}) is lower than share price (${price:,.2f}). Cannot afford 1 share. Skipping.")
+        qty_to_buy = round(cash_allocation / price, 5)
+        if qty_to_buy < 0.0001:
+             logging.warning(f"Allocation for {sym} (${cash_allocation:,.2f}) is lower than minimum fractional share. Skipping.")
              continue
              
         logging.info(f"NEW LEADER DETECTED: {sym} @ ${price:.2f}. Allocating {qty_to_buy} shares.")

@@ -29,6 +29,17 @@ def run_live_pipeline():
     logging.info("--- WAKING UP: INITIATING LIVE EOD PIPELINE ---")
     
     try:
+        # Pre-Flight Check: Is the market even open today?
+        from execution_engine import check_market_hours
+        import requests
+        
+        # We can ping the live public clock without heavy auth headers
+        clock_res = requests.get("https://api.alpaca.markets/v2/clock")
+        if clock_res.status_code == 200:
+            if not clock_res.json().get('is_open', False):
+                logging.info("Market is CLOSED (Weekend/Holiday). Halting pipeline early to save 500+ API calls.")
+                print("\n[HALT] Market is currently CLOSED. Halting pipeline to save API calls.\n")
+                return
         # Step 1: Update Universe (Max 3 Retries)
         logging.info("Step 1: Updating Universe...")
         from universe_scraper import scrape_sp500_symbols, save_universe_to_db
@@ -43,17 +54,39 @@ def run_live_pipeline():
                 time.sleep(5)
                 if i == retries - 1: raise Exception("Failed to scrape universe after 3 retries.")
         
-        # Step 2: Fetch Pricing (The most fragile part -> yfinance rate limits)
-        logging.info("Step 2: Fetching Daily Portfolio Data...")
-        from fetch_portfolio import fetch_portfolio
+        # Step 2: Fetch Daily Prices via Alpaca SIP
+        logging.info("Step 2: Fetching Daily Portfolio Data from Alpaca SIP...")
+        from data_fetcher import fetch_and_store_daily
+        import sqlite3
+        import pandas as pd
+        
+        # Pull the universe that was just updated
+        try:
+            conn = sqlite3.connect('data/backtest_data.db')
+            df_uni = pd.read_sql("SELECT symbol FROM active_universe", conn)
+            live_targets = df_uni['symbol'].tolist()
+            conn.close()
+        except:
+            live_targets = ['SPY']
+            
+        # Ensure SPY and VIX are always captured required for macro checks
+        if 'SPY' not in live_targets: live_targets.append('SPY')
+        
+        today = pd.Timestamp('today').strftime('%Y-%m-%d')
         retries = 3
         for i in range(retries):
             try:
                 # In live production, we only need the last ~200 days of data to compute the 200 SMA
-                fetch_portfolio(start_date='2024-01-01') 
+                import sys
+                print("") # Push a newline to separate from previous logs
+                for idx, sym in enumerate(live_targets, 1):
+                    fetch_and_store_daily(sym, start_date='2024-01-01', end_date=today)
+                    sys.stdout.write(f"\rDownloading Alpaca SIP Data: {idx}/{len(live_targets)} symbols completed ({sym})   ")
+                    sys.stdout.flush()
+                print("\n[SUCCESS] Finished downloading 500+ daily bars.")
                 break
             except Exception as e:
-                logging.error(f"YFinance Blocked/Failed (Attempt {i+1}): {e}")
+                logging.error(f"Alpaca SIP Blocked/Failed (Attempt {i+1}): {e}")
                 time.sleep(10)
                 if i == retries - 1: raise Exception("Data Fetch failed. Cannot generate signals.")
                 

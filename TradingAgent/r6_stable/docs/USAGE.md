@@ -22,7 +22,7 @@ Outputs:
 
 - `python -m agent.orb_r6.fold_report --db-path .\artifacts\r6_stable\orb_core.sqlite --run-id <RUN_ID> --locked-variant R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY --output-csv .\artifacts\r6_stable\research\r6_yearly_folds.csv`
 
-## 3) Paper execution loop (Yahoo live bars + Alpaca paper orders)
+## 3) Paper execution loop (Alpaca live bars + Alpaca paper orders)
 
 - `.\r6_stable\run_paper.ps1`
 
@@ -51,6 +51,7 @@ Sizing and short inventory controls (R6 paper):
 - `paper.max_notional_dollars` hard dollar cap per trade (default `5000`)
 - `paper.short_requires_inventory: true` blocks SHORT unless long shares exist
 - `paper.confidence_sizing_enabled` to scale size by confidence
+- `paper.broker_exit_buffer_minutes` starts forced broker exits before the session close so positions do not roll overnight because orders were submitted after the bell
 
 ## 4) Live signal tracker (no broker orders)
 

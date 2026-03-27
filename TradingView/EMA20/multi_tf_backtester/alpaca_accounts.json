@@ -9,8 +9,8 @@
         },
         {
             "name": "Paper Account",
-            "key": "PKIQ4XBRNM4OID2S7BOG72DOM4",
-            "secret": "921ixem4CaDbeH5Bne5dg979LSbXXuXBP5NEhUCszjyD",
+            "key": "PKXBUK4IXX3SL66IWAV7N7GNFJ",
+            "secret": "3JkteRCeAFqiyWBzYirA13USJX2KjbcP51TPGsJ3QcSN",
             "base_url": "https://paper-api.alpaca.markets",
             "max_alloc_percent": 0.10
         }

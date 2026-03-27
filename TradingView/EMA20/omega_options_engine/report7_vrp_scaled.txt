@@ -1,0 +1,291 @@
+2026-03-18 00:49:47,761 - INFO - Backtester loaded Alpaca credentials: Paper Account
+2026-03-18 00:49:47,761 - INFO - Loaded Alpaca credentials for account: Paper Account
+2026-03-18 00:49:47,762 - INFO - Initialized Omega Telemetry Database at .\omega_telemetry.db
+2026-03-18 00:49:47,762 - INFO - Execution Engine loaded Alpaca credentials for: Paper Account
+2026-03-18 00:49:47,762 - INFO - Initialized Omega Telemetry Database at E:\Machine Learning\TradingView\EMA20\omega_options_engine\omega_telemetry.db
+2026-03-18 00:49:47,763 - INFO - Initialized Omega Telemetry Database at E:\Machine Learning\TradingView\EMA20\omega_options_engine\omega_backtest_results.db
+2026-03-18 00:49:47,763 - INFO - Initializing Omega Time Machine for Extended 90-Day Backtest...
+2026-03-18 00:49:47,763 - INFO - Fetching historical 15m stock bars for SPY from 2025-12-18 to 2026-03-18...
+2026-03-18 00:49:48,233 - INFO - Loaded 727 15-minute historical bars for SPY.
+2026-03-18 00:49:48,236 - INFO - Fetching Volatility Regime data (^VIX)...
+2026-03-18 00:49:48,236 - INFO - Fetching historical 15m stock bars for SPY from 2025-12-18 to 2026-03-18...
+2026-03-18 00:49:48,681 - INFO - VRP Trigger: Stock mathematically overbought (RSI > 70).
+2026-03-18 00:49:48,681 - INFO - [2025-12-18 09:45:00+00:00] VRP TRIGGER (IV: 50.0, BBW: 0.100, RSI: 100.0): Entering Short Call Spread | Underlying: $674.33
+2026-03-18 00:49:48,682 - INFO - [2025-12-18 15:45:00+00:00] EOD THETA STOP: Liquidating SPY260117_VRP_3_00674330 at market close.
+2026-03-18 00:49:48,683 - INFO - VRP Trigger: Stock mathematically overbought (RSI > 70).
+2026-03-18 00:49:48,683 - INFO - [2025-12-19 14:30:00+00:00] VRP TRIGGER (IV: 50.0, BBW: 0.006, RSI: 74.7): Entering Short Call Spread | Underlying: $679.41
+2026-03-18 00:49:48,683 - INFO - [2025-12-19 15:45:00+00:00] EOD THETA STOP: Liquidating SPY260118_VRP_3_00679410 at market close.
+2026-03-18 00:49:48,684 - INFO - VRP Trigger: Stock mathematically overbought (RSI > 70).
+2026-03-18 00:49:48,684 - INFO - [2025-12-19 16:15:00+00:00] VRP TRIGGER (IV: 50.0, BBW: 0.011, RSI: 72.3): Entering Short Call Spread | Underlying: $680.17
+2026-03-18 00:49:48,684 - INFO - [2025-12-19 16:45:00+00:00] EOD THETA STOP: Liquidating SPY260118_VRP_3_00680170 at market close.
+2026-03-18 00:49:48,684 - INFO - VRP Trigger: Stock mathematically overbought (RSI > 70).
+2026-03-18 00:49:48,684 - INFO - [2025-12-19 17:15:00+00:00] VRP TRIGGER (IV: 50.0, BBW: 0.012, RSI: 72.1): Entering Short Call Spread | Underlying: $680.68
+2026-03-18 00:49:48,684 - INFO - [2025-12-19 17:45:00+00:00] EOD THETA STOP: Liquidating SPY260118_VRP_3_00680680 at market close.
+2026-03-18 00:49:48,684 - INFO - VRP Trigger: Stock mathematically overbought (RSI > 70).
+2026-03-18 00:49:48,684 - INFO - [2025-12-19 18:00:00+00:00] VRP TRIGGER (IV: 50.0, BBW: 0.011, RSI: 71.9): Entering Short Call Spread | Underlying: $680.92
+2026-03-18 00:49:48,684 - INFO - [2025-12-19 18:45:00+00:00] EOD THETA STOP: Liquidating SPY260118_VRP_3_00680920 at market close.
+2026-03-18 00:49:48,685 - INFO - VRP Trigger: Stock mathematically overbought (RSI > 70).
+2026-03-18 00:49:48,685 - INFO - [2025-12-22 09:00:00+00:00] VRP TRIGGER (IV: 50.0, BBW: 0.003, RSI: 82.5): Entering Short Call Spread | Underlying: $682.75
+2026-03-18 00:49:48,686 - INFO - [2025-12-22 15:45:00+00:00] EOD THETA STOP: Liquidating SPY260121_VRP_3_00682750 at market close.
+2026-03-18 00:49:48,687 - INFO - VRP Trigger: Stock mathematically oversold (RSI < 30).
+2026-03-18 00:49:48,687 - INFO - [2025-12-23 13:45:00+00:00] VRP TRIGGER (IV: 50.0, BBW: 0.003, RSI: 25.2): Entering Short Put Spread | Underlying: $683.57
+2026-03-18 00:49:48,687 - INFO - [2025-12-23 15:45:00+00:00] EOD THETA STOP: Liquidating SPY260122_VRP_4_00683570 at market close.
+2026-03-18 00:49:48,687 - INFO - VRP Trigger: Stock mathematically overbought (RSI > 70).
+2026-03-18 00:49:48,687 - INFO - [2025-12-23 17:15:00+00:00] VRP TRIGGER (IV: 50.0, BBW: 0.007, RSI: 70.1): Entering Short Call Spread | Underlying: $687.07
+2026-03-18 00:49:48,687 - INFO - [2025-12-23 17:45:00+00:00] EOD THETA STOP: Liquidating SPY260122_VRP_3_00687070 at market close.
+2026-03-18 00:49:48,687 - INFO - VRP Trigger: Stock mathematically overbought (RSI > 70).
+2026-03-18 00:49:48,688 - INFO - [2025-12-23 18:00:00+00:00] VRP TRIGGER (IV: 50.0, BBW: 0.007, RSI: 71.6): Entering Short Call Spread | Underlying: $687.34
+2026-03-18 00:49:48,688 - INFO - [2025-12-23 18:45:00+00:00] EOD THETA STOP: Liquidating SPY260122_VRP_3_00687340 at market close.
+2026-03-18 00:49:48,688 - INFO - VRP Trigger: Stock mathematically overbought (RSI > 70).
+2026-03-18 00:49:48,688 - INFO - [2025-12-23 19:00:00+00:00] VRP TRIGGER (IV: 50.0, BBW: 0.006, RSI: 72.8): Entering Short Call Spread | Underlying: $687.71
+2026-03-18 00:49:48,688 - INFO - [2025-12-23 19:45:00+00:00] EOD THETA STOP: Liquidating SPY260122_VRP_3_00687709 at market close.
+2026-03-18 00:49:48,688 - INFO - VRP Trigger: Stock mathematically overbought (RSI > 70).
+2026-03-18 00:49:48,688 - INFO - [2025-12-23 20:00:00+00:00] VRP TRIGGER (IV: 50.0, BBW: 0.004, RSI: 73.5): Entering Short Call Spread | Underlying: $687.88
+2026-03-18 00:49:48,688 - INFO - [2025-12-23 20:45:00+00:00] EOD THETA STOP: Liquidating SPY260122_VRP_3_00687885 at market close.
+2026-03-18 00:49:48,689 - INFO - VRP Trigger: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+2026-03-18 00:49:48,689 - INFO - [2025-12-24 13:15:00+00:00] VRP TRIGGER (IV: 1.8, BBW: 0.001, RSI: 60.2): Entering Long Straddle | Underlying: $687.97
+2026-03-18 00:49:48,689 - INFO - [2025-12-24 15:45:00+00:00] EOD THETA STOP: Liquidating SPY260123_VRP_1_00687970 at market close.
+2026-03-18 00:49:48,689 - INFO - VRP Trigger: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+2026-03-18 00:49:48,689 - INFO - [2025-12-24 16:00:00+00:00] VRP TRIGGER (IV: 8.6, BBW: 0.004, RSI: 84.5): Entering Long Straddle | Underlying: $689.89
+2026-03-18 00:49:48,690 - INFO - [2025-12-24 16:45:00+00:00] EOD THETA STOP: Liquidating SPY260123_VRP_1_00689890 at market close.
+2026-03-18 00:49:48,690 - INFO - VRP Trigger: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+2026-03-18 00:49:48,690 - INFO - [2025-12-24 17:00:00+00:00] VRP TRIGGER (IV: 9.8, BBW: 0.006, RSI: 85.5): Entering Long Straddle | Underlying: $690.59
+2026-03-18 00:49:48,690 - INFO - [2025-12-24 17:45:00+00:00] EOD THETA STOP: Liquidating SPY260123_VRP_1_00690590 at market close.
+2026-03-18 00:49:48,690 - INFO - VRP Trigger: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+2026-03-18 00:49:48,690 - INFO - [2025-12-24 18:00:00+00:00] VRP TRIGGER (IV: 11.8, BBW: 0.006, RSI: 69.6): Entering Long Straddle | Underlying: $690.11
+2026-03-18 00:49:48,690 - INFO - [2025-12-24 18:45:00+00:00] EOD THETA STOP: Liquidating SPY260123_VRP_1_00690110 at market close.
+2026-03-18 00:49:48,690 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,690 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,690 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,690 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,690 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,690 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,690 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,690 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,690 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,691 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,691 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,691 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,691 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,691 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,691 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,691 - INFO - VRP Trigger: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+2026-03-18 00:49:48,691 - INFO - [2025-12-26 10:30:00+00:00] VRP TRIGGER (IV: 21.9, BBW: 0.001, RSI: 64.3): Entering Long Straddle | Underlying: $690.44
+2026-03-18 00:49:48,691 - INFO - SPY THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+2026-03-18 00:49:48,691 - INFO - [2025-12-26 13:00:00+00:00] EXIT TRIGGERED [Theta Time Stop]: Sold SPY260125_VRP_1_00690440. Approx option return: -1.05%
+2026-03-18 00:49:48,691 - INFO - VRP Trigger: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+2026-03-18 00:49:48,691 - INFO - [2025-12-26 13:15:00+00:00] VRP TRIGGER (IV: 24.0, BBW: 0.001, RSI: 60.4): Entering Long Straddle | Underlying: $690.46
+2026-03-18 00:49:48,692 - INFO - [2025-12-26 15:45:00+00:00] EOD THETA STOP: Liquidating SPY260125_VRP_1_00690460 at market close.
+2026-03-18 00:49:48,692 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,692 - INFO - [2025-12-26 17:15:00+00:00] VRP TRIGGER (IV: 66.0, BBW: 0.003, RSI: 48.6): Entering Short Iron Condor | Underlying: $690.14
+2026-03-18 00:49:48,692 - INFO - [2025-12-26 17:45:00+00:00] EOD THETA STOP: Liquidating SPY260125_VRP_2_00690140 at market close.
+2026-03-18 00:49:48,692 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,692 - INFO - [2025-12-26 18:00:00+00:00] VRP TRIGGER (IV: 68.0, BBW: 0.003, RSI: 46.9): Entering Short Iron Condor | Underlying: $689.90
+2026-03-18 00:49:48,692 - INFO - [2025-12-26 18:45:00+00:00] EOD THETA STOP: Liquidating SPY260125_VRP_2_00689900 at market close.
+2026-03-18 00:49:48,692 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,692 - INFO - [2025-12-26 19:00:00+00:00] VRP TRIGGER (IV: 68.3, BBW: 0.003, RSI: 51.4): Entering Short Iron Condor | Underlying: $690.24
+2026-03-18 00:49:48,693 - INFO - [2025-12-26 19:45:00+00:00] EOD THETA STOP: Liquidating SPY260125_VRP_2_00690240 at market close.
+2026-03-18 00:49:48,693 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,693 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,693 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,693 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,693 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,693 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,693 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,693 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,693 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,693 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,693 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,693 - INFO - VRP Trigger: Stock mathematically oversold (RSI < 30).
+2026-03-18 00:49:48,693 - INFO - [2025-12-29 09:00:00+00:00] VRP TRIGGER (IV: 43.3, BBW: 0.002, RSI: 24.7): Entering Short Put Spread | Underlying: $688.73
+2026-03-18 00:49:48,694 - INFO - [2025-12-29 15:45:00+00:00] EOD THETA STOP: Liquidating SPY260128_VRP_4_00688730 at market close.
+2026-03-18 00:49:48,694 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,694 - INFO - [2025-12-29 16:00:00+00:00] VRP TRIGGER (IV: 80.0, BBW: 0.003, RSI: 41.1): Entering Short Iron Condor | Underlying: $687.48
+2026-03-18 00:49:48,694 - INFO - [2025-12-29 16:45:00+00:00] EOD THETA STOP: Liquidating SPY260128_VRP_2_00687480 at market close.
+2026-03-18 00:49:48,694 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,694 - INFO - [2025-12-29 17:00:00+00:00] VRP TRIGGER (IV: 79.4, BBW: 0.003, RSI: 36.8): Entering Short Iron Condor | Underlying: $686.84
+2026-03-18 00:49:48,694 - INFO - [2025-12-29 17:45:00+00:00] EOD THETA STOP: Liquidating SPY260128_VRP_2_00686840 at market close.
+2026-03-18 00:49:48,694 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,694 - INFO - [2025-12-29 18:00:00+00:00] VRP TRIGGER (IV: 83.7, BBW: 0.004, RSI: 41.5): Entering Short Iron Condor | Underlying: $686.90
+2026-03-18 00:49:48,695 - INFO - [2025-12-29 18:45:00+00:00] EOD THETA STOP: Liquidating SPY260128_VRP_2_00686905 at market close.
+2026-03-18 00:49:48,695 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,695 - INFO - [2025-12-29 19:00:00+00:00] VRP TRIGGER (IV: 84.3, BBW: 0.003, RSI: 43.4): Entering Short Iron Condor | Underlying: $687.00
+2026-03-18 00:49:48,695 - INFO - [2025-12-29 19:45:00+00:00] EOD THETA STOP: Liquidating SPY260128_VRP_2_00687000 at market close.
+2026-03-18 00:49:48,695 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,695 - INFO - [2025-12-29 20:00:00+00:00] VRP TRIGGER (IV: 70.2, BBW: 0.003, RSI: 59.7): Entering Short Iron Condor | Underlying: $688.48
+2026-03-18 00:49:48,695 - INFO - [2025-12-29 20:45:00+00:00] EOD THETA STOP: Liquidating SPY260128_VRP_2_00688480 at market close.
+2026-03-18 00:49:48,695 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,695 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,695 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,695 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,695 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,695 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,695 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,695 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,696 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,696 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,696 - INFO - VRP Trigger: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+2026-03-18 00:49:48,696 - INFO - [2025-12-30 10:15:00+00:00] VRP TRIGGER (IV: 27.5, BBW: 0.001, RSI: 53.2): Entering Long Straddle | Underlying: $687.94
+2026-03-18 00:49:48,696 - INFO - SPY THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+2026-03-18 00:49:48,696 - INFO - [2025-12-30 12:45:00+00:00] EXIT TRIGGERED [Theta Time Stop]: Sold SPY260129_VRP_1_00687940. Approx option return: -0.97%
+2026-03-18 00:49:48,696 - INFO - VRP Trigger: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+2026-03-18 00:49:48,696 - INFO - [2025-12-30 13:00:00+00:00] VRP TRIGGER (IV: 33.0, BBW: 0.001, RSI: 51.7): Entering Long Straddle | Underlying: $687.83
+2026-03-18 00:49:48,696 - INFO - SPY THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+2026-03-18 00:49:48,696 - INFO - [2025-12-30 15:30:00+00:00] EXIT TRIGGERED [Theta Time Stop]: Sold SPY260129_VRP_1_00687830. Approx option return: -0.03%
+2026-03-18 00:49:48,696 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,696 - INFO - [2025-12-30 16:00:00+00:00] VRP TRIGGER (IV: 76.1, BBW: 0.002, RSI: 52.9): Entering Short Iron Condor | Underlying: $687.79
+2026-03-18 00:49:48,697 - INFO - [2025-12-30 16:45:00+00:00] EOD THETA STOP: Liquidating SPY260129_VRP_2_00687790 at market close.
+2026-03-18 00:49:48,697 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,697 - INFO - [2025-12-30 17:00:00+00:00] VRP TRIGGER (IV: 81.5, BBW: 0.002, RSI: 44.2): Entering Short Iron Condor | Underlying: $687.06
+2026-03-18 00:49:48,697 - INFO - [2025-12-30 17:45:00+00:00] EOD THETA STOP: Liquidating SPY260129_VRP_2_00687060 at market close.
+2026-03-18 00:49:48,697 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,697 - INFO - [2025-12-30 18:00:00+00:00] VRP TRIGGER (IV: 83.3, BBW: 0.002, RSI: 52.1): Entering Short Iron Condor | Underlying: $687.70
+2026-03-18 00:49:48,697 - INFO - [2025-12-30 18:45:00+00:00] EOD THETA STOP: Liquidating SPY260129_VRP_2_00687700 at market close.
+2026-03-18 00:49:48,697 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,697 - INFO - [2025-12-30 19:00:00+00:00] VRP TRIGGER (IV: 84.9, BBW: 0.002, RSI: 54.2): Entering Short Iron Condor | Underlying: $687.86
+2026-03-18 00:49:48,697 - INFO - [2025-12-30 19:45:00+00:00] EOD THETA STOP: Liquidating SPY260129_VRP_2_00687860 at market close.
+2026-03-18 00:49:48,698 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,698 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,698 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,698 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,698 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,698 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,698 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,698 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,698 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,698 - INFO - VRP Trigger: Stock mathematically oversold (RSI < 30).
+2026-03-18 00:49:48,698 - INFO - [2025-12-31 09:00:00+00:00] VRP TRIGGER (IV: 37.7, BBW: 0.003, RSI: 21.4): Entering Short Put Spread | Underlying: $685.38
+2026-03-18 00:49:48,699 - INFO - [2025-12-31 15:45:00+00:00] EOD THETA STOP: Liquidating SPY260130_VRP_4_00685380 at market close.
+2026-03-18 00:49:48,699 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,699 - INFO - [2025-12-31 16:00:00+00:00] VRP TRIGGER (IV: 80.0, BBW: 0.005, RSI: 32.6): Entering Short Iron Condor | Underlying: $684.55
+2026-03-18 00:49:48,699 - INFO - [2025-12-31 16:45:00+00:00] EOD THETA STOP: Liquidating SPY260130_VRP_2_00684550 at market close.
+2026-03-18 00:49:48,699 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,699 - INFO - [2025-12-31 17:00:00+00:00] VRP TRIGGER (IV: 89.2, BBW: 0.005, RSI: 41.2): Entering Short Iron Condor | Underlying: $684.96
+2026-03-18 00:49:48,699 - INFO - [2025-12-31 17:45:00+00:00] EOD THETA STOP: Liquidating SPY260130_VRP_2_00684960 at market close.
+2026-03-18 00:49:48,699 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,699 - INFO - [2025-12-31 18:00:00+00:00] VRP TRIGGER (IV: 91.9, BBW: 0.006, RSI: 47.1): Entering Short Iron Condor | Underlying: $685.31
+2026-03-18 00:49:48,700 - INFO - [2025-12-31 18:45:00+00:00] EOD THETA STOP: Liquidating SPY260130_VRP_2_00685310 at market close.
+2026-03-18 00:49:48,700 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,700 - INFO - [2025-12-31 19:00:00+00:00] VRP TRIGGER (IV: 85.6, BBW: 0.004, RSI: 54.5): Entering Short Iron Condor | Underlying: $685.90
+2026-03-18 00:49:48,700 - INFO - [2025-12-31 19:45:00+00:00] EOD THETA STOP: Liquidating SPY260130_VRP_2_00685905 at market close.
+2026-03-18 00:49:48,700 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,700 - INFO - [2025-12-31 20:00:00+00:00] VRP TRIGGER (IV: 84.2, BBW: 0.004, RSI: 29.2): Entering Short Iron Condor | Underlying: $683.24
+2026-03-18 00:49:48,700 - INFO - [2025-12-31 20:45:00+00:00] EOD THETA STOP: Liquidating SPY260130_VRP_2_00683240 at market close.
+2026-03-18 00:49:48,700 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,700 - INFO - [2025-12-31 21:00:00+00:00] VRP TRIGGER (IV: 100.0, BBW: 0.007, RSI: 34.0): Entering Short Iron Condor | Underlying: $682.48
+2026-03-18 00:49:48,700 - INFO - [2025-12-31 21:45:00+00:00] EOD THETA STOP: Liquidating SPY260130_VRP_2_00682480 at market close.
+2026-03-18 00:49:48,700 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,700 - INFO - [2025-12-31 22:00:00+00:00] VRP TRIGGER (IV: 92.9, BBW: 0.009, RSI: 32.9): Entering Short Iron Condor | Underlying: $682.14
+2026-03-18 00:49:48,700 - INFO - [2025-12-31 22:45:00+00:00] EOD THETA STOP: Liquidating SPY260130_VRP_2_00682140 at market close.
+2026-03-18 00:49:48,700 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,700 - INFO - [2025-12-31 23:00:00+00:00] VRP TRIGGER (IV: 91.2, BBW: 0.008, RSI: 40.1): Entering Short Iron Condor | Underlying: $682.70
+2026-03-18 00:49:48,700 - INFO - [2025-12-31 23:45:00+00:00] EOD THETA STOP: Liquidating SPY260130_VRP_2_00682700 at market close.
+2026-03-18 00:49:48,700 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,701 - INFO - [2026-01-01 00:00:00+00:00] VRP TRIGGER (IV: 88.9, BBW: 0.005, RSI: 42.4): Entering Short Iron Condor | Underlying: $682.80
+2026-03-18 00:49:48,701 - INFO - SPY PROFIT TARGET HIT: Option +46.739308728763845%. Taking profit.
+2026-03-18 00:49:48,701 - INFO - [2026-01-02 09:00:00+00:00] EXIT TRIGGERED [Profit Target Reached]: Sold SPY260131_VRP_2_00682800. Approx option return: 46.74%
+2026-03-18 00:49:48,701 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,701 - INFO - [2026-01-02 09:15:00+00:00] VRP TRIGGER (IV: 98.8, BBW: 0.008, RSI: 72.5): Entering Short Iron Condor | Underlying: $686.51
+2026-03-18 00:49:48,701 - INFO - [2026-01-02 15:45:00+00:00] EOD THETA STOP: Liquidating SPY260201_VRP_2_00686510 at market close.
+2026-03-18 00:49:48,702 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,702 - INFO - [2026-01-02 16:00:00+00:00] VRP TRIGGER (IV: 95.7, BBW: 0.009, RSI: 35.3): Entering Short Iron Condor | Underlying: $681.84
+2026-03-18 00:49:48,702 - INFO - [2026-01-02 16:45:00+00:00] EOD THETA STOP: Liquidating SPY260201_VRP_2_00681840 at market close.
+2026-03-18 00:49:48,702 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,702 - INFO - [2026-01-02 17:00:00+00:00] VRP TRIGGER (IV: 100.0, BBW: 0.011, RSI: 40.9): Entering Short Iron Condor | Underlying: $682.30
+2026-03-18 00:49:48,702 - INFO - [2026-01-02 17:45:00+00:00] EOD THETA STOP: Liquidating SPY260201_VRP_2_00682300 at market close.
+2026-03-18 00:49:48,702 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,702 - INFO - [2026-01-02 18:00:00+00:00] VRP TRIGGER (IV: 100.0, BBW: 0.011, RSI: 34.6): Entering Short Iron Condor | Underlying: $680.83
+2026-03-18 00:49:48,702 - INFO - [2026-01-02 18:45:00+00:00] EOD THETA STOP: Liquidating SPY260201_VRP_2_00680830 at market close.
+2026-03-18 00:49:48,702 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,702 - INFO - [2026-01-02 19:00:00+00:00] VRP TRIGGER (IV: 100.0, BBW: 0.010, RSI: 47.6): Entering Short Iron Condor | Underlying: $682.38
+2026-03-18 00:49:48,702 - INFO - [2026-01-02 19:45:00+00:00] EOD THETA STOP: Liquidating SPY260201_VRP_2_00682380 at market close.
+2026-03-18 00:49:48,702 - INFO - VRP Trigger: Fear Premium detected. Elevated IV.
+2026-03-18 00:49:48,702 - INFO - [2026-01-02 20:00:00+00:00] VRP TRIGGER (IV: 89.5, BBW: 0.006, RSI: 52.1): Entering Short Iron Condor | Underlying: $683.21
+2026-03-18 00:49:48,702 - INFO - [2026-01-02 20:45:00+00:00] EOD THETA STOP: Liquidating SPY260201_VRP_2_00683210 at market close.
+2026-03-18 00:49:48,703 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,703 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,703 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,703 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,703 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,703 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,703 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,703 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,703 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,703 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,703 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,703 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,703 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,703 - INFO - VRP Trigger: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+2026-03-18 00:49:48,704 - INFO - [2026-01-05 11:30:00+00:00] VRP TRIGGER (IV: 33.9, BBW: 0.007, RSI: 65.6): Entering Long Straddle | Underlying: $685.23
+2026-03-18 00:49:48,704 - INFO - SPY THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+2026-03-18 00:49:48,704 - INFO - [2026-01-05 14:00:00+00:00] EXIT TRIGGERED [Theta Time Stop]: Sold SPY260204_VRP_1_00685230. Approx option return: -0.33%
+2026-03-18 00:49:48,704 - INFO - VRP Trigger: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+2026-03-18 00:49:48,704 - INFO - [2026-01-05 14:15:00+00:00] VRP TRIGGER (IV: 13.9, BBW: 0.003, RSI: 70.2): Entering Long Straddle | Underlying: $686.52
+2026-03-18 00:49:48,704 - INFO - [2026-01-05 15:45:00+00:00] EOD THETA STOP: Liquidating SPY260204_VRP_1_00686520 at market close.
+2026-03-18 00:49:48,704 - INFO - VRP Trigger: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+2026-03-18 00:49:48,704 - INFO - [2026-01-05 16:00:00+00:00] VRP TRIGGER (IV: 25.1, BBW: 0.008, RSI: 72.9): Entering Long Straddle | Underlying: $688.36
+2026-03-18 00:49:48,704 - INFO - [2026-01-05 16:45:00+00:00] EOD THETA STOP: Liquidating SPY260204_VRP_1_00688360 at market close.
+2026-03-18 00:49:48,704 - INFO - VRP Trigger: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+2026-03-18 00:49:48,704 - INFO - [2026-01-05 17:00:00+00:00] VRP TRIGGER (IV: 25.0, BBW: 0.009, RSI: 76.1): Entering Long Straddle | Underlying: $688.98
+2026-03-18 00:49:48,705 - INFO - [2026-01-05 17:45:00+00:00] EOD THETA STOP: Liquidating SPY260204_VRP_1_00688980 at market close.
+2026-03-18 00:49:48,705 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,705 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,705 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,705 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,705 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,705 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,705 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,705 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,705 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,705 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,705 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,705 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,705 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,705 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,705 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,705 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,706 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,706 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,706 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,706 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,706 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,706 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,706 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,706 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,706 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,706 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,706 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,706 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,706 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,706 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,706 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,706 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,706 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,706 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,706 - INFO - VRP Trigger Rejected: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+2026-03-18 00:49:48,706 - INFO - VRP Trigger: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+2026-03-18 00:49:48,707 - INFO - [2026-01-06 12:15:00+00:00] VRP TRIGGER (IV: 1.2, BBW: 0.001, RSI: 56.1): Entering Long Straddle | Underlying: $687.67
+2026-03-18 00:49:48,707 - INFO - SPY THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+2026-03-18 00:49:48,707 - INFO - [2026-01-06 14:45:00+00:00] EXIT TRIGGERED [Theta Time Stop]: Sold SPY260205_VRP_1_00687670. Approx option return: 1.55%
+2026-03-18 00:49:48,707 - INFO - VRP Trigger: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+2026-03-18 00:49:48,707 - INFO - [2026-01-06 15:00:00+00:00] VRP TRIGGER (IV: 24.1, BBW: 0.005, RSI: 82.6): Entering Long Straddle | Underlying: $690.61
+2026-03-18 00:49:48,707 - INFO - [2026-01-06 15:45:00+00:00] EOD THETA STOP: Liquidating SPY260205_VRP_1_00690605 at market close.
+2026-03-18 00:49:48,707 - INFO - VRP Trigger: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+2026-03-18 00:49:48,707 - INFO - [2026-01-06 16:00:00+00:00] VRP TRIGGER (IV: 33.8, BBW: 0.006, RSI: 54.9): Entering Long Straddle | Underlying: $688.87
+2026-03-18 00:49:48,707 - INFO - [2026-01-06 16:45:00+00:00] EOD THETA STOP: Liquidating SPY260205_VRP_1_00688865 at market close.
+2026-03-18 00:49:48,707 - INFO - 
+==================================================
+2026-03-18 00:49:48,707 - INFO -     BLIND DATA OPTIONS PERFORMANCE (SPY)     
+2026-03-18 00:49:48,708 - INFO - ==================================================
+2026-03-18 00:49:48,708 - INFO - Total Simulated Trades:    6
+2026-03-18 00:49:48,708 - INFO - Win Rate:                  33.33%
+2026-03-18 00:49:48,708 - INFO - Average Winning Trade:     +24.14%
+2026-03-18 00:49:48,708 - INFO - Average Losing Trade:      -0.59%
+2026-03-18 00:49:48,708 - INFO - Cumulative Options PnL:    45.91%
+2026-03-18 00:49:48,708 - INFO - Average Daily Return (ADR): 9.18%
+2026-03-18 00:49:48,708 - INFO - 
+--- EXIT REASON BREAKDOWN ---
+2026-03-18 00:49:48,708 - INFO - Theta Time Stop: 5 trades
+2026-03-18 00:49:48,708 - INFO - Profit Target Reached: 1 trades
+2026-03-18 00:49:48,708 - INFO - ==================================================
+

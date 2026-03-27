@@ -1,0 +1,1 @@
+import glob, pandas as pd; files=sorted(glob.glob('omega_daily_telemetry_*.csv')); [print(f'\n--- {f} ---\n', pd.read_csv(f)[['Root Ticker', 'Algorithmic Intent', 'Strategy Type', 'Realized PnL']].to_string()) for f in files[-4:]]

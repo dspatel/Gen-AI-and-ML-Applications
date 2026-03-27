@@ -1,0 +1,895 @@
+INFO:world_state_logger:Initialized Omega Telemetry Database at .\omega_telemetry.db
+INFO:omega_execution:Execution Engine loaded Alpaca credentials for: Paper Account
+INFO:omega_portfolio_backtester:Downloading data for 10 tickers...
+INFO:omega_portfolio_backtester:Simulating Portoflio Mechanics chronologically across 974 15-minute vectors...
+INFO:omega_actor:VRP Trigger [SPY]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [QQQ]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [IWM]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [AAPL]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [MSFT]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [NVDA]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [TSLA]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [META]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [AMZN]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [AMD]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [SPY]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [IWM]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [NVDA]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [AAPL]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [QQQ]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [MSFT]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [AMZN]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [AMD]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [MSFT]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [MSFT]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [MSFT]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [SPY]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [QQQ]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [IWM]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [AAPL]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [MSFT]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [NVDA]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [TSLA]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [META]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [AMZN]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [AMD]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [TSLA]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [TSLA]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [TSLA]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [TSLA]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [NVDA]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [META]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [AMZN]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [SPY]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [QQQ]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [MSFT]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [TSLA]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [AMD]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [TSLA]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [NVDA]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [AMZN]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [SPY]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [QQQ]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [IWM]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [AAPL]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [TSLA]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [AMD]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:AMD PROFIT TARGET HIT: Option +27.486014721345928%. Taking profit.
+INFO:omega_actor:VRP Trigger [QQQ]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [TSLA]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [META]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:AMZN PROFIT TARGET HIT: Option +26.094347279930425%. Taking profit.
+INFO:omega_actor:VRP Trigger [MSFT]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [NVDA]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [NVDA]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [META]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [AMZN]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [NVDA]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [TSLA]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [NVDA]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [TSLA]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [SPY]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [QQQ]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [IWM]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:SPY THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:QQQ THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:IWM THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [QQQ]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [SPY]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [MSFT]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:QQQ THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [QQQ]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [IWM]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [AAPL]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [META]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [AMD]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:SPY THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [SPY]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [QQQ]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [AAPL]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [META]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [AMD]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:MSFT THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [SPY]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [MSFT]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [META]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:IWM THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [SPY]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:MSFT THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [MSFT]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:MSFT THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [QQQ]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [IWM]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [QQQ]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [IWM]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [TSLA]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [META]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [SPY]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [QQQ]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [IWM]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [NVDA]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [QQQ]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [NVDA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [NVDA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [NVDA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [NVDA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [NVDA]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [TSLA]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [SPY]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [IWM]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [AMD]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:NVDA THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:TSLA THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [IWM]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [NVDA]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:SPY THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [META]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:AMD THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [TSLA]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [AMD]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:NVDA PROFIT TARGET HIT: Option +25.595119334942346%. Taking profit.
+INFO:omega_actor:META PROFIT TARGET HIT: Option +27.349937733499416%. Taking profit.
+INFO:omega_actor:VRP Trigger [SPY]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [MSFT]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [TSLA]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [META]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:AMD PROFIT TARGET HIT: Option +25.153554502369644%. Taking profit.
+INFO:omega_actor:VRP Trigger [TSLA]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [META]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:IWM PROFIT TARGET HIT: Option +25.761043274396854%. Taking profit.
+INFO:omega_actor:VRP Trigger [IWM]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [SPY]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [QQQ]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [MSFT]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [AMZN]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [QQQ]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [AAPL]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [NVDA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [AMD]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [NVDA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [MSFT]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger Rejected [NVDA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [AMD]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [NVDA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [NVDA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [NVDA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [QQQ]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [IWM]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [TSLA]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [META]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [AMD]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:META PROFIT TARGET HIT: Option +25.012727910238482%. Taking profit.
+INFO:omega_actor:AMD PROFIT TARGET HIT: Option +25.097619282821274%. Taking profit.
+INFO:omega_actor:VRP Trigger [QQQ]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [AAPL]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [MSFT]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [NVDA]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [QQQ]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [MSFT]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [NVDA]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [NVDA]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [NVDA]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [QQQ]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [META]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [AMD]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [IWM]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [AMZN]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:QQQ THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [SPY]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [QQQ]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [AMZN]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:AMD THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [SPY]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [MSFT]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [AMZN]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [AMD]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:IWM THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [IWM]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [MSFT]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [TSLA]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [AMZN]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [AMD]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:META THETA STOP HIT: Straddle held 3.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [AAPL]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [MSFT]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [TSLA]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [AMD]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:QQQ THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [QQQ]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [TSLA]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [AMD]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:IWM THETA STOP HIT: Straddle held 3.2hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [META]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [AMZN]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [AMD]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:SPY THETA STOP HIT: Straddle held 4.0hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:QQQ THETA STOP HIT: Straddle held 2.8hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [META]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [AMZN]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:NVDA PROFIT TARGET HIT: Option +25.142992614206232%. Taking profit.
+INFO:omega_actor:VRP Trigger [QQQ]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:AMD THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [SPY]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [IWM]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [AAPL]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [NVDA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [NVDA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [NVDA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [NVDA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [NVDA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [TSLA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [NVDA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [TSLA]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [NVDA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [NVDA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [NVDA]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [NVDA]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [QQQ]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [SPY]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [AAPL]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [MSFT]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [AMZN]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:TSLA PROFIT TARGET HIT: Option +36.080286468149204%. Taking profit.
+INFO:omega_actor:VRP Trigger [IWM]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [AAPL]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [TSLA]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [META]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [AMZN]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [AMD]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:NVDA THETA STOP HIT: Straddle held 3.2hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:QQQ THETA STOP HIT: Straddle held 3.0hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:SPY THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:MSFT THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [QQQ]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [IWM]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [AMZN]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [AMD]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:AMD THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [MSFT]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [NVDA]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:AAPL THETA STOP HIT: Straddle held 5.2hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [AAPL]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [NVDA]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [MSFT]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [AMZN]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [META]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [MSFT]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [NVDA]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [AMD]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [META]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [AAPL]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [AMD]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [META]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [IWM]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [SPY]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [QQQ]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMZN]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [SPY]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [QQQ]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [AMZN]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [AMD]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:IWM PROFIT TARGET HIT: Option +28.04321139735426%. Taking profit.
+INFO:omega_actor:QQQ PROFIT TARGET HIT: Option +27.54666785857952%. Taking profit.
+INFO:omega_actor:AMZN PROFIT TARGET HIT: Option +59.62577348850415%. Taking profit.
+INFO:omega_actor:VRP Trigger [QQQ]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [IWM]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [AAPL]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [MSFT]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [META]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [AMD]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:SPY PROFIT TARGET HIT: Option +32.547348662599646%. Taking profit.
+INFO:omega_actor:VRP Trigger [SPY]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [QQQ]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [IWM]: Stock mathematically oversold (RSI < 30).
+INFO:omega_actor:VRP Trigger [AAPL]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [META]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [AMD]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [META]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [AMD]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [AAPL]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [AMZN]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [AMD]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [MSFT]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [META]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [IWM]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger [META]: Fear Premium detected. Elevated IV.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [AAPL]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [IWM]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [MSFT]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [META]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:MSFT PROFIT TARGET HIT: Option +32.27936152338278%. Taking profit.
+INFO:omega_actor:META PROFIT TARGET HIT: Option +26.04829904837881%. Taking profit.
+INFO:omega_actor:VRP Trigger [MSFT]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [META]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:MSFT THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:META PROFIT TARGET HIT: Option +25.394448570367587%. Taking profit.
+INFO:omega_actor:VRP Trigger [MSFT]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [META]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [META]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [MSFT]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:MSFT THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger [MSFT]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [META]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:MSFT PROFIT TARGET HIT: Option +28.17162315550524%. Taking profit.
+INFO:omega_actor:META THETA STOP HIT: Straddle held 2.5hrs without expansion. Cutting Theta bleed immediately.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [META]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [MSFT]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [MSFT]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [MSFT]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger [MSFT]: Stock mathematically overbought (RSI > 70).
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger Rejected [MSFT]: IV is low, but VIX Term Structure is bleeding. No immediate catalyst.
+INFO:omega_actor:VRP Trigger [MSFT]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_portfolio_backtester:
+==================================================
+INFO:omega_portfolio_backtester:    CROSS-SECTIONAL PORTFOLIO PERFORMANCE    
+INFO:omega_portfolio_backtester:==================================================
+INFO:omega_portfolio_backtester:Total Portfolio Trades:    168
+INFO:omega_portfolio_backtester:Win Rate:                  76.19%
+INFO:omega_portfolio_backtester:Average Option Win:        +8.66%
+INFO:omega_portfolio_backtester:Average Option Loss:       -2.75%
+INFO:omega_portfolio_backtester:Cumulative Portfolio PnL:  +99.91%
+INFO:omega_portfolio_backtester:
+--- EXIT BREAKDOWN ---
+INFO:omega_portfolio_backtester:EOD THETA STOP: 118
+INFO:omega_portfolio_backtester:Profit Target Reached: 18
+INFO:omega_portfolio_backtester:Theta Time Stop: 31
+INFO:omega_portfolio_backtester:Phase 24: Hard -20% Vega Stop: 1
+INFO:omega_portfolio_backtester:==================================================
+

@@ -1,0 +1,25 @@
+INFO:omega_actor:VRP Trigger [SPY]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [AAPL]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [NVDA]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [AMZN]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [AMD]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [SPY]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [QQQ]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [AAPL]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [NVDA]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_actor:VRP Trigger [AMZN]: Volatility Squeeze detected. Low IV + Tight BBW + Rising VIX.
+INFO:omega_portfolio_backtester:
+==================================================
+INFO:omega_portfolio_backtester:    CROSS-SECTIONAL PORTFOLIO PERFORMANCE    
+INFO:omega_portfolio_backtester:==================================================
+INFO:omega_portfolio_backtester:Total Portfolio Trades:    981
+INFO:omega_portfolio_backtester:Win Rate:                  54.43%
+INFO:omega_portfolio_backtester:Average Option Win:        +32.89%
+INFO:omega_portfolio_backtester:Average Option Loss:       -29.37%
+INFO:omega_portfolio_backtester:Cumulative Portfolio PnL:  +443.47%
+INFO:omega_portfolio_backtester:
+--- EXIT BREAKDOWN ---
+INFO:omega_portfolio_backtester:PROFIT TARGET (+25%): 534
+INFO:omega_portfolio_backtester:Phase 24: Hard -20% Vega Stop: 447
+INFO:omega_portfolio_backtester:==================================================
+

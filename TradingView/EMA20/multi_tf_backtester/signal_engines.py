@@ -4,7 +4,7 @@ import numpy as np
 import os
 import yfinance as yf
 
-DB_PATH = os.path.join(os.path.dirname(__file__), 'data', 'portfolio_data.db')
+DB_PATH = os.path.join(os.path.dirname(__file__), 'data', 'backtest_data.db')
 
 def get_db_connection():
     return sqlite3.connect(DB_PATH)
@@ -38,7 +38,7 @@ class PortfolioDataEngine:
     def load_all_data(self):
         """Loads all symbols into a single MultiIndex DataFrame or dict of DataFrames"""
         print("Loading all portfolio data from DB...")
-        df = pd.read_sql("SELECT * FROM daily ORDER BY date", self.conn)
+        df = pd.read_sql("SELECT symbol, date, open, high, low, close, volume FROM daily_bars ORDER BY date", self.conn)
         df['date'] = pd.to_datetime(df['date'])
         
         # Ensure ^VIX is available, even if the database scraper missed it

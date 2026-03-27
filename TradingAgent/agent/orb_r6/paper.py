@@ -37,6 +37,15 @@ def _signed_qty_from_position(pos: dict | None) -> int:
     return qty if side == "long" else (-qty if side == "short" else 0)
 
 
+def _parse_cst_timestamp(value: str | None) -> datetime | None:
+    if not value:
+        return None
+    ts = pd.to_datetime(value, utc=True, errors="coerce")
+    if pd.isna(ts):
+        return None
+    return ts.tz_convert(CST).to_pydatetime()
+
+
 def _is_session_day(calendar_name: str, cst_date: str) -> bool:
     cal = mcal.get_calendar(calendar_name)
     sched = cal.schedule(start_date=cst_date, end_date=cst_date)
@@ -663,6 +672,125 @@ def _attempt_force_flatten_symbol(
         if _wait_for_symbol_flat(broker, symbol=symbol, timeout_seconds=1.0, poll_seconds=0.2):
             return True
     return False
+
+
+def _cleanup_stale_open_orders(
+    broker: AlpacaTradingClient | None,
+    *,
+    symbols: list[str],
+    session_date: str,
+) -> int:
+    if broker is None:
+        return 0
+    wanted = {str(sym).upper() for sym in symbols}
+    canceled = 0
+    try:
+        orders = broker.list_open_orders() or []
+    except Exception:
+        return 0
+    for order in orders:
+        symbol = str(order.get("symbol") or "").upper()
+        if symbol not in wanted:
+            continue
+        created_at = _parse_cst_timestamp(str(order.get("created_at") or ""))
+        created_date = created_at.date().isoformat() if created_at is not None else ""
+        if created_date and created_date >= session_date:
+            continue
+        order_id = str(order.get("id") or "").strip()
+        if not order_id:
+            continue
+        try:
+            broker.cancel_order(order_id)
+            canceled += 1
+        except Exception:
+            continue
+    return canceled
+
+
+def _recover_stale_positions_at_startup(
+    conn: sqlite3.Connection,
+    broker: AlpacaTradingClient | None,
+    *,
+    symbols: list[str],
+    session_date: str,
+    dry_run: bool,
+    discord_webhook: str | None,
+) -> dict:
+    summary = {
+        "session_date": session_date,
+        "canceled_stale_orders": 0,
+        "stale_db_positions_found": 0,
+        "stale_flatten_submitted": 0,
+        "stale_flatten_errors": 0,
+    }
+    if dry_run or broker is None:
+        return summary
+
+    summary["canceled_stale_orders"] = int(
+        _cleanup_stale_open_orders(broker, symbols=symbols, session_date=session_date)
+    )
+
+    open_positions = _fetch_open_positions(conn)
+    for open_pos in open_positions:
+        symbol = str(open_pos.get("symbol") or "").upper()
+        if symbol not in {str(sym).upper() for sym in symbols}:
+            continue
+        open_session_date = str(open_pos.get("session_date") or "")
+        if not open_session_date or open_session_date >= session_date:
+            continue
+        summary["stale_db_positions_found"] += 1
+        broker_pos = _broker_position_for_symbol(broker, symbol)
+        if broker_pos is None:
+            continue
+        _cancel_open_orders_for_symbol(broker, symbol)
+        try:
+            broker.close_position(symbol)
+            summary["stale_flatten_submitted"] += 1
+            _log_event(
+                conn,
+                "WARN",
+                "startup_stale_position_recovery",
+                f"{symbol} stale prior-session position queued for flatten",
+                symbol=symbol,
+                data={
+                    "stale_session_date": open_session_date,
+                    "current_session_date": session_date,
+                    "broker_side": str(broker_pos.get("side") or ""),
+                    "broker_qty": str(broker_pos.get("qty") or ""),
+                },
+                discord_webhook=discord_webhook,
+            )
+        except Exception as exc:
+            summary["stale_flatten_errors"] += 1
+            _log_event(
+                conn,
+                "ERROR",
+                "startup_stale_position_recovery_failed",
+                f"{symbol} stale prior-session flatten failed: {exc}",
+                symbol=symbol,
+                data={
+                    "stale_session_date": open_session_date,
+                    "current_session_date": session_date,
+                },
+                discord_webhook=discord_webhook,
+            )
+
+    if any(int(summary[k]) > 0 for k in ("canceled_stale_orders", "stale_db_positions_found", "stale_flatten_submitted", "stale_flatten_errors")):
+        _log_event(
+            conn,
+            "INFO" if int(summary["stale_flatten_errors"]) == 0 else "WARN",
+            "startup_recovery_summary",
+            (
+                "R6 startup recovery: "
+                f"canceled_orders={summary['canceled_stale_orders']}, "
+                f"stale_db_positions={summary['stale_db_positions_found']}, "
+                f"flatten_submitted={summary['stale_flatten_submitted']}, "
+                f"errors={summary['stale_flatten_errors']}"
+            ),
+            data=summary,
+            discord_webhook=None,
+        )
+    return summary
 
 
 def _restore_symbol_exposure(
@@ -1734,6 +1862,7 @@ def run(config_path: str = "orb_r6_config.yaml") -> None:
     confidence_min_multiplier = float(paper_cfg.get("confidence_min_multiplier", 0.50))
     entry_max_age_bars = max(1, int(paper_cfg.get("entry_max_age_bars", 1)))
     time_exit = str(paper_cfg.get("time_exit", cfg.session.end))
+    broker_exit_buffer_minutes = max(1, int(paper_cfg.get("broker_exit_buffer_minutes", 5)))
     interval_minutes = _interval_minutes(interval)
     dashboard_enabled = bool(paper_cfg.get("dashboard", True))
     dashboard_min_refresh_seconds = float(max(1, int(paper_cfg.get("dashboard_min_refresh_seconds", 30))))
@@ -1759,6 +1888,10 @@ def run(config_path: str = "orb_r6_config.yaml") -> None:
         time_exit_dt = combine_cst_date_time(session_date, time_exit)
     except Exception:
         time_exit_dt = session_end_dt
+    broker_exit_dt = min(time_exit_dt, session_end_dt - timedelta(minutes=broker_exit_buffer_minutes))
+    if broker_exit_dt <= session_start_dt:
+        broker_exit_dt = session_start_dt + timedelta(minutes=interval_minutes)
+    broker_exit_label = broker_exit_dt.strftime("%H:%M")
 
     if now_cst < session_start_dt:
         print(f"[R6_PAPER] Waiting for session open {session_start_dt.isoformat()}")
@@ -1772,10 +1905,27 @@ def run(config_path: str = "orb_r6_config.yaml") -> None:
     print(f"Dry run: {dry_run}")
     print(f"Strategy: {strategy_id}")
     print(f"Session: {cfg.session.start}-{cfg.session.end} CT | OR={or_minutes}m | TF={interval}")
+    print(f"Time Exit: requested={time_exit} CT | broker_cutoff={broker_exit_label} CT")
     print(f"Symbols: {symbols}")
     print("=" * 70)
 
-    ensure_asof_ready(conn, cfg, session_date)
+    ensure_asof_ready(conn, cfg, session_date, alpaca_env_prefix="R6")
+    startup_recovery = _recover_stale_positions_at_startup(
+        conn,
+        broker,
+        symbols=symbols,
+        session_date=session_date,
+        dry_run=dry_run,
+        discord_webhook=discord_webhook,
+    )
+    if any(int(startup_recovery.get(k, 0)) > 0 for k in ("canceled_stale_orders", "stale_db_positions_found", "stale_flatten_submitted", "stale_flatten_errors")):
+        print(
+            "[R6_PAPER] startup recovery: "
+            f"canceled_orders={startup_recovery['canceled_stale_orders']} "
+            f"stale_db_positions={startup_recovery['stale_db_positions_found']} "
+            f"flatten_submitted={startup_recovery['stale_flatten_submitted']} "
+            f"errors={startup_recovery['stale_flatten_errors']}"
+        )
     templates = load_templates((cfg.discord or {}).get("templates_path", "./agent/orb_r6/templates/discord_alerts.yaml"))
     last_close_by_sym: Dict[str, Optional[str]] = {s: None for s in symbols}
     state_by_sym_phase: Dict[str, Dict[int, Dict[int, HorizonState]]] = {s: {0: {}, 1: {}} for s in symbols}
@@ -1803,8 +1953,8 @@ def run(config_path: str = "orb_r6_config.yaml") -> None:
     while True:
         cycle_count += 1
         now_cst = datetime.now(CST)
-        if (not forced_exit_done) and now_cst >= time_exit_dt:
-            forced_reason = f"SESSION_FAILSAFE_{time_exit.replace(':', '')}"
+        if (not forced_exit_done) and now_cst >= broker_exit_dt:
+            forced_reason = f"SESSION_FAILSAFE_{broker_exit_label.replace(':', '')}"
             forced_exit_summary = _force_session_failsafe(
                 conn,
                 broker,
@@ -1814,7 +1964,7 @@ def run(config_path: str = "orb_r6_config.yaml") -> None:
                 reason=forced_reason,
                 dry_run=dry_run,
                 discord_webhook=discord_webhook,
-                time_exit_hhmm=time_exit,
+                time_exit_hhmm=broker_exit_label,
                 cancel_open_orders=True,
             )
             positions_closed += int((forced_exit_summary or {}).get("closed_positions", 0))
@@ -1833,7 +1983,7 @@ def run(config_path: str = "orb_r6_config.yaml") -> None:
 
         ingest_end = last_complete.to_pydatetime()
         if (not refreshed_post_rr) and (now_cst >= or_end_dt):
-            ensure_asof_ready(conn, cfg, session_date)
+            ensure_asof_ready(conn, cfg, session_date, alpaca_env_prefix="R6")
             refreshed_post_rr = True
 
         for sym in symbols:
@@ -1849,6 +1999,7 @@ def run(config_path: str = "orb_r6_config.yaml") -> None:
                     session_end=cfg.session.end,
                     provider=cfg.market_data.provider,
                     alpaca_feed=cfg.market_data.alpaca_feed,
+                    alpaca_env_prefix="R6",
                 )
             except Exception as exc:
                 _log_event(
@@ -1880,6 +2031,28 @@ def run(config_path: str = "orb_r6_config.yaml") -> None:
 
             open_pos = _fetch_open_position(conn, sym)
             broker_pos = None if dry_run else _broker_position_for_symbol(broker, sym)
+            if open_pos is not None and str(open_pos.get("session_date") or "") < session_date:
+                if broker_pos is None:
+                    closed_ok = _close_position(
+                        conn,
+                        broker,
+                        open_pos,
+                        float(day_new.iloc[-1]["close"]),
+                        str(day_new.iloc[-1]["close_ts_cst"]),
+                        "STARTUP_STALE_SYNC_FLAT",
+                        dry_run,
+                        discord_webhook,
+                        send_broker_exit=False,
+                        time_exit_hhmm=broker_exit_label,
+                    )
+                    if closed_ok:
+                        positions_closed += 1
+                        last_action = f"{sym}:startup_stale_sync_flat"
+                        open_pos = None
+                else:
+                    last_action = f"{sym}:startup_stale_pending_flat"
+                    last_close_by_sym[sym] = str(day_new.iloc[-1]["close_ts_cst"]) if not day_new.empty else last_close_by_sym[sym]
+                    continue
             if open_pos is None and broker_pos is not None:
                 last_action = f"{sym}:broker_untracked_position"
                 _log_event(
@@ -1966,7 +2139,7 @@ def run(config_path: str = "orb_r6_config.yaml") -> None:
                                     )
                     if open_pos is None:
                         continue
-                    managed = _manage_open_position_for_bar(conn, broker, open_pos, row, time_exit, dry_run, discord_webhook)
+                    managed = _manage_open_position_for_bar(conn, broker, open_pos, row, broker_exit_label, dry_run, discord_webhook)
                     if managed["closed"]:
                         positions_closed += 1
                         last_action = f"{sym}:position_closed"
@@ -2015,7 +2188,7 @@ def run(config_path: str = "orb_r6_config.yaml") -> None:
                             confidence_min_multiplier=confidence_min_multiplier,
                             provider=cfg.market_data.provider,
                             discord_webhook=discord_webhook,
-                            time_exit_hhmm=time_exit,
+                            time_exit_hhmm=broker_exit_label,
                             latest_complete_utc=last_complete,
                             interval_minutes=interval_minutes,
                             entry_max_age_bars=entry_max_age_bars,
@@ -2086,7 +2259,7 @@ def run(config_path: str = "orb_r6_config.yaml") -> None:
         reason="SESSION_FAILSAFE_EOD",
         dry_run=dry_run,
         discord_webhook=discord_webhook,
-        time_exit_hhmm=time_exit,
+        time_exit_hhmm=broker_exit_label,
         cancel_open_orders=True,
     )
     positions_closed += int((eod_failsafe_summary or {}).get("closed_positions", 0))

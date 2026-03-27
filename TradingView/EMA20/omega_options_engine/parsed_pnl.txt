@@ -1,0 +1,10 @@
+SPY   | Win: 33.33%  | Avg Win: +45.53% | Avg Loss: -0.93%  | PnL: 87.33%
+QQQ   | Win: 45.45%  | Avg Win: +19.59% | Avg Loss: -1.11%  | PnL: 91.30%
+IWM   | Win: 54.55%  | Avg Win: +0.84%  | Avg Loss: -0.93%  | PnL: 0.39%
+AAPL  | Win: 80.00%  | Avg Win: +1.67%  | Avg Loss: -0.82%  | PnL: 11.70%
+MSFT  | Win: 63.64%  | Avg Win: +1.84%  | Avg Loss: -1.96%  | PnL: 5.04%
+NVDA  | Win: 75.00%  | Avg Win: +3.89%  | Avg Loss: -0.15%  | PnL: 11.53%
+TSLA  | Win: 83.33%  | Avg Win: +16.64% | Avg Loss: -1.49%  | PnL: 81.70%
+META  | Win: 85.71%  | Avg Win: +1.77%  | Avg Loss: -0.90%  | PnL: 9.74%
+AMZN  | Win: 88.89%  | Avg Win: +4.95%  | Avg Loss: -0.09%  | PnL: 39.53%
+AMD   | Win: 63.64%  | Avg Win: +26.45% | Avg Loss: -1.43%  | PnL: 179.48%

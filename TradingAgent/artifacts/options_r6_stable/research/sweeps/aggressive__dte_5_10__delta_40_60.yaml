@@ -1,0 +1,83 @@
+version: 0.1.0
+status: design_only
+db:
+  path: ./artifacts/options_r6_stable/options_r6_core.sqlite
+paths:
+  research_output_dir: ./artifacts/options_r6_stable/research
+  reports_dir: ./artifacts/options_r6_stable/reports
+timezone: America/Chicago
+session:
+  start: 08:30
+  end: '15:00'
+  calendar: NYSE
+symbols:
+  csv_path: ./options_r6_stable/config/symbols.csv
+underlying_signal:
+  source: R6
+  interval: 15m
+  horizons:
+  - 3
+  - 5
+  - 9
+  variant_id: R6_CONF62_LIMIT1_NO_LONG_PREOR__EMA20_TRAIL_ONLY
+options:
+  paper_account_env_prefix: ORB
+  long_premium_only: true
+  same_day_exit_only: true
+  allowed_dte_min: 5
+  allowed_dte_max: 10
+  target_delta_min: 0.4
+  target_delta_max: 0.6
+  target_delta_preference: 0.5
+  max_spread_pct: 0.08
+  min_open_interest: 500
+  min_contract_volume: 50
+  max_contracts_per_trade: 1
+  max_premium_risk_per_trade_pct: 0.005
+  max_premium_risk_per_trade_dollars: 500.0
+  max_total_open_premium_pct: 0.15
+  max_total_open_premium_dollars: 15000.0
+  max_symbol_open_premium_pct: 0.04
+  max_symbol_open_premium_dollars: 4000.0
+  max_direction_open_premium_pct: 0.12
+  max_direction_open_premium_dollars: 12000.0
+  min_cash_reserve_pct: 0.1
+  daily_loss_limit_pct: 0.1
+  max_new_trades_per_day: 12
+  force_exit_time: '14:50'
+  symbol_risk_overrides:
+    SPY:
+      max_premium_risk_per_trade_pct: 0.03
+      max_premium_risk_per_trade_dollars: 3000.0
+    NVDA:
+      max_premium_risk_per_trade_pct: 0.03
+      max_premium_risk_per_trade_dollars: 3000.0
+    TSLA:
+      max_premium_risk_per_trade_pct: 0.03
+      max_premium_risk_per_trade_dollars: 3000.0
+    META:
+      max_premium_risk_per_trade_pct: 0.03
+      max_premium_risk_per_trade_dollars: 3000.0
+    MSFT:
+      max_premium_risk_per_trade_pct: 0.02
+      max_premium_risk_per_trade_dollars: 2000.0
+    AMZN:
+      max_premium_risk_per_trade_pct: 0.02
+      max_premium_risk_per_trade_dollars: 2000.0
+    GOOGL:
+      max_premium_risk_per_trade_pct: 0.02
+      max_premium_risk_per_trade_dollars: 2000.0
+    AAPL:
+      max_premium_risk_per_trade_pct: 0.015
+      max_premium_risk_per_trade_dollars: 1500.0
+    AMD:
+      max_premium_risk_per_trade_pct: 0.015
+      max_premium_risk_per_trade_dollars: 1500.0
+market_data:
+  provider: alpaca
+  stock_feed: sip
+  option_feed: opra
+research:
+  baseline_mode: rules_only
+  use_ml: false
+  blind_test_locked: true

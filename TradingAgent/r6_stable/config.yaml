@@ -23,8 +23,8 @@ symbols:
   csv_path: "./r6_stable/symbols.csv"
 
 market_data:
-  provider: "yahoo" # yahoo for live paper signals now; switch to alpaca after subscription
-  alpaca_feed: "iex"
+  provider: "alpaca"
+  alpaca_feed: "sip"
   opening_range_minutes: 30
   interval: "15m"
   lookback_days: [3, 5, 9]
@@ -51,6 +51,7 @@ paper:
   confidence_full: 0.85
   confidence_min_multiplier: 0.50
   time_exit: "15:00"
+  broker_exit_buffer_minutes: 5
 
 discord:
   enabled: true
